@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Massage Therapy — Form & Function</title>
+  <meta name="description" content="ART, dry needling and sports massage therapy for athletes and everyday clients. Recovery, pain relief and optimal performance.">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23044427'/><text x='50%25' y='55%25' font-size='18' font-family='serif' fill='%23C2A68C' text-anchor='middle' dominant-baseline='middle'>F</text></svg>">
+  <style>
+    [data-reveal] { opacity:0; transform:translateY(24px); transition:opacity .7s ease,transform .7s ease; }
+    [data-reveal].revealed { opacity:1; transform:none; }
+    [data-reveal][data-delay="2"] { transition-delay:.2s; }
+    [data-reveal][data-delay="3"] { transition-delay:.3s; }
+
+    /* Hero */
+    .massage-hero {
+      min-height:75vh; display:grid; grid-template-columns:1fr 1fr;
+      background:var(--brown-dark); padding-top:var(--nav-h);
+    }
+    .massage-hero-photo {
+      position:relative; overflow:hidden; min-height:500px;
+      background:var(--brown);
+    }
+    .massage-hero-text {
+      padding:80px 64px;
+      display:flex; flex-direction:column; justify-content:center;
+    }
+    .massage-hero-text .eyebrow {
+      display:flex; align-items:center; gap:12px; margin-bottom:28px;
+    }
+    .massage-hero-text .eyebrow-line {
+      width:40px; height:1.5px; background:var(--sand); flex-shrink:0;
+    }
+    .massage-hero-text .eyebrow span {
+      font-size:11px; font-weight:600; letter-spacing:.22em;
+      text-transform:uppercase; color:var(--sand);
+    }
+    .massage-hero-text h1 {
+      font-family: 'Garet', sans-serif;
+      font-size:clamp(38px,4.5vw,68px);
+      font-weight: 800; color:var(--white); line-height:1.1;
+      margin-bottom:20px;
+    }
+    .massage-hero-text h1 em { font-style:italic; color:var(--sand); }
+    .massage-hero-text p {
+      font-size:16px; line-height:1.8;
+      color:rgba(255,255,255,.68); max-width:440px;
+      margin-bottom:36px; text-wrap:pretty;
+    }
+    .massage-note {
+      font-size:13px; color:rgba(255,255,255,.4);
+      font-style:italic; margin-top:16px;
+    }
+
+    /* Techniques */
+    .techniques { padding:100px 40px; background:var(--cream); }
+    .techniques-inner { max-width:1280px; margin:0 auto; }
+    .techniques-header { margin-bottom:64px; }
+    .techniques-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+    }
+    .technique-card {
+      background:var(--white); padding:48px 36px;
+      position:relative; overflow:hidden;
+      transition:box-shadow .3s;
+    }
+    .technique-card:hover { box-shadow:0 8px 40px rgba(4,68,39,.08); }
+    .technique-card-num {
+      font-family: 'Garet', sans-serif; font-size:64px; font-weight: 800;
+      color:rgba(194,166,140,.15); position:absolute; top:12px; right:20px; line-height:1;
+    }
+    .technique-icon {
+      width:64px; height:64px; border-radius:50%;
+      background:var(--cream-mid); border:1.5px solid var(--sand);
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:24px; position:relative;
+    }
+    .technique-card h3 {
+      font-size:20px; font-weight:600; color:var(--green);
+      margin-bottom:8px;
+    }
+    .technique-card .technique-type {
+      font-size:11px; font-weight:600; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--sand-dark); margin-bottom:16px;
+    }
+    .technique-card p {
+      font-size:14px; line-height:1.75; color:var(--text-light); text-wrap:pretty;
+    }
+    .technique-card ul {
+      list-style:none; margin-top:16px; display:flex; flex-direction:column; gap:8px;
+    }
+    .technique-card ul li {
+      display:flex; gap:10px; align-items:flex-start;
+      font-size:13px; color:var(--text-light);
+    }
+    .technique-card ul li::before {
+      content:'→'; color:var(--lime); font-weight:700; flex-shrink:0;
+    }
+
+    /* Benefits */
+    .benefits { padding:80px 40px; background:var(--green); }
+    .benefits-inner {
+      max-width:1280px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+    }
+    .benefits-text .section-label { color:var(--sand); }
+    .benefits-text .section-title { color:var(--white); margin-bottom:24px; }
+    .benefits-text p { font-size:16px; line-height:1.8; color:rgba(255,255,255,.7); text-wrap:pretty; }
+    .benefits-list { display:flex; flex-direction:column; gap:16px; }
+    .benefit-item {
+      display:flex; gap:20px; align-items:flex-start;
+      padding:20px 24px;
+      background:rgba(255,255,255,.05); border-radius:2px;
+      transition:background .25s;
+    }
+    .benefit-item:hover { background:rgba(255,255,255,.09); }
+    .benefit-icon {
+      width:40px; height:40px; border-radius:50%;
+      background:rgba(134,160,61,.25);
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+    }
+    .benefit-item h4 {
+      font-size:15px; font-weight:600; color:var(--white); margin-bottom:4px;
+    }
+    .benefit-item p { font-size:13px; line-height:1.6; color:rgba(255,255,255,.55); text-wrap:pretty; }
+
+    /* How it works */
+    .how-it-works { padding:100px 40px; background:var(--white); }
+    .how-inner { max-width:1280px; margin:0 auto; }
+    .how-header { margin-bottom:56px; }
+    .how-steps {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+    }
+    .how-step {
+      padding:40px 32px; background:var(--cream);
+      position:relative; transition:background .3s;
+    }
+    .how-step:hover { background:var(--cream-mid); }
+    .how-step-num {
+      font-family: 'Garet', sans-serif; font-size:13px; font-weight: 800;
+      letter-spacing:.1em; color:var(--sand-dark); margin-bottom:16px;
+    }
+    .how-step h4 {
+      font-size:16px; font-weight:600; color:var(--green); margin-bottom:10px;
+    }
+    .how-step p {
+      font-size:14px; line-height:1.7; color:var(--text-light); text-wrap:pretty;
+    }
+
+    /* CTA */
+    .massage-cta {
+      padding:100px 40px; background:var(--sand); text-align:center;
+    }
+    .massage-cta .section-title { color:var(--brown-dark); margin-bottom:16px; }
+    .massage-cta p { font-size:16px; color:var(--brown-dark); opacity:.7; max-width:480px; margin:0 auto 36px; line-height:1.7; }
+    .massage-cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .booking-note {
+      margin-top:20px; font-size:13px;
+      color:var(--brown-dark); opacity:.55; font-style:italic;
+    }
+
+    @media (max-width:1024px) {
+      .massage-hero { grid-template-columns:1fr; }
+      .massage-hero-photo { min-height:360px; }
+      .massage-hero-text { padding:60px 40px; }
+      .techniques-grid { grid-template-columns:1fr 1fr; }
+      .benefits-inner { grid-template-columns:1fr; gap:48px; }
+      .how-steps { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:768px) {
+      .massage-hero-text { padding:48px 20px; }
+      .techniques, .benefits, .how-it-works, .massage-cta { padding:64px 20px; }
+      .techniques-grid { grid-template-columns:1fr; }
+      .how-steps { grid-template-columns:1fr; }
+    }
+  </style>
+
+  <!-- SEO & Open Graph -->
+  <link rel="canonical" href="https://formnfunction.eu/massage.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://formnfunction.eu/massage.html">
+  <meta property="og:title" content="Massage Therapy — Form & Function">
+  <meta property="og:description" content="ART, dry needling and sports massage therapy. Recovery, pain relief and optimal performance for athletes and everyday clients.">
+  <meta property="og:image" content="https://formnfunction.eu/massage.jpg">
+  <meta property="og:site_name" content="Form & Function">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Massage Therapy — Form & Function">
+  <meta name="twitter:description" content="ART, dry needling and sports massage therapy. Recovery, pain relief and optimal performance for athletes and everyday clients.">
+  <meta name="twitter:image" content="https://formnfunction.eu/massage.jpg">
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="massage-hero">
+    <div class="massage-hero-photo"><img src="massage.jpg" alt="Massage therapy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"></div>
+    <div class="massage-hero-text">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <span data-en="Massage &amp; Manual Therapy" data-cs="Masáže a manuální terapie">Massage &amp; Manual Therapy</span>
+      </div>
+      <h1 data-en="Recover faster and<br><em>feel stronger.</em>" data-cs="Regenerujte rychleji a<br><em>cítěte se silnější.</em>">Recover faster and<br><em>feel stronger.</em></h1>
+      <p data-en="Each treatment is tailored to your needs using a combination of advanced manual therapy techniques." data-cs="Každé ošetření je přizpůsobeno vašim potřebám pomocí kombinace pokročilých technik manuální terapie.">Each treatment is tailored to your needs using a combination of advanced manual therapy techniques.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="/contact" class="btn btn-sand" data-en="Book a Treatment" data-cs="Zarezervovat ošetření">Book a Treatment</a>
+        <a href="#techniques" class="btn btn-outline-white" data-en="See techniques" data-cs="Zobrazit techniky">See techniques</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNIQUES -->
+  <section class="techniques" id="techniques">
+    <div class="techniques-inner">
+      <div class="techniques-header" data-reveal>
+        <span class="section-label" data-en="Techniques" data-cs="Techniky">Techniques</span>
+        <h2 class="section-title" data-en="Precision treatment,<br><em>tailored to you</em>" data-cs="Precizní ošetření,<br><em>přizpůsobené vám</em>">Precision treatment,<br><em>tailored to you</em></h2>
+        <p class="section-subtitle" data-en="Every treatment uses a combination of the techniques below — selected based on your specific condition, symptoms and goals." data-cs="Každé ošetření používá kombinaci níže uvedených technik — vybrané na základě vašeho konkrétního stavu, příznaků a cílů.">Every treatment uses a combination of the techniques below — selected based on your specific condition, symptoms and goals.</p>
+      </div>
+
+      <div class="techniques-grid">
+        <!-- ART -->
+        <div class="technique-card" data-reveal>
+          <div class="technique-card-num">01</div>
+          <div class="technique-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#C2A68C" stroke-width="1.5"/><path d="M10 18 Q12 10 14 9 Q16 8 18 12" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round" fill="none"/><circle cx="14" cy="14" r="2" fill="#C2A68C"/></svg>
+          </div>
+          <h3>ART</h3>
+          <p class="technique-type" data-en="Active Release Technique — Certified Provider" data-cs="Active Release Technique — Certifikovaný poskytovatel">Active Release Technique — Certified Provider</p>
+          <p data-en="ART is a patented, state-of-the-art soft tissue system that treats problems with muscles, tendons, ligaments, fascia and nerves. Non-invasive and precisely engineered to locate and quickly resolve soft-tissue disorders." data-cs="ART je patentovaný, moderní systém měkkých tkání, který léčí problémy se svaly, šlachami, vazy, fascií a nervy. Neinvazivní a přesně navržený k rychlému nalezení a řešení poruch měkkých tkání.">ART is a patented, state-of-the-art soft tissue system that treats problems with muscles, tendons, ligaments, fascia and nerves. Non-invasive and precisely engineered to locate and quickly resolve soft-tissue disorders.</p>
+          <ul>
+            <li data-en="Overuse injuries and repetitive strain" data-cs="Přetěžovací zranění a opakující se zátěž">Overuse injuries and repetitive strain</li>
+            <li data-en="Scar tissue and adhesions" data-cs="Jizevnatá tkáň a srůsty">Scar tissue and adhesions</li>
+            <li data-en="Nerve entrapments and headaches" data-cs="Útlak nervů a bolesti hlavy">Nerve entrapments and headaches</li>
+            <li data-en="Back pain and postural issues" data-cs="Bolesti zad a posturální problémy">Back pain and postural issues</li>
+          </ul>
+        </div>
+
+        <!-- Dry Needling -->
+        <div class="technique-card" data-reveal data-delay="2">
+          <div class="technique-card-num">02</div>
+          <div class="technique-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><line x1="14" y1="4" x2="14" y2="24" stroke="#C2A68C" stroke-width="1.5" stroke-linecap="round"/><circle cx="14" cy="10" r="3" fill="rgba(134,160,61,0.3)" stroke="#86A03D" stroke-width="1.5"/><path d="M11 20 Q14 18 17 20" stroke="#C2A68C" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-en="Dry Needling" data-cs="Dry Needling">Dry Needling</h3>
+          <p class="technique-type" data-en="Trigger Point Therapy" data-cs="Terapie spoušťových bodů">Trigger Point Therapy</p>
+          <p data-en="Fine needles are inserted into trigger points — hyperirritable spots in muscle tissue. When the trigger point releases, the client experiences immediate pain relief and improved range of motion." data-cs="Tenké jehly jsou zaváděny do spoušťových bodů — hyperirabilních míst ve svalové tkáni. Když se spoušťový bod uvolní, klient zažívá okamžitou úlevu od bolesti a zlepšený rozsah pohybu.">Fine needles are inserted into trigger points — hyperirritable spots in muscle tissue. When the trigger point releases, the client experiences immediate pain relief and improved range of motion.</p>
+          <ul>
+            <li data-en="Chronic muscle tightness and tension" data-cs="Chronická svalová tuhost a napětí">Chronic muscle tightness and tension</li>
+            <li data-en="Sports injuries and recovery" data-cs="Sportovní zranění a regenerace">Sports injuries and recovery</li>
+            <li data-en="Referred pain patterns" data-cs="Vyzařující bolest">Referred pain patterns</li>
+            <li data-en="Improved muscle activation" data-cs="Zlepšená svalová aktivace">Improved muscle activation</li>
+          </ul>
+        </div>
+
+        <!-- Massage -->
+        <div class="technique-card" data-reveal data-delay="3">
+          <div class="technique-card-num">03</div>
+          <div class="technique-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M7 21 Q10 14 14 12 Q18 10 21 15" stroke="#C2A68C" stroke-width="1.5" stroke-linecap="round" fill="none"/><circle cx="14" cy="9" r="4" stroke="#86A03D" stroke-width="1.5"/></svg>
+          </div>
+          <h3 data-en="Sports Massage" data-cs="Sportovní masáž">Sports Massage</h3>
+          <p class="technique-type" data-en="Deep Tissue · Pregnancy · Relaxation" data-cs="Hluboká tkáň · Těhotenská · Relaxační">Deep Tissue · Pregnancy · Relaxation</p>
+          <p data-en="Sport and deep-tissue massage techniques to address muscular tension, enhance circulation and accelerate recovery — also offering pregnancy massage for expecting mothers." data-cs="Sportovní a hlubokotkáňové masážní techniky pro řešení svalového napětí, zlepšení cirkulace a urychlení regenerace — také těhotenská masáž pro budoucí matky.">Sport and deep-tissue massage techniques to address muscular tension, enhance circulation and accelerate recovery — also offering pregnancy massage for expecting mothers.</p>
+          <ul>
+            <li data-en="Pre- and post-event sports massage" data-cs="Sportovní masáž před a po závodě">Pre- and post-event sports massage</li>
+            <li data-en="Deep tissue and myofascial release" data-cs="Hluboká tkáň a myofasciální uvolnění">Deep tissue and myofascial release</li>
+            <li data-en="Pregnancy massage" data-cs="Těhotenská masáž">Pregnancy massage</li>
+            <li data-en="Relaxation and stress relief" data-cs="Relaxace a úleva od stresu">Relaxation and stress relief</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="benefits-inner">
+      <div class="benefits-text" data-reveal>
+        <span class="section-label" data-en="Why it works" data-cs="Proč to funguje">Why it works</span>
+        <h2 class="section-title" data-en="Recovery is part<br>of <em>the training</em>" data-cs="Regenerace je součástí<br><em>tréninku</em>">Recovery is part<br>of <em>the training</em></h2>
+        <p data-en="Manual therapy isn't just for when you're injured. Proactive bodywork helps athletes and active people move better, avoid injury and perform at a consistently high level." data-cs="Manuální terapie není jen pro případ zranění. Proaktivní bodywork pomáhá sportovcům a aktivním lidem pohybovat se lépe, vyhýbat se zranění a podávat konzistentně vysoký výkon.">Manual therapy isn't just for when you're injured. Proactive bodywork helps athletes and active people move better, avoid injury and perform at a consistently high level.</p>
+      </div>
+      <div class="benefits-list" data-reveal data-delay="2">
+        <div class="benefit-item">
+          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 10 l3 3 7-7" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h4 data-en="Faster recovery between sessions" data-cs="Rychlejší regenerace mezi sezeními">Faster recovery between sessions</h4>
+            <p data-en="Targeted treatment reduces DOMS, flushes metabolic waste and restores tissue quality for your next training." data-cs="Cílené ošetření snižuje bolestivost svalů po cvičení, vylučuje metabolické odpadní produkty a obnovuje kvalitu tkáně pro váš další trénink.">Targeted treatment reduces DOMS, flushes metabolic waste and restores tissue quality for your next training.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 10 l3 3 7-7" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h4 data-en="Injury prevention and resilience" data-cs="Prevence zranění a odolnost">Injury prevention and resilience</h4>
+            <p data-en="Identifying and treating tissue restrictions before they become injuries keeps you training consistently and progressing." data-cs="Identifikace a léčba tkáňových omezení dříve, než se stanou zraněními, vás udržuje v konzistentním tréninku a pokroku.">Identifying and treating tissue restrictions before they become injuries keeps you training consistently and progressing.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 10 l3 3 7-7" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h4 data-en="Improved range of motion and performance" data-cs="Zlepšený rozsah pohybu a výkon">Improved range of motion and performance</h4>
+            <p data-en="Releasing restricted fascia and tight muscles directly improves movement quality — enabling better form, more strength and reduced compensation patterns." data-cs="Uvolnění omezené fascie a napjatých svalů přímo zlepšuje kvalitu pohybu — umožňuje lepší formu, více síly a snížení kompenzačních vzorců.">Releasing restricted fascia and tight muscles directly improves movement quality — enabling better form, more strength and reduced compensation patterns.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 10 l3 3 7-7" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h4 data-en="Pain relief — acute and chronic" data-cs="Úleva od bolesti — akutní i chronická">Pain relief — acute and chronic</h4>
+            <p data-en="Whether it's a long-standing injury, postural pain or post-competition soreness — manual therapy targets the source, not just the symptom." data-cs="Ať už jde o dlouhodobé zranění, posturální bolest nebo bolestivost po závodě — manuální terapie cílí na příčinu, ne jen na příznak.">Whether it's a long-standing injury, postural pain or post-competition soreness — manual therapy targets the source, not just the symptom.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="massage-cta">
+    <div data-reveal>
+      <span class="section-label" data-en="Book your treatment" data-cs="Zarezervujte ošetření">Book your treatment</span>
+      <h2 class="section-title" data-en="Ready to move<br><em>without pain?</em>" data-cs="Připraveni pohybovat se<br><em>bez bolesti?</em>">Ready to move<br><em>without pain?</em></h2>
+      <p data-en="Get in touch to book your appointment. Available in Kladno and surrounding areas — mobile service also available." data-cs="Kontaktujte mě pro rezervaci ošetření. Dostupné v Kladně a okolí — mobilní servis také k dispozici.">Get in touch to book your appointment. Available in Kladno and surrounding areas — mobile service also available.</p>
+      <div class="massage-cta-btns">
+        <a href="/contact" class="btn btn-primary" data-en="Book Appointment" data-cs="Zarezervovat ošetření">Book Appointment</a>
+        <a href="tel:+420606074569" class="btn btn-outline" style="color:var(--brown-dark);border-color:var(--brown-dark)" data-en="🇨🇿 +420 606 074 569" data-cs="🇨🇿 +420 606 074 569">🇨🇿 +420 606 074 569</a>
+        <a href="tel:+353851301311" class="btn btn-outline" style="color:var(--brown-dark);border-color:var(--brown-dark)" data-en="🇮🇪 +353 85 130 1311" data-cs="🇮🇪 +353 85 130 1311">🇮🇪 +353 85 130 1311</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="shared.js"></script>
+  <script>
+    buildNav('massage', false);
+    buildFooter();
+  </script>
+</body>
+</html>

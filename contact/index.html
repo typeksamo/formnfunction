@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Form & Function</title>
+  <meta name="description" content="Book a free consultation with Kristýna Čočková — nutrition coaching, personal training and massage therapy.">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23044427'/><text x='50%25' y='55%25' font-size='18' font-family='serif' fill='%23C2A68C' text-anchor='middle' dominant-baseline='middle'>F</text></svg>">
+  <template id="__bundler_thumbnail" data-bg-color="#044427">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#044427"/>
+      <rect x="80" y="180" width="500" height="12" rx="6" fill="#C2A68C" opacity="0.9"/>
+      <rect x="80" y="220" width="380" height="8" rx="4" fill="white" opacity="0.3"/>
+      <rect x="80" y="250" width="420" height="8" rx="4" fill="white" opacity="0.2"/>
+      <rect x="80" y="340" width="560" height="200" rx="4" fill="white" opacity="0.06"/>
+      <rect x="700" y="180" width="420" height="360" rx="4" fill="white" opacity="0.05"/>
+      <circle cx="60" cy="60" r="18" stroke="#C2A68C" stroke-width="1.5" fill="none"/>
+      <circle cx="60" cy="60" r="6" fill="#86A03D"/>
+    </svg>
+  </template>
+  <style>
+    [data-reveal] { opacity:0; transform:translateY(24px); transition:opacity .7s ease,transform .7s ease; }
+    [data-reveal].revealed { opacity:1; transform:none; }
+    [data-reveal][data-delay="2"] { transition-delay:.2s; }
+
+    body { background:var(--cream); }
+
+    /* Hero */
+    .contact-hero {
+      background:var(--green);
+      padding:calc(var(--nav-h)+144px) 40px 144px;
+      position:relative; overflow:hidden;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+    }
+    .contact-hero::after {
+      content:''; position:absolute;
+      right:-100px; top:-100px;
+      width:400px; height:400px; border-radius:50%;
+      background:rgba(134,160,61,.06);
+    }
+    .contact-hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      text-align: left;
+    }
+    .contact-hero h1 {
+      font-family: 'Garet', sans-serif;
+      font-size: clamp(40px, 5.5vw, 76px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .contact-hero h1 em {
+      font-style: normal;
+      font-weight: 400;
+      color: var(--sand);
+    }
+    .contact-hero p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,.72);
+      max-width: 520px;
+      text-wrap: pretty;
+    }
+
+    /* Main grid */
+    .contact-main {
+      padding:80px 40px 100px;
+    }
+    .contact-main-inner {
+      max-width:1280px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 480px; gap:80px; align-items:start;
+    }
+
+    /* Form button area */
+    .contact-form-wrap {
+      display:flex; flex-direction:column; justify-content:center;
+      min-height:320px;
+    }
+    .contact-form-wrap h2 {
+      font-family: 'Garet', sans-serif;
+      font-size:clamp(28px,3vw,42px);
+      font-weight: 800; color:var(--green);
+      margin-bottom:12px;
+    }
+    .contact-form-wrap .form-sub {
+      font-size:15px; color:var(--text-light); margin-bottom:36px; text-wrap:pretty; max-width:480px;
+    }
+    .form-open-btn {
+      display:inline-flex; align-items:center; gap:10px;
+    }
+
+    /* Modal overlay */
+    .form-modal-overlay {
+      display:none; position:fixed; inset:0; z-index:9000;
+      background:rgba(4,68,39,.55); backdrop-filter:blur(6px);
+      align-items:center; justify-content:center; padding:24px;
+    }
+    .form-modal-overlay.open { display:flex; }
+    .form-modal {
+      background:var(--white); border-radius:4px;
+      width:100%; max-width:720px; max-height:90vh;
+      display:flex; flex-direction:column;
+      overflow:hidden; position:relative;
+      box-shadow:0 32px 80px rgba(0,0,0,.28);
+    }
+    .form-modal-header {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px 24px; border-bottom:1px solid rgba(4,68,39,.1);
+      flex-shrink:0;
+    }
+    .form-modal-header span {
+      font-family:'Garet',sans-serif; font-size:15px; font-weight:700;
+      color:var(--green); letter-spacing:.02em;
+    }
+    .form-modal-close {
+      width:36px; height:36px; border-radius:50%; border:none; cursor:pointer;
+      background:var(--cream); display:flex; align-items:center; justify-content:center;
+      transition:background .2s;
+    }
+    .form-modal-close:hover { background:rgba(4,68,39,.12); }
+    .form-modal iframe {
+      flex:1; border:none; width:100%; min-height:560px;
+    }
+
+    /* Info sidebar */
+    .contact-info { display:flex; flex-direction:column; gap:24px; }
+    .info-card {
+      background:var(--white);
+      border-radius:2px;
+      padding:32px;
+    }
+    .info-card h3 {
+      font-size:13px; font-weight:600; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--lime); margin-bottom:20px;
+    }
+    .info-item {
+      display:flex; gap:14px; align-items:flex-start; margin-bottom:16px;
+    }
+    .info-item:last-child { margin-bottom:0; }
+    .info-icon {
+      width:36px; height:36px; border-radius:50%;
+      background:var(--cream); border:1px solid var(--sand);
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .info-item-text strong {
+      display:block; font-size:14px; color:var(--text); margin-bottom:3px;
+    }
+    .info-item-text span, .info-item-text a {
+      font-size:13px; color:var(--text-light); line-height:1.5;
+    }
+    .info-item-text a { transition:color .2s; }
+    .info-item-text a:hover { color:var(--green); }
+    .consultation-card {
+      background:var(--green); border-radius:2px; padding:32px;
+    }
+    .consultation-card h3 {
+      font-size:15px; font-weight:600; color:var(--white); margin-bottom:8px;
+    }
+    .consultation-card p {
+      font-size:13px; line-height:1.7; color:rgba(255,255,255,.65);
+      margin-bottom:20px; text-wrap:pretty;
+    }
+    .consultation-card ul {
+      list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:24px;
+    }
+    .consultation-card ul li {
+      display:flex; gap:10px; font-size:13px;
+      color:rgba(255,255,255,.75);
+    }
+    .consultation-card ul li::before {
+      content:'✓'; color:var(--lime); font-weight:700; flex-shrink:0;
+    }
+    .social-links { display:flex; gap:12px; flex-wrap:wrap; }
+    .social-link {
+      display:flex; align-items:center; gap:8px;
+      font-size:13px; color:var(--text-light);
+      padding:10px 16px; background:var(--cream); border-radius:2px;
+      transition:all .2s;
+    }
+    .social-link:hover { background:var(--green); color:var(--white); }
+
+    @media (max-width:1024px) {
+      .contact-main-inner { grid-template-columns:1fr; gap:48px; }
+      .contact-info { max-width:600px; }
+    }
+    @media (max-width:768px) {
+      .contact-hero { padding:calc(var(--nav-h)+60px) 20px 60px; min-height:50vh; }
+      .contact-main { padding:48px 20px 64px; }
+      .form-grid { grid-template-columns:1fr; }
+    }
+  </style>
+
+  <!-- SEO & Open Graph -->
+  <link rel="canonical" href="https://formnfunction.eu/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://formnfunction.eu/contact.html">
+  <meta property="og:title" content="Contact — Form & Function">
+  <meta property="og:description" content="Book a free 15-minute consultation with Kristýna Čočková — nutrition coaching, training programming and massage therapy.">
+  <meta property="og:image" content="https://formnfunction.eu/tynka.jpg">
+  <meta property="og:site_name" content="Form & Function">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact — Form & Function">
+  <meta name="twitter:description" content="Book a free 15-minute consultation with Kristýna Čočková — nutrition coaching, training programming and massage therapy.">
+  <meta name="twitter:image" content="https://formnfunction.eu/tynka.jpg">
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="contact-hero">
+    <div class="contact-hero-inner" data-reveal>
+      <span class="page-hero-label" data-en="Let's talk" data-cs="Pojďme si promluvit">Let's talk</span>
+      <h1 data-en="Your journey starts<br>with <em>one conversation.</em>" data-cs="Vaše cesta začíná<br><em>jedním rozhovorem.</em>">Your journey starts<br>with <em>one conversation.</em></h1>
+      <p data-en="Book a free 15-minute consultation — no commitment, just a clear conversation about your goals and how I can help." data-cs="Zarezervujte si bezplatnou 15minutovou konzultaci — bez závazku, jen jasná konverzace o vašich cílech a o tom, jak mohu pomoci.">Book a free 15-minute consultation — no commitment, just a clear conversation about your goals and how I can help.</p>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <section class="contact-main">
+    <div class="contact-main-inner">
+
+      <!-- FORM BUTTON -->
+      <div class="contact-form-wrap" data-reveal>
+        <h2 data-en="Send a message" data-cs="Napište mi">Send a message</h2>
+        <p class="form-sub" data-en="Click below to open the contact form — I'll get back to you within 24 hours." data-cs="Klikněte níže a otevřete kontaktní formulář — ozvu se vám do 24 hodin.">Click below to open the contact form — I'll get back to you within 24 hours.</p>
+        <button class="btn btn-primary form-open-btn" onclick="openFormModal()" data-en="Kontaktuj mě přes formulář →" data-cs="Kontaktuj mě přes formulář →">Kontaktuj mě přes formulář →</button>
+      </div>
+
+      <!-- FORM MODAL -->
+      <div class="form-modal-overlay" id="formModal" onclick="handleOverlayClick(event)">
+        <div class="form-modal">
+          <div class="form-modal-header">
+            <span data-en="Contact Form" data-cs="Kontaktní formulář">Contact Form</span>
+            <button class="form-modal-close" onclick="closeFormModal()" aria-label="Close">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 3 L13 13 M13 3 L3 13" stroke="#044427" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <iframe src="https://h9mpiehqgv.zite.so/" title="Contact Form" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- INFO SIDEBAR -->
+      <div class="contact-info" data-reveal data-delay="2">
+
+        <div class="info-card">
+          <h3 data-en="Direct contact" data-cs="Přímý kontakt">Direct contact</h3>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4 Q2 3 3 3 L13 3 Q14 3 14 4 L14 12 Q14 13 13 13 L3 13 Q2 13 2 12 Z" stroke="#044427" stroke-width="1.2"/><path d="M2 4 L8 9 L14 4" stroke="#044427" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="info-item-text">
+              <strong data-en="Email" data-cs="E-mail">Email</strong>
+              <a href="mailto:info@formnfunction.eu">info@formnfunction.eu</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3 Q4 2 5 3 L6.5 5 Q7 6 6 7 L5.5 7.5 Q6.5 9 8.5 10.5 L9 10 Q10 9 11 9.5 L13 11 Q14 12 13 13 Q12 14 11 13 Q6 10 3 5 Q2 4 3 3Z" stroke="#044427" stroke-width="1.2"/></svg>
+            </div>
+            <div class="info-item-text">
+              <strong data-en="Phone (Czech Republic)" data-cs="Telefon (Česká republika)">Phone (Czech Republic)</strong>
+              <a href="tel:+420606074569">+420 606 074 569</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3 Q4 2 5 3 L6.5 5 Q7 6 6 7 L5.5 7.5 Q6.5 9 8.5 10.5 L9 10 Q10 9 11 9.5 L13 11 Q14 12 13 13 Q12 14 11 13 Q6 10 3 5 Q2 4 3 3Z" stroke="#044427" stroke-width="1.2"/></svg>
+            </div>
+            <div class="info-item-text">
+              <strong data-en="Phone (Ireland)" data-cs="Telefon (Irsko)">Phone (Ireland)</strong>
+              <a href="tel:+353851301311">+353 85 130 1311</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="7" r="3" stroke="#044427" stroke-width="1.2"/><path d="M8 14 Q4 10 4 7 Q4 3.5 8 3.5 Q12 3.5 12 7 Q12 10 8 14Z" stroke="#044427" stroke-width="1.2"/></svg>
+            </div>
+            <div class="info-item-text">
+              <strong data-en="Location" data-cs="Lokace">Location</strong>
+              <span data-en="Kladno, Czech Republic (in-person)<br>Worldwide (online)" data-cs="Kladno, Česká republika (osobně)<br>Celý svět (online)">Kladno, Czech Republic (in-person)<br>Worldwide (online)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3 data-en="Follow along" data-cs="Sledujte">Follow along</h3>
+          <div class="social-links">
+            <a href="https://www.instagram.com/formnfunction_coaching/" target="_blank" class="social-link">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61565112507236" target="_blank" class="social-link">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="shared.js"></script>
+  <script>
+    buildNav('contact', false);
+    buildFooter();
+
+    function openFormModal() {
+      document.getElementById('formModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeFormModal() {
+      document.getElementById('formModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('formModal')) closeFormModal();
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeFormModal();
+    });
+  </script>
+</body>
+</html>

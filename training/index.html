@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training Programming — Form & Function</title>
+  <meta name="description" content="Personalised training programming and full coaching (training + nutrition) for strength, performance and body composition goals.">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23044427'/><text x='50%25' y='55%25' font-size='18' font-family='serif' fill='%23C2A68C' text-anchor='middle' dominant-baseline='middle'>F</text></svg>">
+  <style>
+    [data-reveal] { opacity:0; transform:translateY(24px); transition:opacity .7s ease,transform .7s ease; }
+    [data-reveal].revealed { opacity:1; transform:none; }
+    [data-reveal][data-delay="2"] { transition-delay:.2s; }
+    [data-reveal][data-delay="3"] { transition-delay:.3s; }
+
+    /* Hero */
+    .training-hero {
+      min-height:75vh; display:flex; align-items:flex-end;
+      position:relative; overflow:hidden;
+      padding:calc(var(--nav-h) + 80px) 40px 80px;
+      background:var(--brown-dark);
+    }
+    .training-hero-bg {
+      position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(20,14,10,.78) 0%,rgba(84,71,63,.58) 100%);
+    }
+    .training-hero-photo {
+      position:absolute; inset:0;
+      overflow:hidden;
+    }
+    .training-hero-content {
+      position:relative; z-index:2;
+      max-width:1280px; margin:0 auto; width:100%;
+    }
+    .training-hero-content h1 {
+      font-family: 'Garet', sans-serif;
+      font-size:clamp(48px,6vw,88px);
+      font-weight: 800; color:var(--white); line-height:1.03;
+      margin-bottom:20px;
+    }
+    .training-hero-content h1 em { font-style:normal; color:var(--white); }
+    .training-hero-content p {
+      font-size:17px; line-height:1.75;
+      color:rgba(255,255,255,.7); max-width:520px;
+      margin-bottom:36px; text-wrap:pretty;
+    }
+    .training-hero-tags {
+      display:flex; gap:12px; flex-wrap:wrap; margin-bottom:40px;
+    }
+    .training-tag {
+      font-size:11px; font-weight:600; letter-spacing:.12em;
+      text-transform:uppercase; padding:6px 14px;
+      border:1.5px solid rgba(255,255,255,.2);
+      border-radius:2px; color:rgba(255,255,255,.6);
+    }
+
+    /* Focus comparison */
+    .training-focus { padding:100px 40px; background:var(--cream); }
+    .training-focus-inner { max-width:1280px; margin:0 auto; }
+    .focus-header { margin-bottom:56px; }
+    .training-compare {
+      display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:2px;
+    }
+    .training-compare-col { display:contents; }
+    .col-green .training-focus-card { grid-column:1; grid-row:1; }
+    .col-green .training-detail     { grid-column:1; grid-row:2; }
+    .col-white .training-focus-card { grid-column:2; grid-row:1; }
+    .col-white .training-detail     { grid-column:2; grid-row:2; }
+    .training-compare-col.col-green .training-focus-card { background:var(--green); }
+    .training-compare-col.col-white .training-focus-card { background:var(--white); }
+    .training-focus-card {
+      padding:56px 48px; position:relative; overflow:hidden; flex:1;
+    }
+    .training-focus-card .card-num {
+      font-family: 'Garet', sans-serif; font-size:80px; font-weight: 800;
+      line-height:1; position:absolute; top:16px; right:24px;
+    }
+    .col-green .card-num { color:rgba(255,255,255,.07); }
+    .col-white .card-num { color:rgba(4,68,39,.06); }
+    .training-focus-card h3 {
+      font-size:22px; font-weight:600; margin-bottom:8px; position:relative;
+    }
+    .col-green .training-focus-card h3 { color:var(--white); }
+    .col-white .training-focus-card h3 { color:var(--green); }
+    .training-focus-card .card-sub {
+      font-size:13px; font-weight:500; letter-spacing:.1em;
+      text-transform:uppercase; margin-bottom:20px;
+    }
+    .col-green .card-sub { color:var(--sand); }
+    .col-white .card-sub { color:var(--sand-dark); }
+    .training-focus-card p {
+      font-size:15px; line-height:1.75;
+      text-wrap:pretty; margin-bottom:0; max-width:480px;
+    }
+    .col-green .training-focus-card p { color:rgba(255,255,255,.72); }
+    .col-white .training-focus-card p { color:var(--text-light); }
+
+    /* Detail panels */
+    .training-detail {
+      padding:40px 48px;
+    }
+    .col-green .training-detail { background:var(--green-mid, #033820); }
+    .col-white .training-detail { background:var(--white); }
+    .training-detail-header {
+      font-size:12px; font-weight:600; letter-spacing:.15em;
+      text-transform:uppercase; margin-bottom:20px;
+    }
+    .col-green .training-detail-header { color:var(--sand); }
+    .col-white .training-detail-header { color:var(--lime); }
+    .training-detail-list {
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .detail-item {
+      display:flex; gap:14px; align-items:flex-start;
+      padding:16px 20px; border-radius:2px;
+    }
+    .col-green .detail-item { background:rgba(255,255,255,.06); }
+    .col-white .detail-item { background:var(--cream); }
+    .detail-bullet {
+      width:24px; height:24px; border-radius:50%;
+      background:var(--green); display:flex; align-items:center;
+      justify-content:center; flex-shrink:0;
+    }
+    .col-green .detail-bullet { background:rgba(255,255,255,.15); }
+    .detail-bullet svg { display:block; }
+    .detail-item p {
+      font-size:14px; line-height:1.65; text-wrap:pretty;
+    }
+    .col-green .detail-item p { color:rgba(255,255,255,.75); }
+    .col-white .detail-item p { color:var(--text-light); }
+    .detail-item p strong { color:var(--text); }
+    .col-green .detail-item p strong { color:var(--white); }
+
+    /* Stats row */
+    .stats-row {
+      padding:60px 40px;
+      background:var(--brown-dark);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .stats-row-inner {
+      max-width:1280px; margin:0 auto;
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:2px; width:100%;
+    }
+    .stat-block {
+      padding:40px 32px;
+      background:rgba(255,255,255,.04);
+      text-align:center; transition:background .3s;
+    }
+    .stat-block:hover { background:rgba(255,255,255,.08); }
+    .stat-num {
+      font-family: 'Garet', sans-serif; font-size:clamp(22px,3.2vw,52px); font-weight: 800;
+      color:var(--sand); line-height:1; display:block; margin-bottom:8px;
+    }
+    .stat-label { font-size:13px; color:rgba(255,255,255,.5); letter-spacing:.04em; }
+
+    /* Gain */
+    .gain-section { padding:100px 40px; background:var(--green); }
+    .gain-inner { max-width:1280px; margin:0 auto; }
+    .gain-header { margin-bottom:56px; }
+    .gain-header .section-label { color:var(--sand); }
+    .gain-header .section-title { color:var(--white); }
+    .gain-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .gain-item {
+      display:flex; gap:20px; align-items:flex-start;
+      padding:24px; background:rgba(255,255,255,.05); border-radius:2px;
+      transition:background .25s;
+    }
+    .gain-item:hover { background:rgba(255,255,255,.09); }
+    .gain-arrow { font-size:18px; color:var(--lime); flex-shrink:0; margin-top:2px; }
+    .gain-item p { font-size:15px; line-height:1.65; color:rgba(255,255,255,.8); text-wrap:pretty; }
+    .gain-item p strong { color:var(--white); }
+
+    /* CTA */
+    .training-cta {
+      padding:100px 40px; background:var(--sand);
+      text-align:center;
+    }
+    .training-cta .section-title { color:var(--brown-dark); margin-bottom:20px; }
+    .training-cta p { font-size:16px; color:var(--brown-dark); opacity:.7; max-width:480px; margin:0 auto 36px; line-height:1.7; }
+    .training-cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+    @media (max-width:1024px) {
+      .training-compare { grid-template-columns:1fr; }
+      .stats-row-inner { grid-template-columns:repeat(2,1fr); }
+      .gain-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:768px) {
+      .training-hero { padding:calc(var(--nav-h)+40px) 20px 48px; }
+      .training-focus, .gain-section, .training-cta { padding:64px 20px; }
+      .training-focus-card { padding:36px 24px; }
+      .training-detail { padding:24px 20px; }
+      .stats-row { padding:40px 20px; }
+      .stats-row-inner { grid-template-columns:repeat(2,1fr); }
+    }
+  </style>
+
+  <!-- SEO & Open Graph -->
+  <link rel="canonical" href="https://formnfunction.eu/training.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://formnfunction.eu/training.html">
+  <meta property="og:title" content="Training Programming — Form & Function">
+  <meta property="og:description" content="Personalised training programming and full coaching for strength, performance and body composition. Fully online.">
+  <meta property="og:image" content="https://formnfunction.eu/training.jpg">
+  <meta property="og:site_name" content="Form & Function">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Training Programming — Form & Function">
+  <meta name="twitter:description" content="Personalised training programming and full coaching for strength, performance and body composition. Fully online.">
+  <meta name="twitter:image" content="https://formnfunction.eu/training.jpg">
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="training-hero">
+    <div class="training-hero-photo"><img src="training.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+    <div class="training-hero-bg"></div>
+    <div class="training-hero-content">
+      <h1 data-en="Decide. Commit.<br>Succeed." data-cs="Rozhodněte. Odhodlejte.<br>Uspějte.">Decide. Commit.<br>Succeed.</h1>
+      <p data-en="Structured, progressive training programs built for your goals — strength, performance or body composition. Fully remote — work with me from anywhere." data-cs="Strukturované, progresivní tréninkové programy pro vaše cíle — síla, výkon nebo tělesné složení. Plně online — pracuj se mnou odkudkoli.">Structured, progressive training programs built for your goals — strength, performance or body composition. Fully remote — work with me from anywhere.</p>
+      <a href="https://calendly.com/formnfunction/free-consultation" class="btn btn-sand" data-en="Book Free Consultation" data-cs="Domluvit konzultaci zdarma">Book Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stats-row-inner">
+      <div class="stat-block" data-reveal>
+        <span class="stat-num">Fully</span>
+        <span class="stat-label" data-en="online build system" data-cs="online build systém">online build system</span>
+      </div>
+      <div class="stat-block" data-reveal>
+        <span class="stat-num">Focus</span>
+        <span class="stat-label" data-en="build around you" data-cs="postaveno kolem vás">build around you</span>
+      </div>
+      <div class="stat-block" data-reveal>
+        <span class="stat-num">Flexibility</span>
+        <span class="stat-label" data-en="your lifestyle stays intact" data-cs="váš životní styl zůstává zachován">your lifestyle stays intact</span>
+      </div>
+      <div class="stat-block" data-reveal>
+        <span class="stat-num">∞</span>
+        <span class="stat-label" data-en="Ongoing support &amp; adjustments" data-cs="Průběžná podpora a úpravy">Ongoing support &amp; adjustments</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOCUS AREAS -->
+  <section class="training-focus">
+    <div class="training-focus-inner">
+      <div class="focus-header" data-reveal>
+        <span class="section-label" data-en="Step 1 — Choose your track" data-cs="Krok 1 — Vyberte svůj směr">Step 1 — Choose your track</span>
+        <h2 class="section-title" data-en="Two coaching tracks,<br><em>one goal: results</em>" data-cs="Dva koučinkové směry,<br><em>jeden cíl: výsledky</em>">Two coaching tracks,<br><em>one goal: results</em></h2>
+      </div>
+
+      <div class="training-compare">
+        <!-- Left: Training Programming (green) -->
+        <div class="training-compare-col col-green">
+          <div class="training-focus-card" data-reveal>
+            <div class="card-num">01</div>
+            <h3 data-en="Training Programming" data-cs="Tréninkové programování">Training Programming</h3>
+            <p class="card-sub" data-en="Structured Plan — Delivered to You" data-cs="Strukturovaný plán — doručen vám">Structured Plan — Delivered to You</p>
+            <p data-en="A personalised training plan designed around your goals, experience level and available time. Whether your focus is strength, performance or body composition, your program is built to deliver consistent progress while fitting your lifestyle." data-cs="Personalizovaný tréninkový plán navržený kolem vašich cílů, úrovně zkušeností a dostupného času. Ať je vaším zaměřením síla, výkon nebo tělesné složení, váš program je sestaven pro konzistentní pokrok při přizpůsobení vašemu životnímu stylu.">A personalised training plan designed around your goals, experience level and available time. Whether your focus is strength, performance or body composition, your program is built to deliver consistent progress while fitting your lifestyle.</p>
+          </div>
+          <div class="training-detail">
+            <div class="training-detail-header" data-en="What you can expect:" data-cs="Co lze očekávat:">What you can expect:</div>
+            <div class="training-detail-list">
+              <div class="detail-item"><div class="detail-bullet"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p data-en="<strong>Individually designed training program</strong> based on your specific goals" data-cs="<strong>Individuálně navržený tréninkový program</strong> na základě vašich konkrétních cílů"><strong>Individually designed training program</strong> based on your specific goals</p></div>
+              <div class="detail-item"><div class="detail-bullet"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p data-en="<strong>Structured progression</strong> to ensure consistent, measurable results" data-cs="<strong>Strukturovaný pokrok</strong> pro zajištění konzistentních, měřitelných výsledků"><strong>Structured progression</strong> to ensure consistent, measurable results</p></div>
+              <div class="detail-item"><div class="detail-bullet"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p data-en="<strong>Exercise selection</strong> adapted to your level and available equipment" data-cs="<strong>Výběr cvičení</strong> přizpůsobený vaší úrovni a dostupnému vybavení"><strong>Exercise selection</strong> adapted to your level and available equipment</p></div>
+              <div class="detail-item"><div class="detail-bullet"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p data-en="<strong>Clear guidance</strong> on volume, intensity and technique focus" data-cs="<strong>Jasné vedení</strong> v oblasti objemu, intenzity a zaměření techniky"><strong>Clear guidance</strong> on volume, intensity and technique focus</p></div>
+              <div class="detail-item"><div class="detail-bullet"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p data-en="<strong>Adjustments based on feedback</strong> and progress check-ins" data-cs="<strong>Úpravy na základě zpětné vazby</strong> a pravidelných kontrol"><strong>Adjustments based on feedback</strong> and progress check-ins</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Full Coaching (white) -->
+        <div class="training-compare-col col-white">
+          <div class="training-focus-card" data-reveal data-delay="2">
+            <div class="card-num">02</div>
+            <h3 data-en="Full Coaching: Training &amp; Nutrition" data-cs="Plný koučink: Trénink a výživa">Full Coaching: Training &amp; Nutrition</h3>
+            <p class="card-sub" data-en="Complete System — Maximum Results" data-cs="Kompletní systém — maximální výsledky">Complete System — Maximum Results</p>
+            <p data-en="A fully integrated approach combining training and nutrition to optimise performance, body composition and overall health. This is not just a plan — it's ongoing coaching, guidance and accountability." data-cs="Plně integrovaný přístup kombinující trénink a výživu pro optimalizaci výkonu, tělesného složení a celkového zdraví. Toto není jen plán — je to průběžný koučink, vedení a odpovědnost.">A fully integrated approach combining training and nutrition to optimise performance, body composition and overall health. This is not just a plan — it's ongoing coaching, guidance and accountability.</p>
+          </div>
+          <div class="training-detail">
+            <div class="training-detail-header" data-en="What you can expect:" data-cs="Co lze očekávat:">What you can expect:</div>
+            <div class="training-detail-list">
+              <div class="detail-item"><div class="detail-bullet"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p data-en="<strong>Fully personalised training program</strong> with continuous adjustments" data-cs="<strong>Plně personalizovaný tréninkový program</strong> s průběžnými úpravami"><strong>Fully personalised training program</strong> with continuous adjustments</p></div>
+              <div class="detail-item"><div class="detail-bullet"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p data-en="<strong>Individualised nutrition strategy</strong> aligned with your training and goals" data-cs="<strong>Individualizovaná nutriční strategie</strong> v souladu s vaším tréninkem a cíli"><strong>Individualised nutrition strategy</strong> aligned with your training and goals</p></div>
+              <div class="detail-item"><div class="detail-bullet"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p data-en="<strong>Regular check-ins</strong> to monitor progress and make necessary changes" data-cs="<strong>Pravidelné check-iny</strong> pro sledování pokroku a provádění potřebných změn"><strong>Regular check-ins</strong> to monitor progress and make necessary changes</p></div>
+              <div class="detail-item"><div class="detail-bullet"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p data-en="<strong>Habit and lifestyle coaching</strong> for long-term sustainability" data-cs="<strong>Koučink návyků a životního stylu</strong> pro dlouhodobou udržitelnost"><strong>Habit and lifestyle coaching</strong> for long-term sustainability</p></div>
+              <div class="detail-item"><div class="detail-bullet"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p data-en="<strong>Ongoing communication and support</strong> throughout the process" data-cs="<strong>Průběžná komunikace a podpora</strong> po celou dobu procesu"><strong>Ongoing communication and support</strong> throughout the process</p></div>
+              <div class="detail-item"><div class="detail-bullet"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p data-en="<strong>Education</strong> to help you understand and apply key principles" data-cs="<strong>Vzdělávání</strong> pro pochopení a uplatnění klíčových principů"><strong>Education</strong> to help you understand and apply key principles</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Not sure -->
+      <div style="background:var(--cream-mid);border-radius:2px;padding:36px 40px;margin-top:24px;display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap" data-reveal>
+        <div>
+          <div style="font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--lime);margin-bottom:8px" data-en="Not sure which track is right for you?" data-cs="Nejste si jisti, který směr je pro vás správný?">Not sure which track is right for you?</div>
+          <p style="font-size:15px;color:var(--text-light);max-width:500px;text-wrap:pretty" data-en="Book a free Strategy &amp; Assessment Session. We'll assess your goals, current training, nutrition and lifestyle — and build the most effective approach for your needs." data-cs="Zarezervujte si bezplatnou strategickou a hodnotící sezení. Posoudíme vaše cíle, současný trénink, výživu a životní styl — a sestavíme nejefektivnější přístup pro vaše potřeby.">Book a free Strategy &amp; Assessment Session. We'll assess your goals, current training, nutrition and lifestyle — and build the most effective approach for your needs.</p>
+        </div>
+        <a href="/contact" class="btn btn-primary" style="flex-shrink:0;margin-left:auto" data-en="Book Strategy Session" data-cs="Zarezervovat strategické sezení">Book Strategy Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="training-cta">
+    <div data-reveal>
+      <span class="section-label" data-en="Ready to start training?" data-cs="Připraveni začít trénovat?">Ready to start training?</span>
+      <h2 class="section-title" data-en="Let's build your<br><em>strongest self.</em>" data-cs="Pojďme vybudovat<br><em>vaše nejsilnější já.</em>">Let's build your<br><em>strongest self.</em></h2>
+      <p data-en="Book a free 15-minute consultation and let's find the right coaching approach for your goals, lifestyle and schedule." data-cs="Zarezervujte si bezplatnou 15minutovou konzultaci a najdeme správný koučinkový přístup pro vaše cíle, životní styl a harmonogram.">Book a free 15-minute consultation and let's find the right coaching approach for your goals, lifestyle and schedule.</p>
+      <div class="training-cta-btns">
+        <a href="https://calendly.com/formnfunction/free-consultation" class="btn btn-primary" data-en="Book Free Consultation" data-cs="Domluvit konzultaci zdarma">Book Free Consultation</a>
+        <a href="/nutrition" class="btn btn-outline" style="color:var(--brown-dark);border-color:var(--brown-dark)" data-en="Also see: Nutrition" data-cs="Také: Výživa">Also see: Nutrition</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="shared.js"></script>
+  <script>
+    buildNav('training', true);
+    buildFooter();
+  </script>
+</body>
+</html>

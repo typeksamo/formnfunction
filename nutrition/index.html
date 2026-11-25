@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition Coaching — Form & Function</title>
+  <meta name="description" content="Science-backed nutrition coaching for health, performance and sustainable lifestyle. Health coaching, sport nutrition and weight cutting for combat sports.">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23044427'/><text x='50%25' y='55%25' font-size='18' font-family='serif' fill='%23C2A68C' text-anchor='middle' dominant-baseline='middle'>F</text></svg>">
+  <style>
+    [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+    [data-reveal][data-delay="2"] { transition-delay: 0.2s; }
+    [data-reveal][data-delay="3"] { transition-delay: 0.3s; }
+
+    /* ── Page hero ── */
+    .nutrition-hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+      padding: calc(var(--nav-h) + 80px) 40px 80px;
+      background: var(--green);
+    }
+    .nutrition-hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(2,28,14,0.72) 0%, rgba(4,68,39,0.55) 100%);
+    }
+    .nutrition-hero-photo {
+      position: absolute; inset: 0;
+      overflow: hidden;
+    }
+    .nutrition-hero-content {
+      position: relative; z-index: 2;
+      max-width: 1280px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+    }
+    .nutrition-hero-left h1 {
+      font-family: 'Garet', sans-serif;
+      font-size: clamp(44px, 5.5vw, 80px);
+      font-weight: 800; color: var(--white);
+      line-height: 1.05; margin-bottom: 20px;
+    }
+    .nutrition-hero-left h1 em { font-style: normal; font-weight: 400; color: var(--sand); }
+    .nutrition-hero-left p {
+      font-size: 17px; line-height: 1.75;
+      color: rgba(255,255,255,0.7); margin-bottom: 36px; text-wrap: pretty;
+    }
+    .nutrition-hero-right {
+      display: flex; flex-direction: column;
+      align-items: flex-end; gap: 16px;
+    }
+    .hero-stat-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      padding: 20px 28px;
+      display: flex; gap: 16px; align-items: center;
+      width: 100%;
+    }
+    .hero-stat-num {
+      font-family: 'Garet', sans-serif;
+      font-size: 40px; font-weight: 800;
+      color: var(--sand); line-height: 1; flex-shrink: 0;
+    }
+    .hero-stat-label {
+      font-size: 13px; line-height: 1.5;
+      color: rgba(255,255,255,0.65);
+    }
+    .hero-stat-label strong {
+      display: block; font-size: 14px;
+      color: var(--white); font-weight: 500; margin-bottom: 2px;
+    }
+
+    /* ── Step intro ── */
+    .step-intro {
+      padding: 80px 40px;
+      background: var(--white);
+    }
+    .step-intro-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; gap: 64px; flex-wrap: wrap;
+    }
+    .step-num-badge {
+      flex-shrink: 0;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-num-badge span {
+      font-family: 'Garet', sans-serif;
+      font-size: 28px; font-weight: 800; color: var(--white);
+    }
+    .step-intro-text h2 {
+      font-family: 'Garet', sans-serif;
+      font-size: clamp(28px, 3vw, 44px);
+      font-weight: 800; color: var(--green);
+      margin-bottom: 8px;
+    }
+    .step-intro-text p {
+      font-size: 16px; line-height: 1.7;
+      color: var(--text-light); text-wrap: pretty; max-width: 600px;
+    }
+    .step-divider {
+      flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--lime), transparent);
+      min-width: 40px;
+    }
+
+    /* ── Focus grid ── */
+    .focus-section {
+      padding: 80px 40px 100px;
+      background: var(--cream);
+    }
+    .focus-inner { max-width: 1280px; margin: 0 auto; }
+    .focus-header { margin-bottom: 48px; }
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
+      margin-bottom: 32px;
+    }
+    .focus-card {
+      padding: 48px 44px;
+      position: relative;
+    }
+    .focus-card.fc-green  { background: var(--green); }
+    .focus-card.fc-white  { background: var(--white); }
+    .focus-card.fc-sand   { background: var(--sand); }
+    .focus-card.fc-cream  { background: var(--cream-mid, #e8e0d5); }
+    .focus-card-label {
+      font-size: 11px; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; margin-bottom: 14px; display: block;
+    }
+    .fc-green  .focus-card-label { color: var(--lime); }
+    .fc-white  .focus-card-label { color: var(--lime); }
+    .fc-sand   .focus-card-label { color: var(--brown-dark); opacity: .55; }
+    .fc-cream  .focus-card-label { color: var(--green); opacity: .65; }
+    .focus-card h3 {
+      font-family: 'Garet', sans-serif;
+      font-size: clamp(18px, 2vw, 24px); font-weight: 800;
+      margin-bottom: 24px; line-height: 1.2;
+    }
+    .fc-green  h3 { color: var(--white); }
+    .fc-white  h3 { color: var(--green); }
+    .fc-sand   h3 { color: var(--brown-dark); }
+    .fc-cream  h3 { color: var(--green); }
+    .focus-card ul {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .focus-card ul li {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: 14px; line-height: 1.55;
+    }
+    .focus-card ul li::before {
+      content: '→'; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+    .fc-green  ul li { color: rgba(255,255,255,.78); }
+    .fc-green  ul li::before { color: var(--lime); }
+    .fc-white  ul li { color: var(--text-light); }
+    .fc-white  ul li::before { color: var(--lime); }
+    .fc-sand   ul li { color: var(--brown-dark); opacity: .75; }
+    .fc-sand   ul li::before { color: var(--brown-dark); opacity: 1; }
+    .fc-cream  ul li { color: var(--text-light); }
+    .fc-cream  ul li::before { color: var(--green); }
+
+    /* ── What you gain ── */
+    .gain-section {
+      padding: 100px 40px;
+      background: var(--green);
+    }
+    .gain-inner {
+      max-width: 1280px; margin: 0 auto;
+    }
+    .gain-header { margin-bottom: 56px; }
+    .gain-header .section-label { color: var(--sand); }
+    .gain-header .section-title { color: var(--white); }
+    .gain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .gain-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 2px;
+      transition: background 0.25s;
+    }
+    .gain-item:hover { background: rgba(255,255,255,0.09); }
+    .gain-arrow {
+      font-size: 18px; color: var(--lime);
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .gain-item p {
+      font-size: 15px; line-height: 1.65;
+      color: rgba(255,255,255,0.8); text-wrap: pretty;
+    }
+    .gain-item p strong { color: var(--white); }
+
+    /* ── Book section ── */
+    .book-section {
+      padding: 100px 40px;
+      background: var(--sand);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+    }
+    .book-inner { max-width: 640px; }
+    .book-inner .section-title { color: var(--brown-dark); margin-bottom: 16px; }
+    .book-inner p { font-size: 16px; color: var(--brown-dark); opacity: 0.7; margin-bottom: 36px; line-height: 1.7; }
+    .book-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 1024px) {
+      .nutrition-hero-content { grid-template-columns: 1fr; gap: 40px; }
+      .nutrition-hero-right { align-items: flex-start; }
+      .focus-grid { grid-template-columns: 1fr 1fr; }
+      .gain-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nutrition-hero { padding: calc(var(--nav-h) + 40px) 20px 48px; }
+      .step-intro, .focus-section, .gain-section, .book-section { padding: 64px 20px; }
+      .step-intro-inner { flex-direction: column; align-items: flex-start; }
+      .step-divider { display: none; }
+      .focus-grid { grid-template-columns: 1fr; }
+      .accordion-section { padding: 24px 20px; }
+    }
+  </style>
+
+  <!-- SEO & Open Graph -->
+  <link rel="canonical" href="https://formnfunction.eu/nutrition.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://formnfunction.eu/nutrition.html">
+  <meta property="og:title" content="Nutrition Coaching — Form & Function">
+  <meta property="og:description" content="Science-backed nutrition coaching for health, performance and sustainable lifestyle. Sport nutrition and weight cutting for combat sports.">
+  <meta property="og:image" content="https://formnfunction.eu/nutrition.jpg">
+  <meta property="og:site_name" content="Form & Function">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nutrition Coaching — Form & Function">
+  <meta name="twitter:description" content="Science-backed nutrition coaching for health, performance and sustainable lifestyle. Sport nutrition and weight cutting for combat sports.">
+  <meta name="twitter:image" content="https://formnfunction.eu/nutrition.jpg">
+</head>
+<body>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="nutrition-hero">
+    <div class="nutrition-hero-photo">
+      <img src="nutrition.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+    </div>
+    <div class="nutrition-hero-bg"></div>
+    <div class="nutrition-hero-content">
+      <div class="nutrition-hero-left" data-reveal>
+        <span class="page-hero-label" data-en="Nutrition Coaching" data-cs="Nutriční koučing">Nutrition Coaching</span>
+        <h1 data-en="Good nutrition<br><em>changes everything.</em>" data-cs="Dobrá výživa<br><em>mění vše.</em>">Good nutrition<br><em>changes everything.</em></h1>
+        <p data-en="Whether your goal is better health, improved performance or safe weight management — a personalised nutrition strategy makes the difference." data-cs="Ať už je vaším cílem lepší zdraví, zlepšený výkon nebo bezpečné řízení hmotnosti — personalizovaná nutriční strategie dělá rozdíl.">Whether your goal is better health, improved performance or safe weight management — a personalised nutrition strategy makes the difference.</p>
+        <a href="https://calendly.com/formnfunction/free-consultation" class="btn btn-sand" data-en="Book Free Consultation" data-cs="Domluvit konzultaci zdarma">Book Free Consultation</a>
+      </div>
+      <div class="nutrition-hero-right" data-reveal data-delay="2">
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-label"><strong data-en="Coaching Focus Areas" data-cs="Oblasti koučinku">Coaching Focus Areas</strong><span data-en="Health, performance, combat sports" data-cs="Zdraví, výkon, bojové sporty">Health, performance, combat sports</span></div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label"><strong data-en="Personalised Plans" data-cs="Personalizované plány">Personalised Plans</strong><span data-en="Built for your body, goals and lifestyle" data-cs="Sestaveny pro vaše tělo, cíle a životní styl">Built for your body, goals and lifestyle</span></div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">EN/CS</div>
+          <div class="hero-stat-label"><strong data-en="Bilingual Coaching" data-cs="Dvojjazyčný koučing">Bilingual Coaching</strong><span data-en="Available in English and Czech" data-cs="Dostupné v angličtině a češtině">Available in English and Czech</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOCUS AREAS ═══════════ -->
+  <section class="focus-section">
+    <div class="focus-inner">
+      <div class="focus-header" data-reveal style="text-align:center">
+        <span class="section-label" data-en="click on your main focus" data-cs="klikněte na svůj hlavní cíl">click on your main focus</span>
+        <h2 class="section-title" data-en="What is your<br>biggest <em>priority?</em>" data-cs="Jaká je vaše<br>největší <em>priorita?</em>">What is your<br>biggest <em>priority?</em></h2>
+      </div>
+
+      <div class="focus-grid">
+
+        <!-- 1. Health & Lifestyle — green -->
+        <div class="focus-card fc-green" data-reveal>
+          <span class="focus-card-label" data-en="01 — Health &amp; Lifestyle" data-cs="01 — Zdraví a životní styl">01 — Health &amp; Lifestyle</span>
+          <h3 data-en="Health &amp; Lifestyle Coaching" data-cs="Zdraví a životní styl">Health &amp; Lifestyle Coaching</h3>
+          <ul>
+            <li data-en="Sustainable body composition changes without restriction" data-cs="Udržitelné změny tělesného složení bez omezení">Sustainable body composition changes without restriction</li>
+            <li data-en="Better energy, sleep and daily performance" data-cs="Lepší energie, spánek a každodenní výkon">Better energy, sleep and daily performance</li>
+            <li data-en="Habits built around your schedule and food preferences" data-cs="Návyky postavené kolem vašeho harmonogramu a preferencí">Habits built around your schedule and food preferences</li>
+            <li data-en="Blood marker and supplementation guidance" data-cs="Vedení v oblasti krevních hodnot a suplementace">Blood marker and supplementation guidance</li>
+            <li data-en="Gut health and inflammation support" data-cs="Podpora zdraví střev a snížení zánětu">Gut health and inflammation support</li>
+          </ul>
+        </div>
+
+        <!-- 2. Sport & Performance — white -->
+        <div class="focus-card fc-white" data-reveal data-delay="2">
+          <span class="focus-card-label" data-en="02 — Performance" data-cs="02 — Výkon">02 — Performance</span>
+          <h3 data-en="Sport &amp; Performance Nutrition" data-cs="Sport a výkonnostní výživa">Sport &amp; Performance Nutrition</h3>
+          <ul>
+            <li data-en="Periodised nutrition matched to your training cycle" data-cs="Periodizovaná výživa přizpůsobená vašemu tréninkovému cyklu">Periodised nutrition matched to your training cycle</li>
+            <li data-en="Pre-, intra- and post-workout fuelling strategy" data-cs="Strategie zásobování před, během a po tréninku">Pre-, intra- and post-workout fuelling strategy</li>
+            <li data-en="Optimal recovery between sessions" data-cs="Optimální regenerace mezi sezeními">Optimal recovery between sessions</li>
+            <li data-en="Power-to-weight ratio and body composition" data-cs="Poměr síly a hmotnosti a tělesné složení">Power-to-weight ratio and body composition</li>
+            <li data-en="Evidence-based supplement recommendations" data-cs="Vědecky podložená doporučení doplňků stravy">Evidence-based supplement recommendations</li>
+          </ul>
+        </div>
+
+        <!-- 3. Menstrual Cycle — sand -->
+        <div class="focus-card fc-sand" data-reveal>
+          <span class="focus-card-label" data-en="03 — Female Health" data-cs="03 — Ženské zdraví">03 — Female Health</span>
+          <h3 data-en="Menstrual Cycle Nutrition" data-cs="Výživa a menstruační cyklus">Menstrual Cycle Nutrition</h3>
+          <ul>
+            <li data-en="Nutrition synced to each phase of your cycle" data-cs="Výživa synchronizovaná s každou fází cyklu">Nutrition synced to each phase of your cycle</li>
+            <li data-en="Managing energy, mood and cravings naturally" data-cs="Přirozené zvládání energie, nálady a chutí">Managing energy, mood and cravings naturally</li>
+            <li data-en="Training load adjusted per cycle phase" data-cs="Tréninkové zatížení přizpůsobené fázi cyklu">Training load adjusted per cycle phase</li>
+            <li data-en="Reducing PMS symptoms through diet" data-cs="Snižování příznaků PMS prostřednictvím stravy">Reducing PMS symptoms through diet</li>
+            <li data-en="Hormonal health and long-term balance" data-cs="Hormonální zdraví a dlouhodobá rovnováha">Hormonal health and long-term balance</li>
+          </ul>
+        </div>
+
+        <!-- 4. Weight Cutting — dark/cream -->
+        <div class="focus-card fc-cream" data-reveal data-delay="2">
+          <span class="focus-card-label" data-en="04 — Combat Sports" data-cs="04 — Bojové sporty">04 — Combat Sports</span>
+          <h3 data-en="Weight Cutting for Combat Sports" data-cs="Shazování váhy pro bojové sporty">Weight Cutting for Combat Sports</h3>
+          <ul>
+            <li data-en="Full fight-camp nutrition plan phase by phase" data-cs="Kompletní plán výživy fight campu fázi po fázi">Full fight-camp nutrition plan phase by phase</li>
+            <li data-en="Safe water manipulation protocols" data-cs="Bezpečné protokoly vodní manipulace">Safe water manipulation protocols</li>
+            <li data-en="Refeeding strategy post-weigh-in" data-cs="Strategie refeedingu po vážení">Refeeding strategy post-weigh-in</li>
+            <li data-en="Fight-week fuelling and glycogen loading" data-cs="Zásobování fight týdne a plnění glykogenu">Fight-week fuelling and glycogen loading</li>
+            <li data-en="Maintaining performance through the cut" data-cs="Udržení výkonu během snižování váhy">Maintaining performance through the cut</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Not sure -->
+      <div style="background:var(--white);padding:36px 44px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--lime);margin-bottom:8px" data-en="Not sure which area fits?" data-cs="Nejste si jisti, která oblast je pro vás?">Not sure which area fits?</div>
+          <p style="font-size:15px;color:var(--text-light);text-wrap:pretty;max-width:500px" data-en="Start with a free consultation — we'll find the right focus together." data-cs="Začněte bezplatnou konzultací — společně najdeme správné zaměření.">Start with a free consultation — we'll find the right focus together.</p>
+        </div>
+        <a href="/contact" class="btn btn-primary" style="flex-shrink:0;margin-left:auto" data-en="Book Strategy Call" data-cs="Zarezervovat strategický hovor">Book Strategy Call</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="shared.js"></script>
+  <script>
+    buildNav('nutrition', true);
+    buildFooter();
+  </script>
+</body>
+</html>

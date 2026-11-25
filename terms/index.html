@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms &amp; Conditions — Form & Function</title>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23044427'/><text x='50%25' y='55%25' font-size='18' font-family='serif' fill='%23C2A68C' text-anchor='middle' dominant-baseline='middle'>F</text></svg>">
+  <style>
+    [data-reveal] { opacity:0; transform:translateY(20px); transition:opacity .6s ease,transform .6s ease; }
+    [data-reveal].revealed { opacity:1; transform:none; }
+    .legal-hero { background:var(--green); padding:calc(var(--nav-h)+60px) 40px 60px; }
+    .legal-hero-inner { max-width:900px; margin:0 auto; }
+    .legal-hero h1 { font-family: 'Garet', sans-serif; font-size:clamp(36px,4vw,60px); font-weight: 800; color:var(--white); line-height:1.1; margin-bottom:12px; }
+    .legal-hero p { font-size:15px; color:rgba(255,255,255,.6); }
+    .legal-body { padding:80px 40px 100px; background:var(--white); }
+    .legal-body-inner { max-width:900px; margin:0 auto; display:grid; grid-template-columns:200px 1fr; gap:64px; align-items:start; }
+    .legal-nav { position:sticky; top:calc(var(--nav-h)+24px); }
+    .legal-nav h4 { font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--lime); margin-bottom:16px; }
+    .legal-nav ul { list-style:none; display:flex; flex-direction:column; gap:4px; }
+    .legal-nav ul li a { font-size:13px; color:var(--text-light); line-height:1.5; display:block; padding:5px 0 5px 12px; border-left:2px solid transparent; transition:all .2s; }
+    .legal-nav ul li a:hover { color:var(--green); border-color:var(--lime); }
+    .legal-content h2 { font-family: 'Garet', sans-serif; font-size:24px; font-weight: 800; color:var(--green); margin:48px 0 16px; padding-top:48px; border-top:1px solid rgba(4,68,39,.1); }
+    .legal-content h2:first-child { margin-top:0; padding-top:0; border-top:none; }
+    .legal-content h3 { font-size:16px; font-weight:600; color:var(--text); margin:24px 0 10px; }
+    .legal-content p { font-size:15px; line-height:1.85; color:var(--text-light); margin-bottom:16px; text-wrap:pretty; }
+    .legal-content ol, .legal-content ul { padding-left:24px; margin-bottom:16px; }
+    .legal-content ol li, .legal-content ul li { font-size:15px; line-height:1.8; color:var(--text-light); margin-bottom:8px; }
+    .legal-content strong { color:var(--text); }
+    .legal-content a { color:var(--green); text-decoration:underline; }
+    .legal-content .highlight-box { background:rgba(4,68,39,.05); border-left:3px solid var(--lime); padding:20px 24px; border-radius:0 2px 2px 0; margin:24px 0; }
+    .legal-content .highlight-box p { margin-bottom:0; font-size:14px; }
+    .lang-toggle-bar { max-width:900px; margin:0 auto 40px; display:flex; gap:12px; align-items:center; padding:16px 0; border-bottom:1px solid var(--cream-mid); }
+    .lang-toggle-bar span { font-size:13px; color:var(--text-light); }
+    .lang-pill { font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:6px 16px; border-radius:2px; border:1.5px solid var(--cream-mid); cursor:pointer; background:none; font-family: 'Garet', sans-serif; transition:all .2s; color:var(--text-light); }
+    .lang-pill.active { background:var(--green); color:var(--white); border-color:var(--green); }
+    @media (max-width:768px) {
+      .legal-body { padding:48px 20px 64px; }
+      .legal-hero { padding:calc(var(--nav-h)+40px) 20px 48px; }
+      .legal-body-inner { grid-template-columns:1fr; gap:32px; }
+      .legal-nav { position:static; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="legal-hero">
+    <div class="legal-hero-inner">
+      <span class="page-hero-label">Legal</span>
+      <h1>Terms &amp; Conditions</h1>
+      <p>Kristýna Čočková, MSc. · IČO: 09031197 · Vašíčkova 3436, 272 04 Kladno · <a href="mailto:info@formnfunction.eu" style="color:rgba(255,255,255,.7)">info@formnfunction.eu</a></p>
+    </div>
+  </section>
+
+  <section class="legal-body">
+    <div class="lang-toggle-bar">
+      <span>Read in:</span>
+      <button class="lang-pill active" onclick="setLang('en')" id="pill-en">English</button>
+      <button class="lang-pill" onclick="setLang('cs')" id="pill-cs">Čeština</button>
+    </div>
+
+    <!-- ENGLISH -->
+    <div id="terms-en" class="legal-body-inner">
+      <nav class="legal-nav">
+        <h4>Contents</h4>
+        <ul>
+          <li><a href="#en-i">I. Introductory Provisions</a></li>
+          <li><a href="#en-ii">II. Subject Matter of Services</a></li>
+          <li><a href="#en-iii">III. Digital Platforms</a></li>
+          <li><a href="#en-iv">IV. Minor Clients</a></li>
+          <li><a href="#en-v">V. Health Limitations</a></li>
+          <li><a href="#en-vi">VI. Initial Consultation</a></li>
+          <li><a href="#en-vii">VII. Ordering &amp; Contract</a></li>
+          <li><a href="#en-viii">VIII. Payment Terms</a></li>
+          <li><a href="#en-ix">IX. Rights &amp; Obligations</a></li>
+          <li><a href="#en-x">X. Liability</a></li>
+          <li><a href="#en-xi">XI. Complaints</a></li>
+          <li><a href="#en-xii">XII. Termination</a></li>
+          <li><a href="#en-xiii">XIII. Copyright &amp; Licence</a></li>
+          <li><a href="#en-xiv">XIV. Digital Content</a></li>
+          <li><a href="#en-xv">XV. Consumer</a></li>
+          <li><a href="#en-xvi">XVI. Out-of-Court Disputes</a></li>
+          <li><a href="#en-xvii">XVII. Final Provisions</a></li>
+        </ul>
+      </nav>
+      <div class="legal-content">
+        <div class="highlight-box">
+          <p>These General Terms and Conditions ("T&amp;C") of the provider, Kristýna Čočková, MSc., self-employed person, IČO: 09031197, registered address: Vašíčkova 3436, 272 04, Kladno, Czech Republic, phone: +420 606 074 569, +353 85 130 1311, email: info@formnfunction.eu (hereinafter "Provider"), govern the rights and obligations between the provider and the client in connection with the provision of interest-based regenerative and recreational services, particularly in the field of nutritional coaching, personal training and massage therapy.</p>
+        </div>
+
+        <h2 id="en-i">I. Introductory Provisions</h2>
+        <ol>
+          <li>These T&amp;C regulate the rights and obligations between the provider and the client (hereinafter the "client") in connection with the provision of interest-based regenerative and recreational services, particularly in the field of nutritional coaching, personal training and massage therapy (hereinafter collectively referred to as "services").</li>
+          <li>The provider operates the website <a href="https://www.formnfunction.eu/">https://www.formnfunction.eu/</a> (hereinafter the "website") and conducts business on the basis of a trade licence. The provider is not a VAT payer.</li>
+          <li>The provider is a specialist in nutritional coaching, personal training and massages. Information on the provider's certifications and specialisations can be found on the website.</li>
+          <li><strong>Important notice:</strong> The provider is not a healthcare professional within the meaning of applicable legislation and does not provide healthcare services within the meaning of Act No. 372/2011 Coll., on healthcare services. All services provided as part of nutritional coaching are exclusively of a regenerative, recreational and educational nature and are intended only for healthy persons who wish to improve their lifestyle and dietary habits. The provider does not replace doctors or dietitians, does not perform diagnosis, treatment or disease prevention. In the case of health problems, chronic illnesses, use of medications or specific health conditions (e.g. pregnancy, younger or older age), consultation with a doctor or qualified professional is recommended.</li>
+          <li>These T&amp;C form an integral part of every contract concluded between the client and the provider, unless the parties expressly agree otherwise.</li>
+          <li>The client agrees to the conclusion of the contract by means of remote communication means.</li>
+        </ol>
+
+        <h2 id="en-ii">II. Subject Matter of Services</h2>
+        <ol>
+          <li>The provider offers services in three basic forms: in-person services, online services and combined services. The form of cooperation is always determined by the provider, who will take into account the client's wishes. These services focus on comprehensive care for the client's health and performance through nutritional coaching, personal training or massage therapy. Services may be provided individually or in group form. Unless otherwise agreed, the individual form applies.</li>
+          <li><strong>Nutritional coaching</strong> includes detailed analysis of the client's dietary habits, creation of individual plans, targeted recommendations in the field of nutrition and supplementation and systematic education in the principles of healthy eating, with a focus on the client's individual goals. This service is provided in personal, online or combined form.</li>
+          <li><strong>Personal training</strong> represents comprehensive support in the field of physical activity. It includes the creation of personalised training plans, leading individual training sessions, professional supervision of proper exercise technique and consultations focused on optimising movement habits and overall performance. This service is also provided in personal, online or combined form.</li>
+          <li><strong>Massage services</strong> are provided exclusively in person, either in the provider's mobile premises or at another location agreed with the client, focusing on regenerative and relaxation techniques.</li>
+          <li>The above services may also be provided in group form (group coaching). Group coaching will usually be provided online, containing a pre-determined duration, a certain number of video calls, possibly supporting materials and a support group via an online platform. Specifications are listed on the provider's website when offered.</li>
+          <li><strong>Educational courses</strong> — the provider may also organise online or in-person educational courses focused on nutrition, training or lifestyle. The client is obliged to pay the full course price in advance. If the provider cancels the course, the full paid price will be refunded or a voucher provided. If the client cancels later than one week before the agreed date, the paid course price is forfeited in favour of the provider; otherwise it may be credited or refunded by agreement.</li>
+          <li>The list of currently provided services is on the provider's website or will be communicated directly to the client upon request. For personal training and nutritional coaching, the client may choose from pre-defined service packages or based on individual agreement. Packages contain a detailed specification of services, their scope, validity and price.</li>
+          <li>For professional athletes and clients with more demanding goals, the provider offers specialised programmes focused on sports performance, competition preparation and comprehensive training methodologies. <strong>For such specialised persons there are increased health risks and each of these persons acknowledges that the provider considers it necessary to consult all recommendations with a doctor.</strong></li>
+        </ol>
+
+        <h2 id="en-iii">III. Digital Platforms and Client Account</h2>
+        <ol>
+          <li>Services may be provided through various platforms enabling remote access to ensure effective online cooperation, flexibility and comprehensive access to services. These platforms may include in particular:
+            <ul>
+              <li>Provider's website</li>
+              <li>Squarespace / Acuity Scheduling (Squarespace Ireland Limited, Squarespace House, Ship Street Great, Dublin 8, Ireland, D08 N12C)</li>
+              <li>Cronometer (Cronometer Software Inc., P.O. Box 3270, Revelstoke, BC V0E 2S0, British Columbia, Canada)</li>
+              <li>Everfit (Everfit Technologies, Inc. 845 Market St Ste 450, San Francisco, California, 94103, United States)</li>
+              <li>Read your Body (The Body Literacy Collective CIC., Another Place, 3-9 Belfast Road, London, N16 6UN, United Kingdom)</li>
+              <li>Google applications and website (Google Sheets, Google Calendar)</li>
+            </ul>
+            (hereinafter collectively also referred to as "platforms").
+          </li>
+          <li>The provider may use these specialised digital platforms to enable creation of personalised training plans, analysis of exercise technique, provision of ongoing feedback, generation of regular reports and monitoring of the client's individual progress.</li>
+          <li>At the beginning of cooperation, the provider will inform the client which platforms it proposes to use. If the client agrees to the terms of the relevant platform (which they are obliged to read first), the client will proceed to create a client account on the relevant platform, or give the provider consent to create it. Even if the provider creates the account, the client always has the authorisation to enter and change the password and to cancel the account. If the use of platforms is necessary for the provision of services, both contracting parties may withdraw from the service provision contract.</li>
+          <li>Login to the client account is via a unique login name (email address) and password created by the client.</li>
+          <li>Both the client and the provider will have access to the client account to enable the provision of services. During the provision of services, the provider will add relevant documents (instructional videos, sample meal plans, methodological materials). The provider may also remove these materials, always according to the nature of the specific cooperation and purchased packages.</li>
+          <li>The client is obliged to keep the login details confidential and promptly inform the provider of any suspicion of unauthorised use of their account.</li>
+          <li>Pairing of the client account with the provider's account can be cancelled by written request, termination of the contractual relationship or unilateral cancellation by the provider in case of breach of contractual terms. Cancellation of pairing will include removal of documents uploaded by the provider, unless the parties expressly agree otherwise.</li>
+          <li>The provider is not responsible for the functionality of third-party platforms; in case of their outage, the parties will agree on an alternative method of performance to ensure continuation of services.</li>
+        </ol>
+
+        <h2 id="en-iv">IV. Provision of Services to Minor Clients</h2>
+        <ol>
+          <li>Services to clients under 18 years of age can be provided only with the consent of their legal guardians.</li>
+          <li>Services for minors can be ordered exclusively by their legal guardians. The legal guardian is obliged to participate in the initial consultation, personally create the order and fill in a detailed form on the minor's health contraindications. The provider warns that the provided services are not healthcare services and always recommends consulting all procedures with relevant professionals.</li>
+          <li>Massage services can be provided only to minors from 15 years of age, and exclusively with the consent of the legal guardian.</li>
+          <li>For a minor, the legal guardian confirms health fitness and awareness in a document called "Informed Consent", in which they assume full responsibility for properly informing the provider about the minor's health status and confirming their suitability for the selected services.</li>
+          <li>For minor clients under 15 years of age, the presence of the legal guardian or a person authorised by them is required throughout the provision of the service. The provider reserves the right to refuse to provide the service without giving reasons and may require additional medical confirmation of health fitness.</li>
+          <li>The legal guardian acknowledges the comprehensive nature of the provided services and undertakes to continuously monitor the minor's health status.</li>
+        </ol>
+
+        <h2 id="en-v">V. Provision of Services to Persons with Health Limitations and Pregnant Women</h2>
+        <ol>
+          <li>Services for persons with specific health limitations or pregnant women are provided with maximum regard to the client's individual health status.</li>
+          <li>A client with any health limitation or specific health condition must submit, before starting the service: a current medical certificate of health fitness, written consent from the treating physician, and detailed information about their health status. If such confirmation is not submitted even after the provider's prior request, the client bears sole responsibility for the consequences.</li>
+          <li>Health limitations requiring increased attention include diabetes mellitus, cardiovascular disease, respiratory disorders, oncological diseases, neurological disorders, pregnancy in various stages, psychiatric diseases and autoimmune diseases. The client is obliged to submit a written declaration listing all relevant health limitations, confirming they do not suffer from contraindications, declaring awareness of possible risks, and agreeing to possible modification of the service.</li>
+          <li>For pregnant clients, additional specific requirements apply, including confirmation from the treating gynaecologist, division of services according to the trimester of pregnancy and individual assessment of the suitability of each activity.</li>
+          <li>The provider reserves the right to adjust the scope of the service, refuse to provide the service without medical consent, or immediately terminate the service if there is suspicion of risk to the client's health. If the provider must refuse or terminate the service due to non-fulfilment of the client's obligations (in particular failure to submit a medical certificate), the provider has the right to a cancellation fee of 100% of the service price.</li>
+        </ol>
+
+        <h2 id="en-vi">VI. Initial Consultation</h2>
+        <ol>
+          <li>The initial consultation is a free, approximately 15-minute meeting conducted exclusively online via Google Meet. Its primary purpose is mutual acquaintance, assessment of the possibility of providing services and definition of the client's individual requirements. The consultation applies only to nutritional and training services.</li>
+          <li>The initial consultation is an integral and mandatory part of starting cooperation in nutritional and training services. Without completing this consultation, these services cannot be accessed. If the client has previously cooperated with the provider and resumes cooperation after a period, no further initial consultation is required.</li>
+          <li>The client may book the consultation via the web form, by telephone or by another mutually agreed method. Via the web form, the client clicks "BOOK FREE CONSULTATION", fills in the required data and selects a free date. They will then receive a hyperlink by email for connecting to Google Meet.</li>
+          <li>During the consultation, the form of future cooperation will be agreed in detail. Immediately after the consultation, the client will receive email confirmation of the agreed services.</li>
+          <li>The provider emphasises that the initial consultation is provided once. Without proper cancellation at least 3 working days in advance, it is considered used and no longer available.</li>
+          <li>If the client misses the agreed initial consultation date for reasons on the client's side and exhausts their free option, a replacement initial consultation may be booked by email. The replacement will be charged CZK 250, paid before the consultation takes place.</li>
+        </ol>
+
+        <h2 id="en-vii">VII. Ordering Services, Conclusion of Contract and Reservation Fee</h2>
+        <ol>
+          <li>Service provision contracts can be concluded electronically via the web form, email communication, by telephone or in person at the provider's premises. The client expressly agrees to concluding contracts via remote online access.</li>
+          <li>For online and combined services, the contractual relationship arises at the moment of confirmation of the order by the provider and payment of the agreed price (or first instalment, if agreed).</li>
+          <li>For massage services, the order proceeds via email, reservation system or other written communication. The provider confirms the date in writing together with reference to the T&amp;C and sends payment details for the reservation fee amounting to 50% of the service price. The massage service provision contract is concluded at the moment when the provider receives full payment of the reservation fee. Non-payment within 24 hours from sending payment details entitles the provider to cancel the order.</li>
+          <li>For services agreed in person at the provider's premises, the contract arises upon mutual confirmation of the offer and order and agreement on price. The client is obliged to pay before starting the service, unless otherwise agreed.</li>
+          <li>The provider reserves the right to refuse the order, especially if it could lead to risk to the client's health, if the service contradicts the T&amp;C or legal regulations, or if it is not possible to provide the service capacity-wise.</li>
+          <li>The contracting parties are bound by performance from the date of conclusion of the contract. The client is obliged to pay the agreed price and the provider is obliged to provide the ordered service in the agreed scope and quality.</li>
+        </ol>
+
+        <h2 id="en-viii">VIII. Payment Terms</h2>
+        <ol>
+          <li><strong>Price of services.</strong> The price of services is always stated in the order or contract and includes all applicable taxes and fees, unless otherwise stated.</li>
+          <li><strong>Method of payment.</strong> All payments made through the provider's website are made exclusively through the Stripe payment gateway (PayGate technology), enabling online payments by payment card, Apple Pay and Google Pay. Payments made directly to the provider can be made in cash, via QR code bank transfer, or bank transfer via internet banking. Payments on the basis of an invoice are made by bank transfer within the due date stated on the invoice.</li>
+          <li><strong>Reservation fee.</strong> For massage services, the client pays a reservation fee of 50% of the service price upon ordering. This fee serves to bindingly reserve the date and is part of the agreed service price. The reservation fee is non-refundable if the client cancels later than 48 hours before the agreed date, fails to appear without notice, or if the provider must interrupt service provision due to breach of client's obligations. Otherwise, it can be credited towards the service price or refunded by agreement.</li>
+          <li><strong>Due date.</strong> The price or reservation fee is due according to the date stated in the order, invoice or order confirmation, most often before starting the service. If payment does not go through or is not made on time, the provider is entitled to: suspend service provision, issue a written request with a substitute deadline, and if the client does not make the payment even after the substitute deadline, cancel the order without further liability.</li>
+          <li><strong>Payment confirmation.</strong> Upon successful receipt of payment, the client will receive payment confirmation and a tax document in electronic or printed form. Access to the ordered services or platforms will be provided if part of the service scope.</li>
+        </ol>
+
+        <h2 id="en-ix">IX. Rights and Obligations of Contracting Parties</h2>
+        <h3>A. Rights and Obligations of the Provider</h3>
+        <ol>
+          <li>The provider undertakes to provide services in the agreed scope and quality.</li>
+          <li>The provider reserves the right to refuse to provide the service if it could lead to risk to the client's health, if the service would be contrary to ethical principles or these T&amp;C, or for organisational reasons.</li>
+          <li>The provider is entitled to request the client in writing to fulfil their obligation to provide cooperation with a substitute performance deadline. If the client does not comply, the provider is entitled not to provide services in the extent affected — in such case, the client has no right to a discount.</li>
+        </ol>
+        <h3>B. Rights and Obligations of the Client</h3>
+        <ol>
+          <li>The client is obliged to provide the provider with all necessary cooperation, including timely provision of required information and documents, to enable proper provision of services. In particular, they must provide truthful and up-to-date information about their health status.</li>
+          <li>The client is obliged to protect access to their user account by using a sufficiently strong password and to keep their login details confidential. The client bears responsibility for all actions performed through their account.</li>
+          <li>Services are also provided through third-party online platforms whose terms the client is obliged to read and respect.</li>
+          <li>The client undertakes to take reasonable measures to protect their personal data and communication conducted through these platforms. Information on how the provider processes the client's personal data is contained in a separate document — Principles of Personal Data Processing, available at: <a href="https://www.formnfunction.eu">https://www.formnfunction.eu</a>.</li>
+        </ol>
+
+        <h2 id="en-x">X. Liability and Limitations</h2>
+        <ol>
+          <li><strong>Nature of provided services.</strong> The provider is not a provider of healthcare services within the meaning of Act No. 372/2011 Coll. All provided services are of a supportive, preventive, regenerative and educational nature and do not serve as a substitute for medical diagnosis, treatment or other healthcare services.</li>
+          <li><strong>Informational nature of recommendations.</strong> All information, advice and recommendations provided as part of the services are exclusively of an informational nature. They do not replace professional medical care or individual medical diagnosis. The client is obliged to always assess all recommendations with regard to their current health status and in case of any doubts is obliged to contact a qualified healthcare worker.</li>
+          <li><strong>Client's responsibility for health status.</strong> The client is responsible for truthful, complete and up-to-date disclosure of information about their health status. If the client breaches this obligation, the provider bears no responsibility for any consequences arising from such omission.</li>
+          <li><strong>Exclusion of liability for specific regimes.</strong> If the client decides to undergo specific or intensive regimes (e.g. extreme weight loss, "weight cutting" for athletes), they do so exclusively at their own risk. The client is obliged to consult their intention in advance with a qualified doctor. The provider bears no responsibility for any harm to health, property or other consequences arising from these voluntarily chosen regimes.</li>
+          <li><strong>Limitation of provider's liability.</strong> The provider bears no responsibility for damage arising from non-compliance with recommendations, incorrect or incomplete informing of the provider about health status, or from not undergoing medical consultation if recommended. The provider's liability cannot be excluded in cases of harm caused intentionally or through gross negligence.</li>
+        </ol>
+
+        <h2 id="en-xi">XI. Complaints</h2>
+        <ol>
+          <li>The client has the right to claim defective performance of the service if the provided service is not in accordance with the contract, was not performed properly or in the agreed scope and quality. Only defects that exist at the moment of acceptance of the service can be claimed; if not immediately apparent, the client has the right to claim them without undue delay after discovering them.</li>
+          <li>The client is obliged to make the claim without undue delay after discovering the defect, but no later than within 2 years from the provision of the service. The claim must be made in writing or electronically to the provider's contact email, stating the description of the defect, date of service provision and proof of the agreed contract or order.</li>
+          <li>In the claim, the client may choose the method of remedy: removal of the service defect (e.g. repeated provision, completion), appropriate discount or withdrawal from the contract if the defect cannot be removed.</li>
+          <li>If the client does not specify the required method of remedy, the provider will choose the method at its discretion.</li>
+          <li>The provider is obliged to settle the claim without undue delay, but no later than within 30 days from the date of its receipt, and inform the client of the result in writing or electronically.</li>
+          <li>The claim will not be accepted if the defect was caused by fault on the client's side or non-compliance with the provider's instructions. The client loses the right to make a claim if they do not report the defect in time.</li>
+        </ol>
+
+        <h2 id="en-xii">XII. Termination of Contract</h2>
+        <ol>
+          <li>The service provision contract may be terminated:
+            <ul>
+              <li>by proper provision of all agreed services,</li>
+              <li>upon expiry of the agreed validity period of the contract,</li>
+              <li>by mutual agreement of the contracting parties,</li>
+              <li>by withdrawal of one of the parties according to applicable legal regulations.</li>
+            </ul>
+          </li>
+          <li>The contract is considered terminated if all agreed services have been properly provided or if its duration has expired. If no specific validity period is specified, the contract is considered terminated at the moment of proper provision of all services.</li>
+          <li>The client, as a consumer, has the right to withdraw from the contract concluded outside the provider's premises or by distance method within 14 days from its conclusion, without giving reasons, provided that the service was not started with their express consent before expiry of this period, or if it was not agreed for a specific performance date. Services provided on a specific date (such as massages, courses or personal training) do not give the right to withdraw according to § 1837 of the Civil Code.</li>
+          <li>In the event of withdrawal from the contract after starting the provision of the service with the client's express consent, the client is obliged to pay the proportional part of the price corresponding to the scope of services already provided.</li>
+          <li>The provider is entitled to withdraw from the contract if the client seriously breaches their contractual obligations (e.g. repeatedly fails to provide necessary cooperation even after written request, breaches copyright, unauthorisedly makes the provided services available to third parties, or fails to pay the due amount even after written request with a substitute performance deadline of at least 5 days). Withdrawal from the contract is effective on the date of delivery of written notice to the client. The provider does not refund amounts for services already provided.</li>
+          <li>The client has the right to withdraw from the contract in case of material breach of obligations by the provider (service not provided in the agreed quality, provided late without remedy within 5 days of written request, or not fulfilled at all). In such a case, the provider is obliged to refund the proportional part of the agreed price for unexhausted services.</li>
+          <li>In the event of death of one of the contracting parties, rights and obligations are inherited in accordance with relevant legal regulations.</li>
+          <li>Upon termination of the contract, both parties are obliged to settle all mutual claims without undue delay, unless otherwise agreed.</li>
+        </ol>
+
+        <h2 id="en-xiii">XIII. Copyright and Licence Terms</h2>
+        <ol>
+          <li><strong>Provider's copyright works.</strong> The provider is the exclusive owner of all video materials, text materials and other training documents provided as part of the ordered services (hereinafter "materials"). These materials are protected by Act No. 121/2000 Coll., the Copyright Act, as amended, and represent the provider's copyright works. The client is granted a non-exclusive, non-transferable licence to use these materials exclusively for personal needs and for a limited period of the purchased service package. Unless otherwise agreed, the client is entitled to use the materials for the period agreed within the package; if not expressly agreed, materials are made available for one year from the date of their provision. The client is not entitled to copy, download, modify, reproduce, publicly distribute or incorporate these materials into other works in any way. Breach of these licence terms gives the provider the right to immediately terminate the contractual relationship and claim compensation for damage. The client acknowledges that unauthorised use or distribution of these materials may be prosecuted according to relevant legal regulations.</li>
+          <li><strong>Client's copyright works.</strong> The client may voluntarily provide their videos or photos documenting their progress as part of the cooperation, which will be uploaded exclusively to pre-agreed and contractually secured platforms. The provider is entitled to use the provided materials exclusively for the purposes of realisation and evaluation of the agreed services, ensuring their confidentiality and appropriate security. The provider undertakes to destroy the materials upon termination of the contractual relationship or at the client's request.</li>
+        </ol>
+
+        <h2 id="en-xiv">XIV. Digital Content</h2>
+        <ol>
+          <li>If provision of digital content (e.g. videos or other materials) is part of the services, the provider will make it available for the period agreed within the package; unless expressly agreed otherwise, it will be made available for one year from the date of its provision to the client.</li>
+          <li>Functionality, compatibility, interoperability and requirements for the digital environment (e.g. specific browser, stable internet, need to install specific applications or platforms) are stated for each service that also includes provision of digital content on the website and in the order.</li>
+          <li>Licence to use is governed by Article XIII of the T&amp;C.</li>
+          <li>The provider is responsible for the conformity of the digital content with the agreed properties, quality, updates and flawless functionality for the duration of the obligation.</li>
+          <li>Upon provision, the client expressly agrees to the start of performance and extinction of the right to withdraw according to § 1837 letter l) of the Civil Code with confirmation according to § 1824a paragraph 2 of the Civil Code.</li>
+          <li>Provision of digital content is governed by relevant provisions of the applicable legal regulations, in particular § 2389a et seq. of the Civil Code.</li>
+        </ol>
+
+        <h2 id="en-xv">XV. Consumer</h2>
+        <ol>
+          <li>A consumer is any person who, outside the scope of their business activity or independent exercise of their profession, concludes a contract with an entrepreneur or otherwise deals with them. The client will usually be a consumer.</li>
+          <li>The consumer enjoys enhanced protection according to applicable legal regulations granted in particular by Act No. 89/2012 Coll., the Civil Code and Act No. 634/1992 Coll., on consumer protection, as amended.</li>
+          <li>Since the service provision contract is usually concluded by distance method, the client has the right to withdraw from the contract within the meaning of § 1829 of the Civil Code, with clear exceptions as stated in Article XII. According to § 1837 of the Civil Code, the consumer cannot withdraw from the contract:
+            <ul>
+              <li>on provision of services if they were fully provided; in the case of performance for payment, only if it started with the consumer's prior express consent before expiry of the withdrawal period, and the entrepreneur informed the consumer that by providing the performance the right to withdraw expires;</li>
+              <li>on accommodation, transport of goods, rental of transport means, catering or leisure activities if to be performed according to the contract on a specific date or within a specific period;</li>
+              <li>on delivery of digital content not supplied on a tangible medium, after performance has begun; in the case of performance for payment, if it started with the consumer's prior express consent before expiry of the withdrawal period, the consumer was informed that thereby the right to withdraw expires, and the entrepreneur provided confirmation according to § 1824a paragraphs 1 and 2 or § 1828 paragraphs 3 and 4.</li>
+            </ul>
+          </li>
+          <li>In the case of choice of law different from the law of the client's usual residence as a consumer, the client may always invoke the cogent (imperative) norms of the legal order of their usual residence which cannot be limited or excluded by this agreement.</li>
+        </ol>
+
+        <h2 id="en-xvi">XVI. Out-of-Court Dispute Resolution</h2>
+        <ol>
+          <li>According to Act No. 634/1992 Coll., on consumer protection, the client as a consumer has the right to out-of-court resolution of a consumer dispute arising from the contract. In such a case, they are entitled to contact the Czech Trade Inspection Authority (Central Inspectorate — ADR Department, Štěpánská 15, 120 00 Prague 2, email: <a href="mailto:adr@coi.cz">adr@coi.cz</a>, website: <a href="https://adr.coi.cz" target="_blank" rel="noopener">adr.coi.cz</a>). Out-of-court resolution is initiated exclusively upon the client's proposal if the dispute could not be resolved directly with the provider. The proposal can be submitted no later than 1 year from the date when the client first exercised their right which is the subject of the dispute with the provider.</li>
+          <li>The client has the right to initiate out-of-court dispute resolution online through the ODR platform available at <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr/</a>. The European Consumer Centre Czech Republic (Štěpánská 567/15, 120 00 Prague 2, <a href="http://www.evropskyspotrebitel.cz" target="_blank" rel="noopener">www.evropskyspotrebitel.cz</a>) is the contact point according to Regulation (EU) No 524/2013 on online dispute resolution for consumer disputes.</li>
+          <li>The Czech Trade Inspection Authority carries out supervision of compliance with Act No. 634/1992 Coll., on consumer protection, within the defined scope.</li>
+        </ol>
+
+        <h2 id="en-xvii">XVII. Final Provisions</h2>
+        <ol>
+          <li>These T&amp;C take effect on the date of their publication on the provider's website.</li>
+          <li>The provider reserves the right to unilaterally amend these T&amp;C to a reasonable extent. The client will be informed of the change at least 15 days before the effective date, for example by notice to the client account, by email or other available means.</li>
+          <li>In the event of a change to the T&amp;C, the client has the right to withdraw from the contract without sanctions by the date of effectiveness of the amended terms, in written form sent to the provider. If the client does not withdraw by the date of effectiveness of the amended T&amp;C, it is deemed that they agree to the proposed changes.</li>
+          <li>These T&amp;C are prepared in accordance with the applicable legal regulations of the Czech Republic, in particular Act No. 89/2012 Coll., the Civil Code, as amended, and Act No. 634/1992 Coll., on consumer protection, as amended.</li>
+          <li>The client confirms that they have familiarised themselves with these T&amp;C, understand them and agree to them.</li>
+        </ol>
+        <p><em>In Kladno (Czech Republic), 01.01.2026 · Kristýna Čočková, MSc.</em></p>
+      </div>
+    </div>
+
+    <!-- CZECH -->
+    <div id="terms-cs" class="legal-body-inner" style="display:none">
+      <nav class="legal-nav">
+        <h4>Obsah</h4>
+        <ul>
+          <li><a href="#cs-i">I. Úvodní ustanovení</a></li>
+          <li><a href="#cs-ii">II. Předmět služeb</a></li>
+          <li><a href="#cs-iii">III. Digitální platformy</a></li>
+          <li><a href="#cs-iv">IV. Nezletilí klienti</a></li>
+          <li><a href="#cs-v">V. Zdravotní omezení</a></li>
+          <li><a href="#cs-vi">VI. Úvodní konzultace</a></li>
+          <li><a href="#cs-vii">VII. Objednávka a smlouva</a></li>
+          <li><a href="#cs-viii">VIII. Platební podmínky</a></li>
+          <li><a href="#cs-ix">IX. Práva a povinnosti</a></li>
+          <li><a href="#cs-x">X. Odpovědnost</a></li>
+          <li><a href="#cs-xi">XI. Reklamace</a></li>
+          <li><a href="#cs-xii">XII. Ukončení smlouvy</a></li>
+          <li><a href="#cs-xiii">XIII. Autorská práva</a></li>
+          <li><a href="#cs-xiv">XIV. Digitální obsah</a></li>
+          <li><a href="#cs-xv">XV. Spotřebitel</a></li>
+          <li><a href="#cs-xvi">XVI. Mimosoudní řešení sporů</a></li>
+          <li><a href="#cs-xvii">XVII. Závěrečná ustanovení</a></li>
+        </ul>
+      </nav>
+      <div class="legal-content">
+        <div class="highlight-box">
+          <p>Tyto Všeobecné obchodní podmínky („VOP") poskytovatele Kristýny Čočkové, MSc., podnikající fyzické osoby, IČO: 09031197, se sídlem Vašíčkova 3436, 272 04, Kladno, Česká republika, tel.: +420 606 074 569, email: info@formnfunction.eu (dále jen „Poskytovatel"), upravují práva a povinnosti mezi poskytovatelem a klientem v souvislosti s poskytováním zájmových regeneračních a rekondičních služeb, zejména v oblasti výživového poradenství, osobního trenérství a masérství.</p>
+        </div>
+
+        <h2 id="cs-i">I. Úvodní ustanovení</h2>
+        <ol>
+          <li>Tyto VOP upravují práva a povinnosti mezi poskytovatelem a klientem (dále jen „klient") v souvislosti s poskytováním zájmových regeneračních a rekondičních služeb zejména v oblasti výživového poradenství, osobního trenérství a masérství (dále společně jen „služby").</li>
+          <li>Poskytovatel provozuje webové stránky <a href="https://www.formnfunction.eu/">https://www.formnfunction.eu/</a> (dále jen „web") a podniká na základě živnostenského oprávnění. Není plátcem DPH.</li>
+          <li>Poskytovatel je odborníkem v oblasti výživového poradenství, osobního tréninku a masáží. Informace o certifikacích a specializacích poskytovatele naleznete na webu.</li>
+          <li><strong>Důležité upozornění:</strong> Poskytovatel není zdravotníkem ve smyslu platné legislativy a neposkytuje zdravotní služby ve smyslu zákona č. 372/2011 Sb., o zdravotních službách. Veškeré služby poskytované v rámci výživového poradenství mají výhradně regenerační, rekondiční a edukativní charakter a jsou určeny pouze zdravým osobám, které chtějí zlepšit svůj životní styl a stravovací návyky. Poskytovatel nenahrazuje lékaře ani nutriční terapeuty, neprovádí diagnostiku, léčbu ani prevenci onemocnění. V případě zdravotních potíží, chronických onemocnění, užívání léků či specifického zdravotního stavu (např. těhotenství, nižší či vyšší věk) se doporučuje konzultace s lékařem či kvalifikovaným odborníkem.</li>
+          <li>Tyto VOP jsou nedílnou součástí každé smlouvy uzavřené mezi klientem a poskytovatelem, neujednají-li si strany výslovně jinak.</li>
+          <li>Klient souhlasí s uzavíráním smlouvy prostřednictvím dálkových komunikačních prostředků.</li>
+        </ol>
+
+        <h2 id="cs-ii">II. Předmět služeb</h2>
+        <ol>
+          <li>Poskytovatel nabízí služby ve třech základních formách: osobní prezenční služby, online služby a kombinované služby. Formu spolupráce vždy určuje poskytovatel, který přihlédne k přání klienta. Tyto služby jsou zaměřeny na komplexní péči o zdraví a výkonnost klienta. Služby jsou poskytovány buď individuálně, nebo skupinovou formou. Nebude-li sjednáno jinak, má se za to, že jde o formu individuální.</li>
+          <li><strong>Výživové poradenství</strong> zahrnuje detailní analýzu stravovacích návyků klienta, tvorbu individuálních plánů, cílená doporučení v oblasti výživy a suplementace a systematickou edukaci v principech zdravého stravování. Tato služba je poskytována ve formě osobní, online nebo kombinované.</li>
+          <li><strong>Osobní trenérství</strong> představuje komplexní podporu v oblasti pohybové aktivity. Zahrnuje tvorbu personalizovaných tréninkových plánů, vedení individuálních tréninků, odborný dohled nad správnou technikou cvičení a konzultace zaměřené na optimalizaci pohybových návyků a celkové výkonnosti. Taktéž tato služba je poskytována ve formě osobní, online nebo kombinované.</li>
+          <li><strong>Masérské služby</strong> jsou poskytovány výhradně prezenčně, a to buď v mobilní provozovně poskytovatele nebo na jiném místě dohodnutém s klientem. Zaměřují se na regenerační a relaxační techniky dle potřeb klienta.</li>
+          <li>Uvedené služby může poskytovatel poskytovat rovněž skupinově (skupinový koučink). Skupinový koučink bude zpravidla poskytován online, bude obsahovat předem stanovenou dobu trvání, daný počet videohovorů, případně podpůrných materiálů a podpůrnou skupinu prostřednictvím online platformy. Specifikace jsou uvedeny na webu poskytovatele.</li>
+          <li><strong>Vzdělávací kurzy</strong> — poskytovatel může rovněž pořádat online či prezenční vzdělávací kurzy zaměřené na výživu, trénink či životní styl. Klient je povinen uhradit celou cenu kurzu předem. V případě zrušení termínu kurzu ze strany poskytovatele bude klientovi vrácena celá cena nebo poskytnut poukaz. V případě zrušení ze strany klienta později než týden před dohodnutým termínem propadá uhrazená cena ve prospěch poskytovatele; v opačném případě ji lze započíst nebo vrátit dle dohody stran.</li>
+          <li>Výčet aktuálně poskytovaných služeb je uveden na webu poskytovatele nebo bude klientovi sdělen přímo na žádost. U osobního trenérství a výživového poradenství má klient možnost výběru z předem definovaných balíčků služeb nebo na základě individuální dohody. Každý balíček obsahuje detailní specifikaci, rozsah, platnost a cenu.</li>
+          <li>Pro profesionální sportovce a klienty s náročnějšími cíli nabízí poskytovatel specializované programy zaměřené na sportovní výkonnost, přípravu na soutěže a komplexní tréninkové metodiky. <strong>U takto specializovaných osob existují zvýšená rizika ovlivnění zdraví a každá z těchto osob bere na vědomí, že poskytovatel považuje za nezbytné konzultování veškerých doporučení s lékařem.</strong></li>
+        </ol>
+
+        <h2 id="cs-iii">III. Digitální platformy a klientský účet</h2>
+        <ol>
+          <li>Služby mohou být poskytovány prostřednictvím různých platforem umožňujících dálkový přístup. Mezi tyto platformy mohou patřit zejména:
+            <ul>
+              <li>Web poskytovatele</li>
+              <li>Squarespace / Acuity Scheduling (Squarespace Ireland Limited, Squarespace House, Ship Street Great, Dublin 8, Ireland, D08 N12C)</li>
+              <li>Cronometer (Cronometer Software Inc., P.O. Box 3270, Revelstoke, BC V0E 2S0, British Columbia, Canada)</li>
+              <li>Everfit (Everfit Technologies, Inc. 845 Market St Ste 450, San Francisco, California, 94103, United States)</li>
+              <li>Read your Body (The Body Literacy Collective CIC., Another Place, 3-9 Belfast Road, London, N16 6UN, United Kingdom)</li>
+              <li>Aplikace a web Google (Google Sheets, Google Calendar)</li>
+            </ul>
+            (dále a výše společně též jen „platformy").
+          </li>
+          <li>Poskytovatel může při poskytování služeb využívat tyto specializované digitální platformy, které umožňují tvorbu personalizovaných tréninkových plánů, analýzu techniky cvičení, poskytování průběžné zpětné vazby, generování pravidelných reportů a sledování individuálního pokroku klienta.</li>
+          <li>V počátku spolupráce poskytovatel klientovi sdělí, které platformy navrhuje využít. Pakliže klient souhlasí s podmínkami příslušné platformy (s nimiž je povinen se nejprve seznámit), přistoupí ke zřízení klientského účtu na příslušné platformě, případně dá poskytovateli souhlas s jeho zřízením. Oprávnění pro zadání a změny hesla a zrušení účtu má vždy pouze klient. Pokud bude užívání platforem nezbytné pro poskytování služeb, mohou obě smluvní strany od smlouvy odstoupit.</li>
+          <li>Přihlášení do klientského účtu probíhá prostřednictvím jedinečného přihlašovacího jména (emailové adresy) a hesla, které si klient sám vytvoří.</li>
+          <li>Do klientského účtu budou mít přístup jak klient, tak poskytovatel. V průběhu poskytování služeb budou ze strany poskytovatele přidávány příslušné podklady (instruktážní videa, vzorové jídelníčky, metodické materiály). Tyto materiály může poskytovatel z klientského účtu rovněž odstranit.</li>
+          <li>Klient je povinen udržovat přihlašovací údaje v tajnosti a neprodleně informovat poskytovatele o jakémkoli podezření z neoprávněného užití jeho účtu.</li>
+          <li>Spárování klientského účtu s účtem poskytovatele lze zrušit písemnou žádostí, ukončením smluvního vztahu nebo jednostranným zrušením poskytovatelem v případě porušení smluvních podmínek. Součástí zrušení spárování bude také odstranění podkladů nahraných ze strany poskytovatele, nedohodnou-li se smluvní strany jinak.</li>
+          <li>Poskytovatel není odpovědný za funkčnost platforem třetích osob; v případě jejich výpadku se strany dohodnou na alternativním způsobu plnění, aby bylo zajištěno pokračování služeb dle smlouvy.</li>
+        </ol>
+
+        <h2 id="cs-iv">IV. Poskytování služeb nezletilým klientům</h2>
+        <ol>
+          <li>Služby klientům mladším 18 let lze poskytovat pouze se souhlasem jejich zákonných zástupců.</li>
+          <li>Služby pro nezletilé osoby mohou být objednány výhradně jejich zákonnými zástupci. Zákonný zástupce je povinen zúčastnit se úvodní konzultace, osobně vytvořit objednávku příslušné služby a vyplnit detailní formulář o zdravotních kontraindikacích nezletilého. Poskytovatel upozorňuje, že poskytované služby nejsou zdravotnickými službami a v případě nezletilých vždy doporučuje konzultovat veškeré postupy s příslušnými odborníky.</li>
+          <li>Masérské služby je možné poskytovat pouze nezletilým od 15 let věku, a to výhradně se souhlasem zákonného zástupce.</li>
+          <li>Za nezletilého potvrzuje zdravotní způsobilost a informovanost vždy jeho zákonný zástupce v dokumentu „Informovaný souhlas", v němž přebírá plnou odpovědnost za řádné informování poskytovatele o zdravotním stavu a za vhodnost zvolených služeb pro nezletilého.</li>
+          <li>Pro nezletilé klienty do 15 let je vyžadována přítomnost zákonného zástupce nebo jím pověřené osoby po celou dobu poskytování služby. Poskytovatel si vyhrazuje právo odmítnout poskytnutí služby bez udání důvodu a může požadovat dodatečné lékařské potvrzení o zdravotní způsobilosti.</li>
+          <li>Zákonný zástupce bere na vědomí komplexní povahu poskytovaných služeb a zavazuje se průběžně sledovat zdravotní stav nezletilého.</li>
+        </ol>
+
+        <h2 id="cs-v">V. Poskytování služeb osobám se zdravotními omezeními a těhotným</h2>
+        <ol>
+          <li>Služby pro osoby se specifickými zdravotními omezeními nebo těhotné ženy jsou poskytovány s maximálním ohledem na individuální zdravotní stav klienta.</li>
+          <li>Klient s jakýmkoli zdravotním omezením nebo specifickou zdravotní kondicí předloží před zahájením služby: aktuální lékařské potvrzení o zdravotní způsobilosti, písemný souhlas ošetřujícího lékaře s poskytnutím dané služby a detailní informace o svém zdravotním stavu. Jestliže takové potvrzení nepředloží ani přes předchozí výzvu poskytovatele, nese odpovědnost za následky výlučně klient.</li>
+          <li>Mezi zdravotní omezení vyžadující zvýšenou pozornost patří diabetes mellitus, kardiovaskulární onemocnění, respirační poruchy, onkologická onemocnění, neurologické poruchy, těhotenství v různých stádiích, psychiatrická onemocnění a autoimunitní choroby. Klient je povinen předložit písemné prohlášení, v němž uvede všechna relevantní zdravotní omezení, potvrdí absenci kontraindikací, deklaruje vědomí případných rizik a přebírá za ně plnou odpovědnost.</li>
+          <li>Pro těhotné klientky platí dodatečné specifické požadavky, včetně povinnosti předložit potvrzení od ošetřujícího gynekologa, rozdělení služeb podle trimestru těhotenství a individuálního posouzení vhodnosti každé aktivity.</li>
+          <li>Poskytovatel si vyhrazuje právo upravit rozsah služby, odmítnout poskytnutí služby bez předložení lékařského souhlasu nebo okamžitě ukončit službu v případě podezření na ohrožení zdraví klienta. Pokud bude muset poskytovatel přistoupit k odmítnutí nebo ukončení služby pro nesplnění povinností klienta (zejm. nepředložení lékařského potvrzení), má právo na storno poplatek ve výši 100 % ceny služby.</li>
+        </ol>
+
+        <h2 id="cs-vi">VI. Úvodní konzultace</h2>
+        <ol>
+          <li>Úvodní konzultace představuje bezplatnou, přibližně 15minutovou schůzku, jejímž primárním účelem je vzájemné poznání, posouzení možnosti poskytnutí služeb a definování individuálních požadavků klienta. Konzultace probíhá výhradně online prostřednictvím platformy Google Meet. Konzultace se provádí pouze u výživových a trenérských služeb.</li>
+          <li>Úvodní konzultace je nedílnou a povinnou součástí zahájení spolupráce v oblasti výživových a trenérských služeb. Bez absolvování této konzultace nelze tyto služby poskytovatele čerpat. V případě, že klient s poskytovatelem již v minulosti spolupracoval a po určité době navazuje spolupráci znovu, lze navázání spolupráce uskutečnit bez další úvodní konzultace.</li>
+          <li>Klient má možnost objednat konzultaci prostřednictvím webového formuláře, telefonicky nebo jiným vzájemně dohodnutým způsobem. V případě využití webového formuláře klient klikne na tlačítko „OBJEDNAT KONZULTACI ZDARMA", vyplní požadované údaje a vybere volný termín. Emailem obdrží hypertextový odkaz pro připojení k Google Meet.</li>
+          <li>Během samotné konzultace bude detailně sjednána podoba budoucí spolupráce. Bezprostředně po konzultaci klient obdrží emailové potvrzení domluvených služeb.</li>
+          <li>Poskytovatel zdůrazňuje, že úvodní konzultace je poskytována jednorázově. Bez řádné omluvy nejméně 3 pracovní dny předem je považována za vyčerpanou, a tudíž již nevyužitelnou.</li>
+          <li>Pokud klientovi propadne sjednaný termín úvodní konzultace z důvodů na straně klienta a vyčerpá tak svoji bezplatnou variantu, má možnost objednat náhradní úvodní konzultaci emailem. Tento náhradní termín bude zpoplatněn částkou 250 Kč, která bude uhrazena před uskutečněním konzultace.</li>
+        </ol>
+
+        <h2 id="cs-vii">VII. Objednávka služeb, uzavření smlouvy a rezervační poplatek</h2>
+        <ol>
+          <li>Smlouvy o poskytování služeb lze uzavírat elektronicky prostřednictvím webového formuláře, emailovou komunikací, telefonicky nebo osobně v provozovně poskytovatele. Klient výslovně souhlasí s uzavíráním smluv formou dálkového přístupu online.</li>
+          <li>U online a kombinovaných služeb vzniká smluvní vztah okamžikem potvrzení objednávky poskytovatelem a úhradou sjednané ceny (příp. první splátky, bude-li sjednaná cena placena postupně).</li>
+          <li>U masérských služeb probíhá objednávka emailem, rezervačním systémem či jinou písemnou komunikací; klient navrhne termín dle podmínek uvedených na webu poskytovatele. Poskytovatel potvrdí termín písemně spolu s uvedením VOP a zašle údaje pro úhradu rezervačního poplatku činícího 50 % z ceny služby. Smlouva o poskytování masérské služby je uzavřena okamžikem, kdy poskytovatel obdrží úplnou úhradu rezervačního poplatku. Neuhrazení poplatku ve lhůtě 24 hodin od zaslání údajů pro úhradu opravňuje poskytovatele objednávku zrušit.</li>
+          <li>U služeb sjednaných osobně v provozovně poskytovatele vzniká smlouva okamžikem vzájemného potvrzení nabídky a objednávky a domluvě ceny. Klient je povinen uhradit cenu dle dohody před zahájením služby, pokud není dohodnuto jinak.</li>
+          <li>Poskytovatel si vyhrazuje právo objednávku odmítnout, zejména pokud by mohlo dojít k ohrožení zdraví klienta, pokud služba odporuje VOP či právním předpisům, nebo pokud není kapacitně možné službu poskytnout.</li>
+          <li>Smluvní strany jsou vázány plněním ode dne uzavření smlouvy. Klient je povinen uhradit sjednanou cenu a poskytovatel je povinen poskytnout objednanou službu v dohodnutém rozsahu a kvalitě.</li>
+        </ol>
+
+        <h2 id="cs-viii">VIII. Platební podmínky</h2>
+        <ol>
+          <li><strong>Cena služeb.</strong> Cena služeb je vždy uvedena v objednávce nebo ve smlouvě a zahrnuje veškeré platné daně a poplatky, pokud není v konkrétním případě uvedeno jinak.</li>
+          <li><strong>Způsob platby.</strong> Veškeré platby realizované prostřednictvím webových stránek poskytovatele jsou prováděny výhradně prostřednictvím platební brány Stripe (technologie PayGate), která umožňuje online platby platební kartou, Apple Pay i Google Pay. Platby prováděné klientem přímo u poskytovatele lze uskutečnit hotově, prostřednictvím QR kódu bankovním převodem, či bankovním převodem v internetovém bankovnictví. Platby na základě vystavené faktury jsou realizovány bankovním převodem ve lhůtě splatnosti uvedené na faktuře.</li>
+          <li><strong>Rezervační poplatek.</strong> U masérských služeb klient uhradí při objednávce rezervační poplatek ve výši 50 % z ceny služby. Tento poplatek slouží k závaznému rezervování termínu a je součástí sjednané ceny služby. Rezervační poplatek je nevratný v případě, že klient zruší objednávku později než 48 hodin před dohodnutým termínem, nedostaví-li se bez omluvy, nebo je-li poskytovatel nucen přerušit poskytování služby v důsledku porušení povinností klienta. V opačném případě je možné jeho započtení na cenu služby nebo vrácení klientovi dle dohody stran.</li>
+          <li><strong>Splatnost.</strong> Cena nebo rezervační poplatek je splatný dle termínu uvedeného v objednávce, faktuře nebo potvrzení objednávky, nejčastěji před zahájením služby. V případě, že platba neprojde nebo neproběhne včas, je poskytovatel oprávněn: pozastavit poskytování služby, písemně vyzvat klienta k nápravě s uvedením náhradní lhůty, a pokud klient platbu neprovede ani po uplynutí náhradní lhůty, zrušit objednávku bez další odpovědnosti.</li>
+          <li><strong>Potvrzení platby.</strong> Po úspěšném přijetí platby obdrží klient potvrzení o úhradě a daňový doklad v elektronické či tištěné podobě. Současně mu bude zpřístupněn přístup k objednaným službám či platformám, pokud je to součástí rozsahu služeb.</li>
+        </ol>
+
+        <h2 id="cs-ix">IX. Práva a povinnosti smluvních stran</h2>
+        <h3>A. Práva a povinnosti poskytovatele</h3>
+        <ol>
+          <li>Poskytovatel se zavazuje poskytovat služby v dohodnutém rozsahu a kvalitě.</li>
+          <li>Poskytovatel si vyhrazuje právo odmítnout poskytnutí služby v případě, že by mohlo dojít k ohrožení zdraví klienta, v případě kdyby služba byla v rozporu s etickými principy či těmito VOP, nebo z organizačních důvodů na straně poskytovatele.</li>
+          <li>Poskytovatel je oprávněn písemně vyzvat klienta k plnění jeho povinnosti poskytovat součinnost s určením náhradní lhůty plnění. Pokud klient neuposlechne ani této výzvy, je poskytovatel oprávněn v rozsahu dotčeném takovou nečinností klientovi služby neposkytovat — v takovém případě nevzniká klientovi právo na slevu z poskytovaných služeb.</li>
+        </ol>
+        <h3>B. Práva a povinnosti klienta</h3>
+        <ol>
+          <li>Klient je povinen poskytovat poskytovateli veškerou nezbytnou součinnost, včetně včasného poskytování požadovaných informací a podkladů. Zejména je povinen poskytovat pravdivé a aktuální informace o zdravotním stavu, je-li to třeba v souvislosti s poskytováním příslušné služby.</li>
+          <li>Klient je povinen chránit přístup ke svému uživatelskému účtu použitím dostatečně silného hesla a zachovávat své přihlašovací údaje v tajnosti. Klient nese odpovědnost za veškeré úkony provedené prostřednictvím svého účtu.</li>
+          <li>Služby jsou poskytovány i prostřednictvím online platforem třetích stran, jejichž podmínky je klient povinen si přečíst a tyto respektovat.</li>
+          <li>Klient se dále zavazuje přijmout přiměřená opatření k ochraně svých osobních údajů a komunikace vedené prostřednictvím těchto platforem. Informace o tom, jak poskytovatel zpracovává osobní údaje klienta, jsou uvedeny v samostatném dokumentu Zásady zpracování osobních údajů, dostupném na: <a href="https://www.formnfunction.eu">https://www.formnfunction.eu</a>.</li>
+        </ol>
+
+        <h2 id="cs-x">X. Odpovědnost a omezení</h2>
+        <ol>
+          <li><strong>Charakter poskytovaných služeb.</strong> Poskytovatel není poskytovatelem zdravotních služeb ve smyslu zákona č. 372/2011 Sb., o zdravotních službách, ve znění pozdějších předpisů. Veškeré poskytované služby mají podpůrný, preventivní, regenerační a edukativní charakter. Neslouží jako náhrada lékařské diagnostiky, léčby ani jiných zdravotnických výkonů.</li>
+          <li><strong>Informativní povaha doporučení.</strong> Veškeré informace, rady a doporučení poskytovaná v rámci služeb mají výhradně informativní charakter. Nenahrazují odbornou lékařskou péči ani individuální lékařskou diagnózu. Klient je povinen veškerá doporučení vždy posuzovat s přihlédnutím ke svému aktuálnímu zdravotnímu stavu a v případě jakýchkoliv pochybností či zdravotních komplikací se obrátit na kvalifikovaného zdravotnického pracovníka.</li>
+          <li><strong>Odpovědnost klienta za zdravotní stav.</strong> Klient odpovídá za pravdivé, úplné a aktuální sdělení informací o svém zdravotním stavu. Pokud klient tuto povinnost poruší, poskytovatel nenese odpovědnost za jakékoli následky plynoucí z takového opomenutí.</li>
+          <li><strong>Vyloučení odpovědnosti za specifické režimy.</strong> V případě, že se klient rozhodne podstoupit specifické nebo intenzivní režimy (např. extrémní snižování hmotnosti, tzv. „weight cutting" u sportovců), činí tak výhradně na vlastní odpovědnost. Klient je povinen svůj záměr předem konzultovat s kvalifikovaným lékařem. Poskytovatel nenese odpovědnost za jakékoli újmy na zdraví, majetku nebo jiné následky vzniklé v důsledku těchto dobrovolně zvolených režimů.</li>
+          <li><strong>Omezení odpovědnosti poskytovatele.</strong> Poskytovatel nenese odpovědnost za škodu, újmu na zdraví nebo jinou újmu vzniklou v důsledku nedodržení doporučení, nesprávného nebo neúplného informování poskytovatele o zdravotním stavu ze strany klienta, nebo v důsledku neprovedení lékařské konzultace, pokud byla doporučena. Odpovědnost poskytovatele nelze vyloučit v případech, kdy by to bylo v rozporu s platnými právními předpisy, zejména v případech újmy způsobené poskytovatelem úmyslně nebo z hrubé nedbalosti.</li>
+        </ol>
+
+        <h2 id="cs-xi">XI. Reklamace</h2>
+        <ol>
+          <li>Klient má právo uplatnit reklamaci vadného plnění služby, pokud poskytnutá služba není v souladu se smlouvou, nebyla provedena řádně nebo v dohodnutém rozsahu a kvalitě. Lze reklamovat pouze takové vady služeb, které existují v okamžiku převzetí služby klientem; pokud takové vady nejsou zjevné okamžitě, má klient právo je reklamovat bez zbytečného odkladu po jejich zjištění.</li>
+          <li>Reklamaci je klient povinen uplatnit bez zbytečného odkladu poté, co vadu zjistí, nejpozději však do 2 let od poskytnutí služby. Reklamace musí být podána písemně nebo elektronicky na kontaktní email poskytovatele, s uvedením popisu vady, data poskytnutí služby a dokladu o sjednané smlouvě či objednávce.</li>
+          <li>Klient může při reklamaci zvolit způsob nápravy: odstranění vady služby (např. opakované poskytnutí, doplnění), přiměřenou slevu nebo odstoupení od smlouvy, pokud není možné vadu odstranit.</li>
+          <li>Pokud klient neuvede požadovaný způsob nápravy, zvolí poskytovatel způsob dle vlastního uvážení.</li>
+          <li>Poskytovatel je povinen reklamaci vyřídit bez zbytečného odkladu, nejpozději však do 30 dnů ode dne jejího přijetí, a klienta o výsledku informovat písemně či elektronicky.</li>
+          <li>Reklamace nebude uznána, pokud byla vada způsobena zaviněním ze strany klienta nebo nedodržením pokynů poskytovatele. Klient ztrácí právo na uplatnění reklamace, pokud neoznámí vadu včas dle tohoto článku.</li>
+        </ol>
+
+        <h2 id="cs-xii">XII. Ukončení smlouvy</h2>
+        <ol>
+          <li>Smlouva o poskytování služeb může být ukončena:
+            <ul>
+              <li>řádným poskytnutím všech sjednaných služeb,</li>
+              <li>uplynutím sjednané doby platnosti smlouvy, pokud byla doba dohodnuta,</li>
+              <li>vzájemnou dohodou smluvních stran,</li>
+              <li>odstoupením některé ze stran dle platné právní úpravy.</li>
+            </ul>
+          </li>
+          <li>Smlouva se považuje za ukončenou, pokud byly všechny sjednané služby řádně poskytnuty nebo pokud uplynula doba jejího trvání. Jestliže není ve smlouvě uvedena konkrétní doba platnosti, smlouva se považuje za ukončenou okamžikem řádného poskytnutí všech služeb.</li>
+          <li>Klient, jakožto spotřebitel, má právo odstoupit od smlouvy uzavřené mimo prostory poskytovatele nebo distančním způsobem do 14 dnů od jejího uzavření, a to bez udání důvodu, pokud služba nebyla zahájena s jeho výslovným souhlasem před uplynutím této lhůty, nebo pokud nebyla sjednána na konkrétní datum plnění. Například služby poskytované na konkrétní termín, jako jsou masáže, kurzy či osobní tréninky, se právo odstoupit nepřiznává dle § 1837 občanského zákoníku.</li>
+          <li>V případě odstoupení od smlouvy po zahájení poskytování služby s výslovným souhlasem klienta je klient povinen uhradit poměrnou část ceny odpovídající rozsahu již poskytnutých služeb.</li>
+          <li>Poskytovatel je oprávněn odstoupit od smlouvy, pokud klient závažně poruší své smluvní povinnosti (např. opakovaně neposkytne nezbytnou součinnost ani přes písemnou výzvu, poruší autorská práva, neoprávněně zpřístupní poskytované služby třetím osobám nebo neuhradí splatnou částku i přes písemnou výzvu s náhradní lhůtou plnění v délce nejméně 5 dnů). Odstoupení od smlouvy je účinné dnem doručení písemného oznámení klientovi. Poskytovatel nevrací žádné částky za již poskytnuté služby.</li>
+          <li>Klient má právo odstoupit od smlouvy v případě podstatného porušení povinností poskytovatelem (služba nebyla poskytnuta v dohodnuté kvalitě, byla opožděně a tento stav nebyl napraven ani do 5 dnů od písemné výzvy, nebo nebyla splněna vůbec). V takovém případě je poskytovatel povinen vrátit klientovi poměrnou část sjednané ceny za nevyčerpané služby.</li>
+          <li>V případě úmrtí jedné ze smluvních stran se práva a povinnosti dědí v souladu s příslušnými právními předpisy.</li>
+          <li>Po ukončení smlouvy jsou obě strany povinny bez zbytečného odkladu vyrovnat všechny vzájemné pohledávky, pokud není dohodnuto jinak.</li>
+        </ol>
+
+        <h2 id="cs-xiii">XIII. Autorská práva a licenční ujednání</h2>
+        <ol>
+          <li><strong>Autorská díla poskytovatele.</strong> Poskytovatel je výlučným vlastníkem veškerých videomateriálů, textových materiálů a dalších školicích a jiných podkladů poskytovaných v rámci objednaných služeb (dále jen „materiály"). Tyto materiály jsou chráněny zákonem č. 121/2000 Sb., autorským zákonem, ve znění pozdějších předpisů, a představují autorská díla poskytovatele. Klientovi je poskytována nevýhradní, nepřenosná licence k užití těchto materiálů výhradně pro osobní potřebu a po omezenou dobu trvání zakoupeného balíčku služeb. Nebude-li sjednáno jinak, platí, že klient má oprávnění užívat materiály na dobu s klientem sjednanou (v rámci balíčku); není-li výslovně sjednáno, platí, že je zpřístupní na dobu jednoho roku ode dne jejich zpřístupnění klientovi. Klient není oprávněn tyto materiály jakkoliv kopírovat, stahovat, upravovat, rozmnožovat, veřejně šířit nebo začleňovat do jiných děl. Porušení těchto licenčních podmínek zakládá právo poskytovatele okamžitě ukončit smluvní vztah a uplatnit nárok na náhradu škody.</li>
+          <li><strong>Autorská díla klienta.</strong> Klient může v rámci spolupráce dobrovolně poskytovat svá videa nebo fotografie dokumentující jeho postup, které budou nahrávány výhradně do předem dohodnutých a smluvně zajištěných platforem. Poskytovatel je oprávněn poskytnuté materiály využít výhradně pro účely realizace a vyhodnocení sjednaných služeb. Poskytovatel se zavazuje materiály po ukončení smluvního vztahu či na žádost klienta zlikvidovat a zacházet s nimi s maximální odbornou péčí.</li>
+        </ol>
+
+        <h2 id="cs-xiv">XIV. Digitální obsah</h2>
+        <ol>
+          <li>Pokud je součástí služeb poskytování digitálního obsahu (např. videa, či jiné materiály zpřístupňované poskytovatelem), poskytovatel jej zpřístupní na dobu s klientem sjednanou (v rámci balíčku); není-li výslovně sjednáno, platí, že jej zpřístupní na dobu jednoho roku ode dne jejich zpřístupnění klientovi.</li>
+          <li>Funkčnost, kompatibilita, interoperabilita a požadavky na digitální prostředí (např. konkrétní prohlížeč, stabilní internet, potřeba nainstalování konkrétních aplikací či platforem) jsou uvedeny u každé služby, jejíž součástí je také poskytování digitálního obsahu, na webu a v objednávce.</li>
+          <li>Licence k užívání se řídí čl. XIII VOP.</li>
+          <li>Poskytovatel odpovídá za shodu digitálního obsahu s ujednanými vlastnostmi, jakostí, aktualizacemi a bezvadnou funkčností po dobu závazku.</li>
+          <li>Při zpřístupnění klient výslovně souhlasí se zahájením plnění a zánikem práva odstoupit dle § 1837 písm. l) o. z. s potvrzením dle § 1824a odst. 2 o. z.</li>
+          <li>Poskytování digitálního obsahu se řídí příslušnými ustanoveními dotčených právních předpisů, zejména pak § 2389a a násl. o. z.</li>
+        </ol>
+
+        <h2 id="cs-xv">XV. Spotřebitel</h2>
+        <ol>
+          <li>Spotřebitelem je každý člověk, který mimo rámec své podnikatelské činnosti nebo mimo rámec samostatného výkonu svého povolání uzavírá smlouvu s podnikatelem nebo s ním jinak jedná. Klientem bude zpravidla spotřebitel.</li>
+          <li>Spotřebitel požívá dle platné právní úpravy zvýšené ochrany, kterou mu přiznává zejména zákon č. 89/2012 Sb., občanský zákoník a zákon č. 634/1992 Sb., o ochraně spotřebitele, ve znění pozdějších předpisů.</li>
+          <li>Jelikož s poskytovatelem je smlouva o poskytování služeb uzavírána zpravidla distančním způsobem, má klient právo odstoupit od smlouvy ve smyslu § 1829 o. z., s jasnými výjimkami — jak je uvedeno již v čl. XII odst. 3 a násl. VOP. Dle § 1837 o. z. spotřebitel nemůže odstoupit od smlouvy:
+            <ul>
+              <li>o poskytování služeb, jestliže byly v plném rozsahu poskytnuty; v případě plnění za úplatu, pouze pokud započalo s předchozím výslovným souhlasem spotřebitele před uplynutím lhůty pro odstoupení a podnikatel před uzavřením smlouvy poučil spotřebitele, že poskytnutím plnění zaniká právo odstoupit od smlouvy;</li>
+              <li>o ubytování, přepravě zboží, nájmu dopravního prostředku, stravování nebo využití volného času, pokud má být podle smlouvy plněno k určitému datu nebo v určitém období;</li>
+              <li>o dodání digitálního obsahu, který není dodán na hmotném nosiči, poté, co bylo započato s plněním; v případě plnění za úplatu, pokud započalo s předchozím výslovným souhlasem spotřebitele před uplynutím lhůty pro odstoupení, spotřebitel byl poučen, že tím právo odstoupit zaniká, a podnikatel mu poskytl potvrzení dle § 1824a odst. 1 a 2 nebo § 1828 odst. 3 a 4.</li>
+            </ul>
+          </li>
+          <li>V případě volby práva odlišného od práva obvyklého bydliště klienta — spotřebitele, se klient — spotřebitel může vždy dovolat kogentních (imperativních) norem právního řádu svého obvyklého bydliště, které nelze tímto ujednáním omezit nebo vyloučit.</li>
+        </ol>
+
+        <h2 id="cs-xvi">XVI. Mimosoudní řešení sporů</h2>
+        <ol>
+          <li>Podle zákona č. 634/1992 Sb., o ochraně spotřebitele, má klient jako spotřebitel právo na mimosoudní řešení spotřebitelského sporu plynoucího ze smlouvy. V takovém případě je oprávněn obrátit se na Českou obchodní inspekci (Ústřední inspektorát — oddělení ADR, Štěpánská 15, 120 00 Praha 2, email: <a href="mailto:adr@coi.cz">adr@coi.cz</a>, web: <a href="https://adr.coi.cz" target="_blank" rel="noopener">adr.coi.cz</a>). Mimosoudní řešení spotřebitelského sporu se zahajuje výlučně na návrh klienta, a to v případě, že se spor nepodařilo vyřešit přímo s poskytovatelem. Návrh lze podat nejpozději do 1 roku ode dne, kdy klient poprvé uplatnil své právo, které je předmětem sporu, u poskytovatele.</li>
+          <li>Klient má právo zahájit mimosoudní řešení sporu online prostřednictvím platformy ODR dostupné na webové stránce <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr/</a>. Evropské spotřebitelské centrum Česká republika se sídlem Štěpánská 567/15, 120 00 Praha 2, internetová adresa: <a href="http://www.evropskyspotrebitel.cz" target="_blank" rel="noopener">www.evropskyspotrebitel.cz</a> je kontaktním místem podle Nařízení Evropského parlamentu a Rady (EU) č. 524/2013 o řešení spotřebitelských sporů on-line.</li>
+          <li>Česká obchodní inspekce vykonává ve vymezeném rozsahu mimo jiné dozor nad dodržováním zákona č. 634/1992 Sb., o ochraně spotřebitele.</li>
+        </ol>
+
+        <h2 id="cs-xvii">XVII. Závěrečná ustanovení</h2>
+        <ol>
+          <li>Tyto VOP nabývají účinnosti dnem jejich zveřejnění na webových stránkách poskytovatele.</li>
+          <li>Poskytovatel si vyhrazuje právo tyto VOP jednostranně měnit v přiměřeném rozsahu. O změně bude klient informován vhodným způsobem, a to nejméně 15 dnů před účinností změny, například zasláním oznámení do klientského účtu, emailem nebo jiným dostupným prostředkem, který klient využívá.</li>
+          <li>V případě změny VOP má klient právo do dne nabytí účinnosti změněných podmínek od smlouvy odstoupit bez sankcí písemnou formou zaslanou poskytovateli. Pokud klient do dne nabytí účinnosti změněných VOP nevystoupí z právního vztahu, má se za to, že s navrženými změnami souhlasí.</li>
+          <li>Tyto VOP jsou vyhotoveny v souladu s platnými právními předpisy České republiky, zejména se zákonem č. 89/2012 Sb., občanským zákoníkem, ve znění pozdějších předpisů a zákonem č. 634/1992 Sb., o ochraně spotřebitele, ve znění pozdějších předpisů.</li>
+          <li>Klient potvrzuje, že se seznámil s těmito VOP, rozumí jim a souhlasí s nimi.</li>
+        </ol>
+        <p><em>V Kladně dne 01.01.2026 · Kristýna Čočková, MSc.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <script src="shared.js"></script>
+  <script>
+    buildNav('', false);
+    buildFooter();
+    function setLang(l) {
+      document.getElementById('terms-en').style.display = l === 'en' ? 'grid' : 'none';
+      document.getElementById('terms-cs').style.display = l === 'cs' ? 'grid' : 'none';
+      document.getElementById('pill-en').classList.toggle('active', l === 'en');
+      document.getElementById('pill-cs').classList.toggle('active', l === 'cs');
+    }
+  </script>
+</body>
+</html>

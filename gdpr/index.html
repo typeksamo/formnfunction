@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Form & Function</title>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23044427'/><text x='50%25' y='55%25' font-size='18' font-family='serif' fill='%23C2A68C' text-anchor='middle' dominant-baseline='middle'>F</text></svg>">
+  <style>
+    [data-reveal] { opacity:0; transform:translateY(20px); transition:opacity .6s ease,transform .6s ease; }
+    [data-reveal].revealed { opacity:1; transform:none; }
+
+    .legal-hero {
+      background:var(--green);
+      padding:calc(var(--nav-h)+60px) 40px 60px;
+    }
+    .legal-hero-inner { max-width:900px; margin:0 auto; }
+    .legal-hero h1 {
+      font-family: 'Garet', sans-serif;
+      font-size:clamp(36px,4vw,60px);
+      font-weight: 800; color:var(--white); line-height:1.1; margin-bottom:12px;
+    }
+    .legal-hero p { font-size:15px; color:rgba(255,255,255,.6); }
+
+    .legal-body {
+      padding:80px 40px 100px;
+      background:var(--white);
+    }
+    .legal-body-inner {
+      max-width:900px; margin:0 auto;
+      display:grid; grid-template-columns:200px 1fr; gap:64px; align-items:start;
+    }
+    .legal-nav {
+      position:sticky; top:calc(var(--nav-h)+24px);
+    }
+    .legal-nav h4 {
+      font-size:11px; font-weight:600; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--lime); margin-bottom:16px;
+    }
+    .legal-nav ul { list-style:none; display:flex; flex-direction:column; gap:4px; }
+    .legal-nav ul li a {
+      font-size:13px; color:var(--text-light); line-height:1.5;
+      display:block; padding:5px 0;
+      border-left:2px solid transparent;
+      padding-left:12px; transition:all .2s;
+    }
+    .legal-nav ul li a:hover { color:var(--green); border-color:var(--lime); }
+
+    .legal-content h2 {
+      font-family: 'Garet', sans-serif;
+      font-size:24px; font-weight: 800;
+      color:var(--green); margin:48px 0 16px;
+      padding-top:48px;
+      border-top:1px solid rgba(4,68,39,.1);
+    }
+    .legal-content h2:first-child { margin-top:0; padding-top:0; border-top:none; }
+    .legal-content h3 {
+      font-size:16px; font-weight:600; color:var(--text);
+      margin:28px 0 10px;
+    }
+    .legal-content p {
+      font-size:15px; line-height:1.85; color:var(--text-light);
+      margin-bottom:16px; text-wrap:pretty;
+    }
+    .legal-content p:last-child { margin-bottom:0; }
+    .legal-content ol, .legal-content ul {
+      padding-left:24px; margin-bottom:16px;
+    }
+    .legal-content ol li, .legal-content ul li {
+      font-size:15px; line-height:1.8; color:var(--text-light);
+      margin-bottom:8px;
+    }
+    .legal-content strong { color:var(--text); }
+    .legal-content a { color:var(--green); text-decoration:underline; }
+    .legal-content .highlight-box {
+      background:rgba(4,68,39,.05);
+      border-left:3px solid var(--lime);
+      padding:20px 24px; border-radius:0 2px 2px 0;
+      margin:24px 0;
+    }
+    .legal-content .highlight-box p { margin-bottom:0; font-size:14px; }
+    .lang-toggle-bar {
+      max-width:900px; margin:0 auto 40px;
+      display:flex; gap:12px; align-items:center;
+      padding:16px 0; border-bottom:1px solid var(--cream-mid);
+    }
+    .lang-toggle-bar span { font-size:13px; color:var(--text-light); }
+    .lang-pill {
+      font-size:12px; font-weight:600; letter-spacing:.08em;
+      text-transform:uppercase; padding:6px 16px; border-radius:2px;
+      border:1.5px solid var(--cream-mid); cursor:pointer;
+      background:none; font-family: 'Garet', sans-serif;
+      transition:all .2s; color:var(--text-light);
+    }
+    .lang-pill.active { background:var(--green); color:var(--white); border-color:var(--green); }
+
+    @media (max-width:768px) {
+      .legal-body { padding:48px 20px 64px; }
+      .legal-hero { padding:calc(var(--nav-h)+40px) 20px 48px; }
+      .legal-body-inner { grid-template-columns:1fr; gap:32px; }
+      .legal-nav { position:static; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="legal-hero">
+    <div class="legal-hero-inner">
+      <span class="page-hero-label" data-en="Legal" data-cs="Právní">Legal</span>
+      <h1 data-en="Privacy Policy" data-cs="Zásady zpracování osobních údajů">Privacy Policy</h1>
+      <p data-en="Effective date: 1 January 2026 · Kristýna Čočková, MSc. · IČO: 09031197" data-cs="Účinnost: 1. ledna 2026 · Kristýna Čočková, MSc. · IČO: 09031197">Effective date: 1 January 2026 · Kristýna Čočková, MSc. · IČO: 09031197</p>
+    </div>
+  </section>
+
+  <section class="legal-body">
+    <div class="lang-toggle-bar">
+      <span data-en="Read in:" data-cs="Číst v:">Read in:</span>
+      <button class="lang-pill active" onclick="setLegalLang('en')" id="pill-en">English</button>
+      <button class="lang-pill" onclick="setLegalLang('cs')" id="pill-cs">Čeština</button>
+    </div>
+
+    <!-- ENGLISH -->
+    <div id="legal-en" class="legal-body-inner">
+      <nav class="legal-nav">
+        <h4>Contents</h4>
+        <ul>
+          <li><a href="#en-i">I. Administrator &amp; Data</a></li>
+          <li><a href="#en-ii">II. Categories of Data</a></li>
+          <li><a href="#en-iii">III. Purposes &amp; Legal Bases</a></li>
+          <li><a href="#en-iv">IV. Retention Period</a></li>
+          <li><a href="#en-v">V. Third Countries</a></li>
+          <li><a href="#en-vi">VI. Security</a></li>
+          <li><a href="#en-vii">VII. Your Rights</a></li>
+          <li><a href="#en-viii">VIII. Health Data</a></li>
+          <li><a href="#en-ix">IX. Cookies</a></li>
+          <li><a href="#en-xiv">XIV. Final Provisions</a></li>
+        </ul>
+      </nav>
+      <div class="legal-content">
+        <div class="highlight-box">
+          <p>These Principles explain what I do with the data I obtain about you through the website <a href="https://www.formnfunction.eu/">https://www.formnfunction.eu/</a> or through one of the platforms enabling remote access, which primarily include applications and websites used as part of the cooperation between the administrator and the data subject according to their agreement (hereinafter collectively with the administrator's website also referred to as "platforms").</p>
+        </div>
+        <p>If you as a data subject start using any of the platforms, you are obliged to familiarise yourself in advance with all the terms and conditions of the relevant platform. Once you have duly and fully familiarised yourself with them and agree to them, I will proceed to set up your client account on the relevant platform (by entering only your name, surname, and linking your profile as a client to my profile as a "trainer"). From the moment you enter your own login details, you manage your account independently and enter into a relationship with the relevant platform. In such a case, the processing of your personal data on the platform will be governed by the specific principles of that platform, i.e., outside my remit as the service provider.</p>
+        <p>I recommend reading these Principles carefully. When processing your personal data, I always take care to protect it and ensure compliance with the relevant legal regulations, particularly compliance with Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation, hereinafter also "GDPR") and Act No. 101/2000 Coll., on the protection of personal data.</p>
+
+        <h2 id="en-i">I. Administrator, Data Subject and Data</h2>
+        <ol>
+          <li><strong>The administrator</strong> of personal data is Kristýna Čočková, MSc., self-employed person, IČO: 09031197, Vašíčkova 3436, 272 04, Kladno, Czech Republic, phone: +420 606 074 569, +353 85 130 1311, email: <a href="mailto:info@formnfunction.eu">info@formnfunction.eu</a> (hereinafter also referred to as the "administrator").</li>
+          <li><strong>The data subject</strong> is a natural person — user of services provided by the administrator, particularly in the field of nutritional coaching, personal training and massage therapy (hereinafter collectively referred to as "services"), or a person using the website or other platforms, particularly in connection with an enquiry for services (hereinafter collectively referred to as the "data subject").</li>
+          <li><strong>Personal data</strong> means, according to Article 4(1) GDPR, all information relating to an identified or identifiable natural person (i.e., the data subject). An identifiable person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person. Personal data therefore includes, for example: name, address, email, telephone number, date of birth, health data, dietary data, exercise data and other information that enables identification of the data subject or is closely related to them and which the data subject provides to the administrator.</li>
+        </ol>
+
+        <h2 id="en-ii">II. Categories of Personal Data Processed</h2>
+        <p>I process in particular:</p>
+        <ol type="A">
+          <li>Basic identification and contact details (name, surname, email, telephone and address)</li>
+          <li>Data provided during the initial consultation and during the service, including so-called special categories of data (particularly health data, data on health status or other sensitive information necessary for the safe and effective provision of services) or audiovisual records containing personal features</li>
+          <li>Data recorded in client accounts (on platforms), including training plans, meal plans, feedback and other documents</li>
+          <li>Payment and invoicing data</li>
+        </ol>
+
+        <h2 id="en-iii">III. Purposes and Legal Bases for Processing</h2>
+        <ol>
+          <li>I process personal data in particular for:
+            <ol type="A">
+              <li>Performance of contractual obligations arising from the provided services (Article 6(1)(b) GDPR)</li>
+              <li>Compliance with legal obligations (e.g. accounting) (Article 6(1)(c) GDPR)</li>
+            </ol>
+          </li>
+          <li>I may also process the personal data of the data subject on the basis of your consent (Article 6(1)(a) GDPR) for one or more purposes. I may also process special categories of personal data if you as the data subject (or as the legal representative of the data subject) give explicit consent (Article 9(2)(a) GDPR).</li>
+        </ol>
+
+        <h2 id="en-iv">IV. Retention Period of Personal Data</h2>
+        <ol>
+          <li>I retain your personal data only for as long as necessary to fulfil the purpose for which they were collected.</li>
+          <li>This means that I retain the data for the duration of the contractual relationship and subsequently for the period required by law, for example for accounting and tax records purposes, which is usually 10 years from the end of the cooperation.</li>
+          <li>Data processed on the basis of your consent are retained only until you withdraw this consent or for the period for which the consent was given, unless they are processed on another legal basis at the same time.</li>
+          <li>After these periods expire, the data are securely deleted.</li>
+        </ol>
+
+        <h2 id="en-v">V. Transfer of Personal Data to Third Countries</h2>
+        <ol>
+          <li>In providing services, I use platforms and applications whose operators may be based outside the European Economic Area, for example in the USA or the United Kingdom. In such cases, an appropriate level of personal data protection is ensured through legal mechanisms approved by the European Commission, particularly standard contractual clauses (Standard Contractual Clauses – SCC) or on the basis of the Data Privacy Framework. These platforms have been selected on the basis of a data protection impact assessment.</li>
+        </ol>
+
+        <h2 id="en-vi">VI. Security of Personal Data Processing and Automated Processing</h2>
+        <ol>
+          <li>Your data are protected by strict technical and organisational measures. These include data encryption, secure communication channels, two-factor authentication, regular software updates and access restricted only to persons bound by confidentiality.</li>
+          <li>All processors I cooperate with are contractually or otherwise obliged to comply with the GDPR. I regularly conduct internal audits to ensure that data protection meets current requirements.</li>
+          <li>In the event of an incident, I have procedures in place for its resolution and notification to the Office for Personal Data Protection and affected data subjects.</li>
+          <li>Personal data are processed in electronic form in an automated manner, or where applicable in printed form in a non-automated manner, by the provider. Personal data of the data subject may be made available to public administration authorities if required by relevant legal regulations.</li>
+        </ol>
+
+        <h2 id="en-vii">VII. Rights of Data Subjects</h2>
+        <p>The data subject has the right to:</p>
+        <ol type="A">
+          <li>Request the Provider to provide access to personal data concerning them and to obtain confirmation as to whether those data are being processed, including access to their content</li>
+          <li>Request a copy of the processed personal data; the Provider may charge a reasonable fee corresponding to administrative costs for additional copies</li>
+          <li>Rectification of inaccurate personal data and, taking into account the purpose of processing, completion of incomplete data</li>
+          <li>Erasure of personal data ("right to be forgotten") or restriction of processing if the conditions laid down by law are met, in particular if the data are no longer necessary for the purposes for which they were collected and there is no other legal basis for their processing</li>
+          <li>Data portability, i.e. to obtain data provided to the Provider in a structured, commonly used and machine-readable format and to transmit them to another administrator; they may also request that the data be transmitted directly to another administrator where technically feasible</li>
+          <li>Object to the processing of personal data for marketing purposes; if the data subject objects, the Provider will cease processing for this purpose</li>
+          <li>Lodge a complaint with the supervisory authority, i.e. the Office for Personal Data Protection (<a href="http://www.uoou.cz/" target="_blank">www.uoou.cz</a>), particularly if they have doubts about compliance with legal regulations by the Provider</li>
+          <li>Exercise other rights arising from legal regulations in the field of personal data protection</li>
+        </ol>
+        <p>The data subject acknowledges that they have the right to withdraw their consent to the processing of personal data at any time free of charge, by sending it in writing to the Provider's registered office address or to the email address: <a href="mailto:info@formnfunction.eu">info@formnfunction.eu</a>. Withdrawal of consent is effective upon delivery to the Provider. Withdrawal of consent does not affect the lawfulness of processing carried out on the basis of consent prior to its withdrawal.</p>
+
+        <h2 id="en-viii">VIII. Special Categories of Data (Health Data)</h2>
+        <ol>
+          <li>I process data on your health status only to the extent necessary for providing services such as nutritional coaching, personal training or massages. These data are protected by special measures as they fall under special categories of personal data pursuant to Article 9 GDPR. Access to them is granted only to persons bound by confidentiality and trained in personal data protection. If processing of these data is not necessary for the performance of the contract, I require your explicit consent. You may withdraw this consent at any time.</li>
+        </ol>
+
+        <h2 id="en-ix">IX. Cookies and Marketing</h2>
+        <ol>
+          <li>The website uses only cookies necessary for its functionality and basic analytics.</li>
+          <li>I send you marketing communications only if you give consent, and you can always easily unsubscribe.</li>
+        </ol>
+
+        <h2 id="en-xiv">XIV. Final Provisions</h2>
+        <ol>
+          <li>These Principles take effect on 01.01.2026. The administrator reserves the right to amend or supplement these Principles at any time, particularly due to changes in legal regulations, decisions of supervisory authorities or changes in the method of personal data processing.</li>
+          <li>The data subject will be informed of any material change to the Principles in an appropriate manner, for example by publishing the updated version on the administrator's website or by email if provided by the data subject. The current version of the Principles is always available on the administrator's website.</li>
+          <li>If the change requires the data subject's consent (e.g. for a new processing purpose or extension of the scope of sensitive data), this consent will be requested before processing begins under the new conditions.</li>
+          <li>For any queries regarding these Principles or exercising data subject rights, you may contact the administrator at the email address: <a href="mailto:info@formnfunction.eu">info@formnfunction.eu</a> or in writing at the administrator's registered office address.</li>
+        </ol>
+        <p><em>In Kladno, 01.01.2026 · Kristýna Čočková, MSc.</em></p>
+      </div>
+    </div>
+
+    <!-- CZECH -->
+    <div id="legal-cs" class="legal-body-inner" style="display:none">
+      <nav class="legal-nav">
+        <h4>Obsah</h4>
+        <ul>
+          <li><a href="#cs-i">I. Správce a subjekt</a></li>
+          <li><a href="#cs-ii">II. Kategorie údajů</a></li>
+          <li><a href="#cs-iii">III. Účely zpracování</a></li>
+          <li><a href="#cs-iv">IV. Doba uchování</a></li>
+          <li><a href="#cs-v">V. Třetí země</a></li>
+          <li><a href="#cs-vi">VI. Bezpečnost</a></li>
+          <li><a href="#cs-vii">VII. Práva subjektů</a></li>
+          <li><a href="#cs-viii">VIII. Zdravotní údaje</a></li>
+          <li><a href="#cs-ix">IX. Cookies</a></li>
+          <li><a href="#cs-xiv">XIV. Závěrečná ustanovení</a></li>
+        </ul>
+      </nav>
+      <div class="legal-content">
+        <div class="highlight-box">
+          <p>V těchto Zásadách se dozvíte, co dělám s údaji, které o vás získám prostřednictvím webových stránek <a href="https://www.formnfunction.eu/">https://www.formnfunction.eu/</a> či prostřednictvím jedné z platforem umožňujících dálkový přístup, mezi které patří zejména aplikace a weby užívané v rámci spolupráce správce a subjektu údajů dle jejich domluvy (dále společně i s webem správce též jen "platformy").</p>
+        </div>
+        <p>V případě, že vy jako subjekt údajů začnete užívat některých platforem, jste povinni se předem seznámit s veškerými podmínkami příslušné platformy. Poté, co se s nimi řádně a úplně seznámíte a souhlasíte s nimi, přistoupím ke zřízení Vašeho klientského účtu na příslušné platformě (pouze zadáním jména, příjmení a navázání vašeho profilu coby klienta k mému profilu coby "trenéra"). Od okamžiku, kdy si zadáte vlastní přihlašovací údaje již spravujete svůj účet pouze sami a vstupujete do vztahu i s příslušnou platformou. V takovém případě se zpracování Vašich osobních údajů na platformě bude řídit příslušnými zásadami konkrétní platformy, tj. mimo dispozici mě coby poskytovatele služeb.</p>
+        <p>Doporučuji si tyto Zásady pečlivě pročíst. Při zpracování vašich osobních údajů vždy dbám na jejich ochranu, a soulad zpracování s příslušnými právními předpisy, zejména pak o soulad s nařízením Evropského parlamentu a Rady (EU) 2016/679 ze dne 27. dubna 2016 o ochraně fyzických osob v souvislosti se zpracováním osobních údajů a o volném pohybu těchto údajů a o zrušení směrnice 95/46/ES (obecné nařízení o ochraně osobních údajů, dále též jen "GDPR") a zákonem č. 101/2000 Sb., o ochraně osobních údajů.</p>
+
+        <h2 id="cs-i">I. Správce, subjekt a údaje</h2>
+        <ol>
+          <li><strong>Správcem</strong> osobních údajů je Kristýna Čočková, MSc., podnikající fyzická osoba, IČO: 09031197, se sídlem Vašíčkova 3436, 272 04, Kladno, Česká republika, telefonní číslo: +420 606 074 569, email: <a href="mailto:info@formnfunction.eu">info@formnfunction.eu</a> (dále jen jako "správce").</li>
+          <li><strong>Subjektem osobních údajů</strong> je fyzická osoba — uživatel služeb poskytovaných správcem, zejména v oblasti výživového poradenství, osobního trenérství a masérství (dále společně jen „služby"), nebo osoba využívající web nebo jiné platformy, zejména v souvislosti s poptávkou služeb (dále společně jen „subjekt").</li>
+          <li><strong>Osobními údaji</strong> se rozumí podle čl. 4 odst. 1 GDPR veškeré informace o identifikované nebo identifikovatelné fyzické osobě (tj. o subjektu údajů). Identifikovatelnou osobou je taková fyzická osoba, kterou lze přímo či nepřímo identifikovat zejména na základě identifikátoru, jako je například jméno, identifikační číslo, údaje o poloze, online identifikátor nebo jeden či více specifických znaků fyzické, fyziologické, genetické, psychické, ekonomické, kulturní či sociální identity této fyzické osoby. Mezi osobní údaje tedy patří například: jméno, adresa, e-mail, telefonní číslo, datum narození, údaje o zdravotním stavu, údaje o jídelníčku, údaje o cvičení a další informace, které umožňují identifikaci subjektu nebo jsou s ním úzce spojeny a které subjekt sdělí správci.</li>
+        </ol>
+
+        <h2 id="cs-ii">II. Kategorie zpracovávaných osobních údajů</h2>
+        <p>Zpracovávám zejména:</p>
+        <ol type="A">
+          <li>Základní identifikační a kontaktní údaje (jméno, příjmení, e-mail, telefon a adresa)</li>
+          <li>Údaje poskytnuté při vstupní konzultaci a v průběhu služby, včetně tzv. zvláštních kategorií údajů (zejména zdravotních údajů, údajů o zdravotním stavu či jiných citlivých informací nezbytných pro bezpečné a účinné poskytování služeb) či audiovizuálních záznamů obsahujících zachycení osobních rysů</li>
+          <li>Údaje zaznamenané v klientských účtech (v platformách), vč. tréninkových plánů, jídelníčků, zpětné vazby a dalších podkladů</li>
+          <li>Údaje o platbách a fakturaci</li>
+        </ol>
+
+        <h2 id="cs-iii">III. Účely a právní základy zpracování</h2>
+        <ol>
+          <li>Osobní údaje zpracovávám zejména pro:
+            <ol type="A">
+              <li>Plnění smluvních závazků vyplývajících z poskytovaných služeb (čl. 6 odst. 1 písm. b) GDPR)</li>
+              <li>Plnění zákonných povinností (např. účetnictví) (čl. 6 odst. 1 písm. c) GDPR)</li>
+            </ol>
+          </li>
+          <li>Mohu rovněž zpracovávat osobní údaje subjektu údajů na základě Vašeho souhlasu (čl. 6 odst. 1 písm. a) GDPR), a to pro jeden či více účelů. Dále mohu zpracovávat také zvláštní kategorie osobních údajů, pokud mi k tomu dáte Vy coby subjekt údajů (či z pozice zákonného zástupce subjektu údajů) výslovný souhlas (čl. 9 odst. 2 písm. a) GDPR).</li>
+        </ol>
+
+        <h2 id="cs-iv">IV. Doba uchování osobních údajů</h2>
+        <ol>
+          <li>Vaše osobní údaje uchovávám pouze po dobu nezbytnou pro naplnění účelu, pro který byly shromážděny.</li>
+          <li>To znamená, že údaje uchovávám po dobu trvání smluvního vztahu a následně po dobu, kterou vyžadují právní předpisy, například pro účely účetnictví a daňové evidence, což je zpravidla 10 let od ukončení spolupráce.</li>
+          <li>Údaje zpracovávané na základě vašeho souhlasu uchovávám pouze do doby, než tento souhlas odvoláte, či po dobu, na níž byl souhlas udělen, jestliže současně nejsou zpracovávány na základě jiného právního základu.</li>
+          <li>Po uplynutí těchto lhůt jsou údaje bezpečně vymazány.</li>
+        </ol>
+
+        <h2 id="cs-v">V. Předávání osobních údajů do třetích zemí</h2>
+        <ol>
+          <li>V rámci poskytování služeb využívám platformy a aplikace, jejichž provozovatelé mohou mít sídlo mimo Evropský hospodářský prostor, například v USA nebo Velké Británii. V takových případech je zajištěna odpovídající úroveň ochrany osobních údajů prostřednictvím právních mechanismů schválených Evropskou komisí, zejména standardních smluvních doložek (Standard Contractual Clauses – SCC) nebo na základě rámce Data Privacy Framework. Tyto platformy byly zvoleny na základě posouzení dopadů na ochranu údajů.</li>
+        </ol>
+
+        <h2 id="cs-vi">VI. Bezpečnost zpracování osobních údajů a automatizace zpracování</h2>
+        <ol>
+          <li>Vaše údaje chráním pomocí přísných technických a organizačních opatření. Patří sem šifrování dat, zabezpečené komunikační kanály, dvoufaktorová autentizace, pravidelná aktualizace softwaru a omezení přístupu pouze na osoby, které jsou vázány mlčenlivostí.</li>
+          <li>Všichni zpracovatelé, se kterými spolupracuji, jsou smluvně či jinak zavázáni k dodržování GDPR. Pravidelně provádím interní kontroly, abych zajistila, že ochrana údajů odpovídá aktuálním požadavkům.</li>
+          <li>V případě incidentu mám zavedený postup pro jeho řešení a informování Úřadu pro ochranu osobních údajů i dotčených subjektů.</li>
+          <li>Osobní údaje jsou zpracovávány v elektronické podobě automatizovaným způsobem, popřípadě v tištěné podobě neautomatizovaným způsobem, a to poskytovatelem. Osobní údaje subjektu údajů mohou být zpřístupněny orgánům státní správy, bude-li to třeba dle příslušných právních předpisů.</li>
+        </ol>
+
+        <h2 id="cs-vii">VII. Práva subjektů údajů</h2>
+        <p>Subjekt údajů má právo:</p>
+        <ol type="A">
+          <li>Požadovat od Poskytovatele přístup k osobním údajům, které se jej týkají, a získat potvrzení, zda jsou tyto údaje zpracovávány, včetně přístupu k jejich obsahu</li>
+          <li>Vyžádat si kopii zpracovávaných osobních údajů; za další kopie může Poskytovatel účtovat přiměřený poplatek odpovídající administrativním nákladům</li>
+          <li>Na opravu nepřesných osobních údajů a s ohledem na účel zpracování také na doplnění neúplných údajů</li>
+          <li>Na výmaz osobních údajů („právo být zapomenut") nebo omezení jejich zpracování, pokud jsou splněny podmínky stanovené právními předpisy, zejména pokud údaje již nejsou potřebné pro účely, pro které byly shromážděny, a neexistuje jiný právní důvod pro jejich zpracování</li>
+          <li>Na přenositelnost osobních údajů, tj. získat údaje, které poskytl Poskytovateli, ve strukturovaném, běžně používaném a strojově čitelném formátu, a předat je jinému správci; může také požadovat, aby byly údaje předány přímo jinému správci, je-li to technicky možné</li>
+          <li>Vznést námitku proti zpracování osobních údajů pro účely marketingu; pokud subjekt údajů vznesl námitku, Poskytovatel ukončí zpracování pro tento účel</li>
+          <li>Podat stížnost u dozorového úřadu, tj. Úřadu pro ochranu osobních údajů (<a href="http://www.uoou.cz/" target="_blank">www.uoou.cz</a>), zejména pokud má pochybnosti o dodržování právních předpisů ze strany Poskytovatele</li>
+          <li>Uplatnit další práva vyplývající z právních předpisů v oblasti ochrany osobních údajů</li>
+        </ol>
+        <p>Subjekt údajů bere na vědomí, že má právo svůj souhlas se zpracováním osobních údajů kdykoli bezplatně odvolat, a to písemně na adresu sídla Poskytovatele nebo na e-mailovou adresu: <a href="mailto:info@formnfunction.eu">info@formnfunction.eu</a>. Odvolání souhlasu je účinné okamžikem doručení Poskytovateli. Odvoláním souhlasu není dotčena zákonnost zpracování provedeného na základě souhlasu před jeho odvoláním.</p>
+
+        <h2 id="cs-viii">VIII. Zvláštní kategorie údajů (údaje o zdravotním stavu)</h2>
+        <ol>
+          <li>Údaje o vašem zdravotním stavu zpracovávám pouze v rozsahu nezbytném pro poskytování služeb, jako je výživové poradenství, osobní trénink nebo masáže. Tyto údaje jsou chráněny zvláštními opatřeními, protože patří mezi zvláštní kategorie osobních údajů dle čl. 9 GDPR. Přístup k nim mají pouze osoby, které jsou vázány mlčenlivostí a prošly školením o ochraně osobních údajů. Pokud zpracování těchto údajů není nezbytné pro plnění smlouvy, vyžaduji váš výslovný souhlas. Tento souhlas můžete kdykoli odvolat.</li>
+        </ol>
+
+        <h2 id="cs-ix">IX. Cookies a marketing</h2>
+        <ol>
+          <li>Na webu používám pouze cookies nezbytné pro jeho funkčnost a základní analytiku.</li>
+          <li>Marketingová sdělení vám zasílám pouze tehdy, pokud mi k tomu dáte souhlas, a vždy máte možnost se snadno odhlásit.</li>
+        </ol>
+
+        <h2 id="cs-xiv">XIV. Závěrečná ustanovení</h2>
+        <ol>
+          <li>Tyto Zásady nabývají účinnosti dne 01.01.2026. Správce si vyhrazuje právo tyto Zásady kdykoli měnit nebo doplňovat, zejména z důvodu změny právních předpisů, rozhodnutí dozorových orgánů nebo změny způsobu zpracování osobních údajů.</li>
+          <li>O každé podstatné změně Zásad bude subjekt údajů informován vhodným způsobem, například zveřejněním aktualizovaného znění na webových stránkách správce nebo prostřednictvím e-mailu, pokud jej subjekt poskytl. Aktuální verze Zásad je vždy dostupná na webu správce.</li>
+          <li>Pokud změna vyžaduje souhlas subjektu údajů (např. u nového účelu zpracování nebo rozšíření rozsahu citlivých údajů), bude tento souhlas vyžádán před zahájením zpracování podle nových podmínek.</li>
+          <li>V případě dotazů k těmto Zásadám nebo uplatnění práv subjektu údajů se můžete obrátit na správce na e-mailové adrese: <a href="mailto:info@formnfunction.eu">info@formnfunction.eu</a> nebo písemně na adresu sídla správce.</li>
+        </ol>
+        <p><em>V Kladně dne 01.01.2026 · Kristýna Čočková, MSc.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <script src="shared.js"></script>
+  <script>
+    buildNav('', false);
+    buildFooter();
+    function setLegalLang(l) {
+      document.getElementById('legal-en').style.display = l === 'en' ? 'grid' : 'none';
+      document.getElementById('legal-cs').style.display = l === 'cs' ? 'grid' : 'none';
+      document.getElementById('pill-en').classList.toggle('active', l === 'en');
+      document.getElementById('pill-cs').classList.toggle('active', l === 'cs');
+    }
+  </script>
+</body>
+</html>

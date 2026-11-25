@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Týna — Form & Function</title>
+  <meta name="description" content="Meet Kristýna Čočková, MSc. — qualified nutritionist, trainer and massage therapist with a background in elite sport performance.">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23044427'/><text x='50%25' y='55%25' font-size='18' font-family='serif' fill='%23C2A68C' text-anchor='middle' dominant-baseline='middle'>F</text></svg>">
+  <style>
+    [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+    [data-reveal][data-delay="1"] { transition-delay: 0.1s; }
+    [data-reveal][data-delay="2"] { transition-delay: 0.2s; }
+    [data-reveal][data-delay="3"] { transition-delay: 0.3s; }
+
+    /* ── About Hero ── */
+    .about-hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--green);
+      padding-top: var(--nav-h);
+    }
+    .about-hero-photo {
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero-placeholder {
+      width: 100%; height: 100%;
+      min-height: 600px;
+      background: var(--green-mid);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px; font-family: monospace;
+      font-size: 13px; color: rgba(255,255,255,0.3);
+      text-align: center; padding: 40px;
+    }
+    .about-hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px;
+    }
+    .about-hero-text .hero-eyebrow {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+    }
+    .about-hero-text .hero-eyebrow-line {
+      width: 40px; height: 1.5px; background: var(--sand); flex-shrink: 0;
+    }
+    .about-hero-text .hero-eyebrow span {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--sand);
+    }
+    .about-hero-name {
+      font-family: 'Garet', sans-serif;
+      font-size: clamp(42px, 5vw, 72px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+    .about-hero-title {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 32px;
+    }
+    .about-hero-bio {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.72);
+      max-width: 460px;
+      text-wrap: pretty;
+      margin-bottom: 40px;
+    }
+    .about-hero-creds {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .cred-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .cred-badge {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--lime);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .cred-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+    .cred-text strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+
+    /* ── Philosophy ── */
+    .philosophy {
+      padding: 100px 40px;
+      background: var(--white);
+    }
+    .philosophy-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .philosophy-left h2.section-title { margin-bottom: 24px; }
+    .philosophy-left p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      text-wrap: pretty;
+    }
+    .philosophy-values {
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+      margin-top: 16px;
+    }
+    .value-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .value-num {
+      font-family: 'Garet', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--sand);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 48px;
+    }
+    .value-content h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+    .value-content p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-light);
+      text-wrap: pretty;
+      margin-bottom: 0;
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      padding: 100px 40px;
+      background: var(--cream);
+    }
+    .timeline-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .timeline-header { text-align: center; margin-bottom: 64px; }
+    .timeline-list { position: relative; }
+    .timeline-list::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--lime), var(--sand));
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 40px;
+      padding: 0 0 48px 32px;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 8px;
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      background: var(--lime);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--lime);
+    }
+    .timeline-year {
+      font-family: 'Garet', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--sand-dark);
+      padding-top: 2px;
+    }
+    .timeline-content h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .timeline-content p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-light);
+      text-wrap: pretty;
+    }
+
+    /* ── Approach cards ── */
+    .approach {
+      padding: 100px 40px;
+      background: var(--green);
+    }
+    .approach-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .approach-header { margin-bottom: 56px; }
+    .approach-header .section-label { color: var(--sand); }
+    .approach-header .section-title { color: var(--white); }
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .approach-card {
+      padding: 48px 36px;
+      transition: background 0.3s;
+    }
+    .approach-card:nth-child(1) { background: rgba(255,255,255,0.06); }
+    .approach-card:nth-child(2) { background: rgba(255,255,255,0.10); }
+    .approach-card:nth-child(3) { background: rgba(255,255,255,0.16); }
+    .approach-card:hover { filter: brightness(1.08); }
+    .approach-icon {
+      width: 56px; height: 56px;
+      border-radius: 2px;
+      background: rgba(134,160,61,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+    }
+    .approach-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .approach-card p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
+      text-wrap: pretty;
+    }
+
+    /* ── CTA ── */
+    .about-cta {
+      padding: 100px 40px;
+      background: var(--sand);
+      text-align: center;
+    }
+    .about-cta .section-title { color: var(--brown-dark); margin-bottom: 20px; }
+    .about-cta p {
+      font-size: 17px;
+      color: var(--brown-dark);
+      opacity: 0.7;
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      text-wrap: pretty;
+    }
+    .about-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 1024px) {
+      .about-hero { grid-template-columns: 1fr; }
+      .about-hero-photo { min-height: 420px; }
+      .about-hero-text { padding: 60px 40px; }
+      .philosophy-inner { grid-template-columns: 1fr; gap: 48px; }
+      .approach-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .about-hero-text { padding: 48px 20px; }
+      .philosophy, .timeline, .approach, .about-cta { padding: 64px 20px; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 80px 1fr; gap: 20px; }
+    }
+  </style>
+
+  <!-- SEO & Open Graph -->
+  <link rel="canonical" href="https://formnfunction.eu/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://formnfunction.eu/about.html">
+  <meta property="og:title" content="About Kristýna Čočková — Form & Function">
+  <meta property="og:description" content="MSc. in Elite Sport Performance, nutritionist, trainer and massage therapist. Combining science-based knowledge with practical experience.">
+  <meta property="og:image" content="https://formnfunction.eu/cockova.jpg">
+  <meta property="og:site_name" content="Form & Function">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Kristýna Čočková — Form & Function">
+  <meta name="twitter:description" content="MSc. in Elite Sport Performance, nutritionist, trainer and massage therapist. Combining science-based knowledge with practical experience.">
+  <meta name="twitter:image" content="https://formnfunction.eu/cockova.jpg">
+</head>
+<body>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="about-hero">
+    <div class="about-hero-photo">
+      <img src="cockova.jpg" alt="Kristýna Čočková" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;min-height:600px;">
+    </div>
+    <div class="about-hero-text">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span data-en="About me" data-cs="O mně">About me</span>
+      </div>
+      <h1 class="about-hero-name" data-en="Kristýna<br>Čočková, MSc." data-cs="Kristýna<br>Čočková, MSc.">Kristýna<br>Čočková, MSc.</h1>
+      <p class="about-hero-title" data-en="Nutritionist · Trainer · Massage Therapist" data-cs="Nutriční specialistka · Trenérka · Masérka">Nutritionist · Trainer · Massage Therapist</p>
+      <p class="about-hero-bio" data-en="I'm passionate about helping people feel, move and perform at their best — using methods that combine science-based knowledge with real-world practical experience." data-cs="Moje vášeň je pomáhat lidem cítit se, pohybovat se a podávat nejlepší výkony — pomocí metod, které kombinují vědecké znalosti s praktickými zkušenostmi z reálného světa.">
+        I'm passionate about helping people feel, move and perform at their best — using methods that combine science-based knowledge with real-world practical experience.
+      </p>
+      <div class="about-hero-creds">
+        <div class="cred-row">
+          <div class="cred-badge"></div>
+          <span class="cred-text"><strong data-en="MSc. Elite Sport Performance" data-cs="MSc. Elite Sport Performance">MSc. Elite Sport Performance</strong> — <span data-en="Dublin City University" data-cs="Dublin City University">Dublin City University</span></span>
+        </div>
+        <div class="cred-row">
+          <div class="cred-badge"></div>
+          <span class="cred-text"><strong data-en="Bc. Food & Nutrition" data-cs="Bc. Výživa a potraviny">Bc. Food & Nutrition</strong> — <span data-en="Czech University of Life Sciences Prague" data-cs="Česká zemědělská univerzita Praha">Czech University of Life Sciences Prague</span></span>
+        </div>
+        <div class="cred-row">
+          <div class="cred-badge"></div>
+          <span class="cred-text"><strong data-en="Certified Trainer" data-cs="Certifikovaný trenér">Certified Trainer</strong> · <span data-en="ART Certified Provider" data-cs="ART certifikovaný poskytovatel">ART Certified Provider</span> · <span data-en="Dry Needling" data-cs="Dry Needling">Dry Needling</span></span>
+        </div>
+        <div class="cred-row">
+          <div class="cred-badge"></div>
+          <span class="cred-text"><strong data-en="Combat Sports Background" data-cs="Zázemí v bojových sportech">Combat Sports Background</strong> — <span data-en="Krav Maga, Kickboxing, Brazilian Jiu-Jitsu" data-cs="Krav Maga, Kickboxing, Brazilské jiu-jitsu">Krav Maga, Kickboxing, Brazilian Jiu-Jitsu</span></span>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="/contact" class="btn btn-sand" data-en="Work with me" data-cs="Pracuj se mnou">Work with me</a>
+        <a href="#philosophy" class="btn btn-outline-white" data-en="My philosophy" data-cs="Moje filozofie">My philosophy</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TIMELINE ═══════════ -->
+  <section class="timeline">
+    <div class="timeline-inner">
+      <div class="timeline-header" data-reveal>
+        <span class="section-label" data-en="Journey" data-cs="Cesta">Journey</span>
+        <h2 class="section-title" data-en="Credentials &amp; <em>background</em>" data-cs="Kvalifikace &amp; <em>zázemí</em>">Credentials &amp; <em>background</em></h2>
+      </div>
+      <div class="timeline-list">
+
+        <!-- In progress -->
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-year">2026<br><span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.6" data-en="In progress" data-cs="Probíhá">In progress</span></div>
+          <div class="timeline-content">
+            <h4 data-en="Precision Nutrition — PN, USA" data-cs="Precision Nutrition — PN, USA">Precision Nutrition — PN, USA</h4>
+            <h4 style="margin-top:12px" data-en="Women's Hormone Health Training Program — The Institute for Menstrual Health" data-cs="Women's Hormone Health Training Program — The Institute for Menstrual Health">Women's Hormone Health Training Program — The Institute for Menstrual Health</h4>
+          </div>
+        </div>
+
+        <!-- FRC -->
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-year">2025</div>
+          <div class="timeline-content">
+            <h4 data-en="Functional Range Conditioning (FRC)" data-cs="Functional Range Conditioning (FRC)">Functional Range Conditioning (FRC)</h4>
+          </div>
+        </div>
+
+        <!-- MSc -->
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-year">2023–2025</div>
+          <div class="timeline-content">
+            <h4 data-en="MSc. Elite Sport Performance — Dublin City University" data-cs="MSc. Elite Sport Performance — Dublin City University">MSc. Elite Sport Performance — Dublin City University</h4>
+            <p data-en="Sport nutrition and weight cutting specialisation." data-cs="Specializace na sportovní výživu a snižování váhy.">Sport nutrition and weight cutting specialisation.</p>
+          </div>
+        </div>
+
+        <!-- Aggressive Dieting -->
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-year">2024</div>
+          <div class="timeline-content">
+            <h4 data-en="Aggressive Dieting — MNU, UK" data-cs="Aggressive Dieting — MNU, UK">Aggressive Dieting — MNU, UK</h4>
+          </div>
+        </div>
+
+        <!-- ART -->
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-year">2023</div>
+          <div class="timeline-content">
+            <h4 data-en="Active Release Technique (ART) — Ireland" data-cs="Active Release Technique (ART) — Irsko">Active Release Technique (ART) — Ireland</h4>
+          </div>
+        </div>
+
+        <!-- Bc -->
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-year">2018–2022</div>
+          <div class="timeline-content">
+            <h4 data-en="Bc. Food &amp; Nutrition — Czech University of Life Sciences Prague" data-cs="Bc. Potraviny a Výživa — Česká zemědělská univerzita v Praze">Bc. Food &amp; Nutrition — Czech University of Life Sciences Prague</h4>
+            <p data-en="Faculty of Agrobiology, Food and Natural Resources." data-cs="Fakulta agrobiologie, potravinových a přírodních zdrojů.">Faculty of Agrobiology, Food and Natural Resources.</p>
+          </div>
+        </div>
+
+        <!-- Medical Acupuncture -->
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-year">2022</div>
+          <div class="timeline-content">
+            <h4 data-en="Medical Acupuncture / Dry Needling — OMT, UK" data-cs="Suchá Jehla / Medicinská Akupunktura — OMT, UK">Medical Acupuncture / Dry Needling — OMT, UK</h4>
+          </div>
+        </div>
+
+        <!-- Joint Mobilization -->
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-year">2022</div>
+          <div class="timeline-content">
+            <h4 data-en="Joint Mobilization — Mgr. Maja Špiritović, Ph.D., CZ" data-cs="Manuální Techniky – Mobilizace — Mgr. Maja Špiritović, Ph.D., CZ">Joint Mobilization — Mgr. Maja Špiritović, Ph.D., CZ</h4>
+          </div>
+        </div>
+
+        <!-- Coach II -->
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-year">2020–2021</div>
+          <div class="timeline-content">
+            <h4 data-en="Level II Coach Qualification — MŠMT, Charles University (FTVS)" data-cs="Trenér II. třídy — MŠMT, Univerzita Karlova (FTVS)">Level II Coach Qualification — MŠMT, Charles University (FTVS)</h4>
+            <p data-en="Granted by the National Department of Education and Physical Education." data-cs="Uděleno Ministerstvem školství, mládeže a tělovýchovy.">Granted by the National Department of Education and Physical Education.</p>
+          </div>
+        </div>
+
+        <!-- Sport Massage -->
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-year">2020</div>
+          <div class="timeline-content">
+            <h4 data-en="Sport Massage Qualification — MŠMT" data-cs="Sportovní Masáž — MŠMT">Sport Massage Qualification — MŠMT</h4>
+            <p data-en="Granted by the National Department of Education and Physical Education." data-cs="Uděleno Ministerstvem školství, mládeže a tělovýchovy.">Granted by the National Department of Education and Physical Education.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PHILOSOPHY ═══════════ -->
+  <section class="philosophy" id="philosophy">
+    <div class="philosophy-inner">
+      <div class="philosophy-left" data-reveal>
+        <h2 class="section-title" data-en="Education over<br><em>quick fixes</em>" data-cs="Vzdělání nad<br><em>rychlými řešeními</em>">Education over<br><em>quick fixes</em></h2>
+        <p data-en="My background is in sport — a lifelong involvement in martial arts including Krav Maga, Kickboxing and Brazilian Jiu-Jitsu gave me a deep understanding of what athletic performance actually demands from a body." data-cs="Moje zázemí je ve sportu — celoživotní zapojení do bojových umění, včetně Krav Maga, Kickboxingu a Brazilského jiu-jitsu, mi dalo hluboké pochopení toho, co sportovní výkon od těla skutečně vyžaduje.">
+          My background is in sport — a lifelong involvement in martial arts including Krav Maga, Kickboxing and Brazilian Jiu-Jitsu gave me a deep understanding of what athletic performance actually demands from a body.
+        </p>
+        <p data-en="That's what led me to study Food and Nutrition at Czech University of Life Sciences Prague, and later to complete a Master's in Elite Sport Performance at Dublin City University." data-cs="To mě vedlo ke studiu výživy a potravin na České zemědělské univerzitě v Praze a poté k absolvování magisterského studia Elite Sport Performance na Dublin City University.">
+          That's what led me to study Food and Nutrition at Czech University of Life Sciences Prague, and later to complete a Master's in Elite Sport Performance at Dublin City University.
+        </p>
+        <p data-en="My focus is on improving health and performance in a realistic, sustainable way — personalised, educational and built around your life, not against it." data-cs="Zaměřuji se na zlepšení zdraví a výkonu realistickým a udržitelným způsobem — personalizovaně, vzdělávacím přístupem a tak, aby to fungovalo v rámci tvého života, ne proti němu.">
+          My focus is on improving health and performance in a realistic, sustainable way — personalised, educational and built around your life, not against it.
+        </p>
+      </div>
+
+      <div class="philosophy-values" data-reveal data-delay="2">
+        <div class="value-item">
+          <div class="value-num">01</div>
+          <div class="value-content">
+            <h4 data-en="Science-backed" data-cs="Vědecky podložené">Science-backed</h4>
+            <p data-en="Every recommendation is rooted in current evidence-based research, not trends or fads." data-cs="Každé doporučení vychází z aktuálního vědeckého výzkumu, nikoliv z trendů nebo módních výstřelků.">Every recommendation is rooted in current evidence-based research, not trends or fads.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-num">02</div>
+          <div class="value-content">
+            <h4 data-en="Deeply personal" data-cs="Hluboce osobní">Deeply personal</h4>
+            <p data-en="No generic plans. Everything is tailored to your body, goals, schedule and lifestyle." data-cs="Žádné obecné plány. Vše je přizpůsobeno vašemu tělu, cílům, harmonogramu a životnímu stylu.">No generic plans. Everything is tailored to your body, goals, schedule and lifestyle.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-num">03</div>
+          <div class="value-content">
+            <h4 data-en="Long-term focus" data-cs="Zaměření na dlouhodobost">Long-term focus</h4>
+            <p data-en="The goal is always sustainable change. You should leave knowing how to maintain your results independently." data-cs="Cílem je vždy udržitelná změna. Měli byste odejít s vědomím, jak si výsledky udržet samostatně.">The goal is always sustainable change. You should leave knowing how to maintain your results independently.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-num">04</div>
+          <div class="value-content">
+            <h4 data-en="Holistic view" data-cs="Holistický pohled">Holistic view</h4>
+            <p data-en="Nutrition, movement and recovery are interconnected. I work across all three for the best outcomes." data-cs="Výživa, pohyb a regenerace jsou propojeny. Pracuji se všemi třemi pro nejlepší výsledky.">Nutrition, movement and recovery are interconnected. I work across all three for the best outcomes.</p>
+          </div>
+        </div>
+        <div style="margin-top:16px">
+          <a href="/contact" class="btn btn-primary" data-en="Start your journey" data-cs="Začněte svoji cestu">Start your journey</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ APPROACH ═══════════ -->
+  <section class="approach">
+    <div class="approach-inner">
+      <div class="approach-header" data-reveal>
+        <h2 class="section-title" data-en="Working with <em>Form &amp; Function</em>" data-cs="Spolupráce s <em>Form &amp; Function</em>">Working with <em>Form &amp; Function</em></h2>
+      </div>
+      <div class="approach-grid">
+        <div class="approach-card" data-reveal>
+          <div class="approach-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2 Q18 6 18 12 Q18 18 12 22 Q6 18 6 12 Q6 6 12 2Z" stroke="#86A03D" stroke-width="1.5" fill="none"/><path d="M9 12l2 2 4-4" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 data-en="Work with me from anywhere" data-cs="Pracuj se mnou odkudkoli">Work with me from anywhere</h3>
+          <p data-en="Full coaching available remotely through structured check-ins and digital platforms — flexible scenario for your lifestyle." data-cs="Plný koučing dostupný vzdáleně prostřednictvím strukturovaných check-inů a digitálních platforem — flexibilní scénář pro váš životní styl.">Full coaching available remotely through structured check-ins and digital platforms — flexible scenario for your lifestyle.</p>
+        </div>
+        <div class="approach-card" data-reveal data-delay="2">
+          <div class="approach-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#86A03D" stroke-width="1.5"/><path d="M8 12h8M12 8v8" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-en="Learning accountability" data-cs="Vzdělávací odpovědnost">Learning accountability</h3>
+          <p data-en="My remote coaching is a guidance, not a prescription. We want to avoid restrictive approach and build long term habits." data-cs="Můj online koučing je vedení, ne předpis. Chceme se vyhnout restriktivnímu přístupu a budovat dlouhodobé návyky.">My remote coaching is a guidance, not a prescription. We want to avoid restrictive approach and build long term habits.</p>
+        </div>
+        <div class="approach-card" data-reveal data-delay="3">
+          <div class="approach-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#86A03D" stroke-width="1.5"/><path d="M4 20 Q4 16 12 16 Q20 16 20 20" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-en="Athletes &amp; General Public" data-cs="Sportovci i veřejnost">Athletes &amp; General Public</h3>
+          <p data-en="Experience with elite athletes, combat sports competitors and everyday clients looking to improve health, energy and body composition." data-cs="Zkušenosti s elitními sportovci, závodníky v bojových sportech a běžnými klienty, kteří chtějí zlepšit zdraví, energii a tělesné složení.">Experience with elite athletes, combat sports competitors and everyday clients looking to improve health, energy and body composition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="about-cta">
+    <div data-reveal>
+      <span class="section-label" data-en="" data-cs=""></span>
+      <h2 class="section-title" data-en="Ready to find your<br><em>best self?</em>" data-cs="Připraveni najít<br><em>své nejlepší já?</em>">Ready to find your<br><em>best self?</em></h2>
+      <p data-en="Book a free 15-minute consultation and let's figure out the best approach for your goals." data-cs="Zarezervujte si bezplatnou 15minutovou konzultaci a pojďme zjistit nejlepší přístup pro vaše cíle.">Book a free 15-minute consultation and let's figure out the best approach for your goals.</p>
+      <div class="about-cta-btns">
+        <a href="https://calendly.com/formnfunction/free-consultation" class="btn btn-primary" data-en="Book Free Consultation" data-cs="Domluvit konzultaci zdarma">Book Free Consultation</a>
+        <a href="/nutrition" class="btn btn-outline" style="color:var(--brown-dark);border-color:var(--brown-dark)" data-en="See all services" data-cs="Zobrazit všechny služby">See all services</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="shared.js"></script>
+  <script>
+    buildNav('about', false);
+    buildFooter();
+  </script>
+</body>
+</html>

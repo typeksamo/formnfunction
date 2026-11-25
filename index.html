@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form & Function — Nutrition, Training & Massage | Kristýna Čočková</title>
+  <meta name="description" content="Science-backed nutrition coaching, personal training and massage therapy by Kristýna Čočková, MSc. Online and in-person.">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23044427'/><text x='50%25' y='55%25' font-size='18' font-family='serif' fill='%23C2A68C' text-anchor='middle' dominant-baseline='middle'>F</text></svg>">
+  <style>
+    /* ── Reveal animations ── */
+    [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+    [data-reveal][data-delay="1"] { transition-delay: 0.1s; }
+    [data-reveal][data-delay="2"] { transition-delay: 0.2s; }
+    [data-reveal][data-delay="3"] { transition-delay: 0.3s; }
+    [data-reveal][data-delay="4"] { transition-delay: 0.4s; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: url('tynka.jpg') center top / cover no-repeat;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--green) 0%, rgba(4,68,39,0.85) 20%, rgba(4,68,39,0.4) 38%, transparent 50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: calc(var(--nav-h) + 80px) 40px 100px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .hero-content {
+      max-width: 620px;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow-line {
+      width: 40px;
+      height: 1.5px;
+      background: var(--sand);
+      flex-shrink: 0;
+    }
+    .hero-eyebrow span {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sand);
+    }
+    .hero-title {
+      font-family: 'Garet', sans-serif;
+      font-size: clamp(44px, 6vw, 86px);
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--white);
+      text-wrap: pretty;
+      margin-bottom: 28px;
+    }
+    .hero-title em {
+      font-style: normal; font-weight: 400;
+      color: var(--sand);
+    }
+    .hero-title strong {
+      font-weight: 600;
+      color: var(--lime-light);
+    }
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.7);
+      max-width: 460px;
+      margin-bottom: 44px;
+      text-wrap: pretty;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-scroll span {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+      animation: scrollPulse 2s infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ── Credentials strip ── */
+    .credentials {
+      background: var(--brown-dark);
+      padding: 20px 40px;
+    }
+    .credentials-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .cred-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+    .cred-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--lime);
+      flex-shrink: 0;
+    }
+
+    /* ── About strip ── */
+    .about-strip {
+      padding: 100px 40px;
+      background: var(--white);
+    }
+    .about-strip-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo-frame {
+      aspect-ratio: 3/4;
+      background: var(--cream-mid);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .about-photo-accent {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 140px;
+      height: 140px;
+      background: var(--lime);
+      opacity: 0.15;
+      border-radius: 2px;
+    }
+    .about-photo-tag {
+      position: absolute;
+      bottom: 28px;
+      left: -28px;
+      background: var(--white);
+      padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border-radius: 2px;
+    }
+    .about-photo-tag .tag-num {
+      font-family: 'Garet', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+    }
+    .about-photo-tag .tag-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+    .about-text .section-label { margin-bottom: 16px; }
+    .about-quote {
+      font-family: 'Garet', sans-serif;
+      font-size: 22px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--sand-dark);
+      line-height: 1.5;
+      border-left: 3px solid var(--sand);
+      padding-left: 20px;
+      margin: 28px 0;
+    }
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-light);
+      text-wrap: pretty;
+    }
+
+    /* ── Services ── */
+    .services {
+      padding: 100px 40px;
+      background: var(--cream);
+    }
+    .services-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .services-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--green);
+      cursor: pointer;
+    }
+    .service-card-img {
+      aspect-ratio: 1;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .service-card:hover .service-card-img img { transform: scale(1.04); }
+    .service-card-content {
+      padding: 28px 32px 32px;
+    }
+    .service-card-number {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--sand);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .service-card-title {
+      font-family: 'Garet', sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+    .service-card-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
+      max-width: 280px;
+      text-wrap: pretty;
+    }
+    .service-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand);
+      transition: gap 0.2s;
+    }
+    .service-card:hover .service-card-link { gap: 14px; }
+
+    /* ── Process ── */
+    .process {
+      padding: 100px 40px;
+      background: var(--green);
+    }
+    .process-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .process-header { margin-bottom: 64px; }
+    .process-header .section-label { color: var(--sand); }
+    .process-header .section-title { color: var(--white); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .process-step {
+      background: rgba(255,255,255,0.05);
+      padding: 40px 32px;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .process-step:hover { background: rgba(255,255,255,0.09); }
+    .process-step-num {
+      font-family: 'Garet', sans-serif;
+      font-size: 72px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      position: absolute;
+      top: 20px;
+      right: 24px;
+    }
+    .process-step-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(134,160,61,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .process-step-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .process-step-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      text-wrap: pretty;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials {
+      padding: 100px 40px;
+      background: var(--cream-mid);
+    }
+    .testimonials-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .testimonials-header { margin-bottom: 56px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--white);
+      padding: 36px;
+      border-radius: 2px;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      font-family: 'Garet', sans-serif;
+      font-size: 80px;
+      color: var(--sand);
+      line-height: 0.5;
+      display: block;
+      margin-bottom: 20px;
+      opacity: 0.6;
+    }
+    .testimonial-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-light);
+      font-style: italic;
+      text-wrap: pretty;
+      margin-bottom: 24px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--cream-mid);
+      border: 2px solid var(--sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Garet', sans-serif;
+      font-size: 18px;
+      color: var(--sand-dark);
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .testimonial-role {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+    .testimonial-stars {
+      color: var(--lime);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    /* ── CTA Banner ── */
+    .cta-banner {
+      padding: 100px 40px;
+      background: var(--sand);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+    .cta-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: rgba(4,68,39,0.08);
+    }
+    .cta-banner-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .cta-banner-text .section-label { color: var(--brown-dark); opacity: 0.6; }
+    .cta-banner-text .section-title { color: var(--brown-dark); font-size: clamp(28px, 3.5vw, 48px); }
+    .cta-banner-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .about-strip-inner { grid-template-columns: 1fr; gap: 48px; }
+      .about-photo-wrap { max-width: 420px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .services-grid .service-card:nth-child(4) { grid-column: span 2; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero-photo { display: none; }
+      .hero-inner { padding-left: 20px; padding-right: 20px; }
+      .credentials { padding: 16px 20px; }
+      .credentials-inner { gap: 20px; justify-content: flex-start; }
+      .about-strip, .services, .process, .testimonials, .cta-banner { padding: 64px 20px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .services-header { flex-direction: column; align-items: flex-start; }
+      .cta-banner-inner { flex-direction: column; }
+      .about-photo-tag { left: 12px; }
+    }
+  </style>
+
+  <!-- SEO & Open Graph -->
+  <link rel="canonical" href="https://formnfunction.eu/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://formnfunction.eu/">
+  <meta property="og:title" content="Form & Function — Nutrition, Training & Massage | Kristýna Čočková">
+  <meta property="og:description" content="Science-backed nutrition coaching and training programming by Kristýna Čočková, MSc. Fully online. Real results, no restrictions.">
+  <meta property="og:image" content="https://formnfunction.eu/tynka.jpg">
+  <meta property="og:site_name" content="Form & Function">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Form & Function — Nutrition, Training & Massage | Kristýna Čočková">
+  <meta name="twitter:description" content="Science-backed nutrition coaching and training programming by Kristýna Čočková, MSc. Fully online. Real results, no restrictions.">
+  <meta name="twitter:image" content="https://formnfunction.eu/tynka.jpg">
+</head>
+<body>
+
+  <!-- Nav injected by JS -->
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1 class="hero-title" data-en="Your body,<br><em>your rules.</em>" data-cs="Tvoje tělo,<br><em>tvá pravidla.</em>">
+          Your body,<br><em>your rules.</em>
+        </h1>
+        <p class="hero-sub" data-en="You train hard, you watch what you eat — but the results don't match the effort. Let's build your nutrition and training so it's not about restrictions, but about joy." data-cs="Makáš, hlídáš jídlo — a výsledky pořád neodpovídají snaze. Postavme tvou výživu a trénink tak, aby to nebylo o restrikcích, ale o radosti.">
+          Makáš, hlídáš jídlo — a výsledky pořád neodpovídají snaze. Postavme tvou výživu a trénink tak, aby to nebylo o restrikcích, ale o radosti.
+        </p>
+        <div class="hero-actions">
+          <a href="https://calendly.com/formnfunction/free-consultation" class="btn btn-sand" data-en="Book Free Consultation" data-cs="Domluvit konzultaci zdarma">Book Free Consultation</a>
+          <a href="/about" class="btn btn-outline-white" data-en="About me" data-cs="O mně">About me</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CREDENTIALS ═══════════ -->
+  <div class="credentials">
+    <div class="credentials-inner">
+      <div class="cred-item"><div class="cred-dot"></div><span data-en="MSc. Elite Sport Performance — Dublin City University" data-cs="MSc. Elite Sport Performance — Dublin City University">MSc. Elite Sport Performance — Dublin City University</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span data-en="Bc. Food & Nutrition — Czech University of Life Sciences" data-cs="Bc. Výživa a potraviny — ČZU Praha">Bc. Food & Nutrition — Czech University of Life Sciences</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span data-en="Certified Trainer · ART Provider · Dry Needling" data-cs="Certifikovaný trenér · ART · Dry Needling">Certified Trainer · ART Provider · Dry Needling</span></div>
+    </div>
+  </div>
+
+  <!-- ═══════════ ABOUT STRIP ═══════════ -->
+  <section class="about-strip">
+    <div class="about-strip-inner">
+      <div class="about-photo-wrap" data-reveal>
+        <div class="about-photo-frame">
+          <img src="tyna.jpg" alt="Kristýna Čočková">
+        </div>
+        <div class="about-photo-accent"></div>
+        <div class="about-photo-tag">
+          <div class="tag-num">5+</div>
+          <div class="tag-label" data-en="Years experience" data-cs="Let zkušeností">Years experience</div>
+        </div>
+      </div>
+
+      <div class="about-text" data-reveal data-delay="2">
+        <span class="section-label" data-en="About me" data-cs="O mně">About me</span>
+        <h2 class="section-title" data-en="Where science meets <em>real life</em>" data-cs="Kde věda potkává <em>skutečný život</em>">Where science meets <em>real life</em></h2>
+
+        <blockquote class="about-quote" data-en="&ldquo;Real, lasting results come from education and sustainable changes to your lifestyle — not quick fixes.&rdquo;<br><br>If the effort is there but the results aren't — that's exactly what we change." data-cs="&ldquo;Skutečné, trvalé výsledky přichází ze vzdělání a udržitelných změn tvyho životního stylu — ne z rychlých řešení.&rdquo;<br><br>Makáš, ale výsledky nepřichází? Přesně to změníme.">
+          &ldquo;Skutečné, trvalé výsledky přichází ze vzdělání a udržitelných změn tvyho životního stylu — ne z rychlých řešení.&rdquo;<br><br>Makáš, ale výsledky nepřichází? Přesně to změníme.
+        </blockquote>
+
+        <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="/about" class="btn btn-primary" data-en="Full story →" data-cs="Celý příběh →">Full story →</a>
+          <a href="/contact" class="btn btn-outline" data-en="Work with me" data-cs="Pracuj se mnou">Work with me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SERVICES ═══════════ -->
+  <section class="services">
+    <div class="services-inner">
+      <div class="services-header">
+        <h2 class="section-title" data-en="Services built around <em>you</em>" data-cs="Služby postavené <em>kolem vás</em>">Services built around <em>you</em></h2>
+      </div>
+
+      <div class="services-grid">
+        <!-- Nutrition -->
+        <a href="/nutrition" class="service-card" data-reveal>
+          <div class="service-card-img">
+            <img src="nutrition.jpg" alt="Nutrition Coaching">
+          </div>
+          <div class="service-card-content">
+            <div class="service-card-number">01</div>
+            <h3 class="service-card-title" data-en="Coaching" data-cs="Koučing">Coaching</h3>
+            <p class="service-card-desc" data-en="None of us want to dread looking in the mirror or deal with mid-afternoon energy crashes and cravings." data-cs="Nikdo z nás nechce mít strach z pohledu do zrcadla nebo čelit odpoledním propadům energie a záchvatům hladu.">None of us want to dread looking in the mirror or deal with mid-afternoon energy crashes and cravings.</p>
+            <span class="service-card-link" data-en="Explore service →" data-cs="Zobrazit službu →">Explore service →</span>
+          </div>
+        </a>
+
+        <!-- Training -->
+        <a href="/training" class="service-card" data-reveal data-delay="2">
+          <div class="service-card-img">
+            <img src="training.jpg" alt="Personal Training">
+          </div>
+          <div class="service-card-content">
+            <div class="service-card-number">02</div>
+            <h3 class="service-card-title" data-en="Training Programming" data-cs="Tréninkový programming">Training Programming</h3>
+            <p class="service-card-desc" data-en="Recurring pain, discomfort in your own body or frustration with poor performance — let's change that. Fully online, wherever you are." data-cs="Opakující se bolesti, diskomfort ve vlastním těle nebo frustrace ze slabého výkonu — zkusme to změnit. Plně online, nezáleží na tom, odkud jsi.">Recurring pain, discomfort in your own body or frustration with poor performance — let's change that. Fully online, wherever you are.</p>
+            <span class="service-card-link" data-en="Explore service →" data-cs="Zobrazit službu →">Explore service →</span>
+          </div>
+        </a>
+
+        <!-- Education -->
+        <a href="/education" class="service-card" data-reveal data-delay="3">
+          <div class="service-card-img">
+            <img src="education.jpg" alt="Education">
+          </div>
+          <div class="service-card-content">
+            <div class="service-card-number">03</div>
+            <h3 class="service-card-title" data-en="Education" data-cs="Vzdělávání">Education</h3>
+            <p class="service-card-desc" data-en="Private seminars and workshops for sports clubs — evidence-based nutrition and performance education delivered directly to your team." data-cs="Soukromé semináře a workshopy pro sportovní kluby — vědecky podložené vzdělávání o výživě a výkonu přímo pro váš tým.">Private seminars and workshops for sports clubs — evidence-based nutrition and performance education delivered directly to your team.</p>
+            <span class="service-card-link" data-en="Explore service →" data-cs="Zobrazit službu →">Explore service →</span>
+          </div>
+        </a>
+
+        <!-- Massage -->
+        <a href="/massage" class="service-card" data-reveal data-delay="4">
+          <div class="service-card-img">
+            <img src="massage.jpg" alt="Massage Therapy">
+          </div>
+          <div class="service-card-content">
+            <div class="service-card-number">04</div>
+            <h3 class="service-card-title" data-en="Massage Therapy" data-cs="Masáže a manuální terapie">Massage Therapy</h3>
+            <p class="service-card-desc" data-en="ART, dry needling and sports massage for athletes and everyday clients. Recovery, pain relief and optimal performance." data-cs="ART, dry needling a sportovní masáže pro sportovce i běžné klienty. Regenerace, úleva od bolesti a optimální výkon.">ART, dry needling and sports massage for athletes and everyday clients. Recovery, pain relief and optimal performance.</p>
+            <span class="service-card-link" data-en="Explore service →" data-cs="Zobrazit službu →">Explore service →</span>
+          </div>
+        </a>
+      </div>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="/contact" class="btn btn-outline" data-en="Book a free call" data-cs="Domluvit konzultaci">Book a free call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROCESS ═══════════ -->
+  <section class="process">
+    <div class="process-inner">
+      <div class="process-header" data-reveal>
+        <span class="section-label" data-en="How it works" data-cs="Jak to funguje">How it works</span>
+        <h2 class="section-title" data-en="From first contact<br>to <em>lasting results</em>" data-cs="Od prvního kontaktu<br>k <em>trvalým výsledkům</em>">From first contact<br>to <em>lasting results</em></h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step" data-reveal style="background:rgba(255,255,255,0.04)">
+          <div class="process-step-num">01</div>
+          <div class="process-step-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10 Q5 4 10 3 Q15 2 17 7" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="13" r="4" stroke="#86A03D" stroke-width="1.5"/></svg>
+          </div>
+          <div class="process-step-title" data-en="Free Consultation" data-cs="Konzultace zdarma">Free Consultation</div>
+          <p class="process-step-desc" data-en="A 15-minute online call to understand your goals, history and what you're looking for. Zero pressure." data-cs="15minutový online hovor pro pochopení vašich cílů, historie a toho, co hledáte. Bez závazku.">A 15-minute online call to understand your goals, history and what you're looking for. Zero pressure.</p>
+        </div>
+        <div class="process-step" data-reveal data-delay="1" style="background:rgba(255,255,255,0.07)">
+          <div class="process-step-num">02</div>
+          <div class="process-step-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="#86A03D" stroke-width="1.5"/><path d="M7 10h6M10 7v6" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="process-step-title" data-en="Assessment &amp; Plan" data-cs="Posouzení a plán">Assessment &amp; Plan</div>
+          <p class="process-step-desc" data-en="Deep dive into your current nutrition, training, lifestyle and health markers. A personalised strategy built for you." data-cs="Hluboká analýza vaší současné výživy, tréninku, životního stylu a zdravotních ukazatelů. Personalizovaná strategie pro vás.">Deep dive into your current nutrition, training, lifestyle and health markers. A personalised strategy built for you.</p>
+        </div>
+        <div class="process-step" data-reveal data-delay="2" style="background:rgba(255,255,255,0.11)">
+          <div class="process-step-num">03</div>
+          <div class="process-step-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 14 l4-4 3 3 5-6" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="process-step-title" data-en="Coaching &amp; Support" data-cs="Koučing a podpora">Coaching &amp; Support</div>
+          <p class="process-step-desc" data-en="Regular check-ins, adjustments, education and direct communication throughout your journey." data-cs="Pravidelné kontroly, úpravy, vzdělávání a přímá komunikace po celou dobu vaší cesty.">Regular check-ins, adjustments, education and direct communication throughout your journey.</p>
+        </div>
+        <div class="process-step" data-reveal data-delay="3" style="background:rgba(255,255,255,0.16)">
+          <div class="process-step-num">04</div>
+          <div class="process-step-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#86A03D" stroke-width="1.5"/><path d="M7 10l2.5 2.5L13 8" stroke="#86A03D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="process-step-title" data-en="Lasting Results" data-cs="Trvalé výsledky">Lasting Results</div>
+          <p class="process-step-desc" data-en="You leave with the knowledge, habits and tools to sustain your results long after coaching ends." data-cs="Odcházíte se znalostmi, návyky a nástroji pro udržení výsledků dlouho po skončení koučinku.">You leave with the knowledge, habits and tools to sustain your results long after coaching ends.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TESTIMONIALS ═══════════ -->
+  <section class="testimonials">
+    <div class="testimonials-inner">
+      <div class="testimonials-header" data-reveal>
+        <span class="section-label" data-en="" data-cs=""></span>
+        <h2 class="section-title" data-en="What clients <em>say</em>" data-cs="Co říkají <em>klienti</em>">What clients <em>say</em></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" data-reveal>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text" data-en="Týna completely changed how I think about food. Not a diet — a lifestyle. I lost 12 kg and kept it off for over a year. Her approach is scientific but also deeply personal." data-cs="Týna úplně změnila to, jak přemýšlím o jídle. Ne dieta — životní styl. Shodila jsem 12 kg a udržuji si váhu přes rok. Její přístup je vědecký, ale také hluboce osobní.">"Týna completely changed how I think about food. Not a diet — a lifestyle. I lost 12 kg and kept it off for over a year. Her approach is scientific but also deeply personal."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <div class="testimonial-name">Markéta V.</div>
+              <div class="testimonial-role" data-en="Nutrition client" data-cs="Klientka výživy">Nutrition client</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" data-reveal data-delay="2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text" data-en="As a competitive athlete, I needed someone who understands the demands of my sport. Týna's fight camp nutrition protocol helped me cut weight safely and still perform at my best." data-cs="Jako závodní sportovce jsem potřeboval někoho, kdo rozumí nárokům mého sportu. Týnin protokol pro fight camp mi pomohl bezpečně zhubnout a stále podávat nejlepší výkony.">"As a competitive athlete, I needed someone who understands the demands of my sport. Týna's fight camp nutrition protocol helped me cut weight safely and still perform at my best."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">J</div>
+            <div>
+              <div class="testimonial-name">Jakub R.</div>
+              <div class="testimonial-role" data-en="Combat sports athlete" data-cs="Bojový sportovec">Combat sports athlete</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" data-reveal data-delay="4">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text" data-en="The ART massage treatment from Týna fixed a shoulder issue I'd had for months. Two sessions and I was back training pain-free. Absolute professional." data-cs="Masáž ART od Týny vyřešila problém s ramenem, který jsem měla měsíce. Dvě sezení a trénovala jsem bez bolesti. Absolutní profesionálka.">"The ART massage treatment from Týna fixed a shoulder issue I'd had for months. Two sessions and I was back training pain-free. Absolute professional."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-name">Simona P.</div>
+              <div class="testimonial-role" data-en="Massage therapy client" data-cs="Klientka masáží">Massage therapy client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA BANNER ═══════════ -->
+  <section class="cta-banner">
+    <div class="cta-banner-inner">
+      <div class="cta-banner-text" data-reveal>
+        <span class="section-label" data-en="Ready to start?" data-cs="Připraveni začít?">Ready to start?</span>
+        <h2 class="section-title" data-en="Your transformation<br>starts with one call." data-cs="Vaše transformace<br>začíná jedním hovorem.">Your transformation<br>starts with one call.</h2>
+        <p style="font-size:16px;color:var(--brown-dark);opacity:0.7;margin-top:12px;max-width:400px;text-wrap:pretty" data-en="Book your free 15-minute consultation — no commitment, just clarity on how I can help you reach your goals." data-cs="Zarezervujte si bezplatnou 15minutovou konzultaci — bez závazku, jen jasno o tom, jak vám mohu pomoci dosáhnout cílů.">Book your free 15-minute consultation — no commitment, just clarity on how I can help you reach your goals.</p>
+      </div>
+      <div class="cta-banner-actions" data-reveal data-delay="2">
+        <a href="https://calendly.com/formnfunction/free-consultation" class="btn btn-primary" data-en="Book Free Consultation" data-cs="Domluvit konzultaci zdarma">Book Free Consultation</a>
+        <a href="mailto:info@formnfunction.eu" class="btn btn-outline" style="color:var(--brown-dark);border-color:var(--brown-dark)" data-en="Email me" data-cs="Napsat mi">Email me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer injected by JS -->
+
+  <script src="shared.js"></script>
+  <script>
+    buildNav('home', true);
+    buildFooter();
+  </script>
+</body>
+</html>
